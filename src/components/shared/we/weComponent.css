@@ -1,10 +1,10 @@
-.sec-about p {
+.about p {
     font-weight: 500;
 }
-.about_vm .item {
+.aboutinfo .item {
     margin-bottom: 30px;
 }
-.about_vm .item strong {
+.aboutinfo .item strong {
     border-right: 5px solid rgb(49 115 219) !important;
     color: rgb(49 115 219) !important;
     font-weight: 600;

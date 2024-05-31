@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import './weComponent.css'
 const WeComponent = () => {
     return (<>
-        <section className="sec-about py-5">
+        <section className="about py-5">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-md-6">
@@ -10,7 +10,7 @@ const WeComponent = () => {
                         <p>
                             في عام 2010م وضعت شركةُ “أساس مكين للتطوير والاستثمار العقاري” أساسَ أول مشروعِ تطويرٍ عقاري لها، وعلى مدى ثلاثة عشر سنة حققت الشركة نجاحات رسخت اسم مكين في سوق التطوير العقاري
                         </p>
-                        <div className="about_vm mt-5">
+                        <div className="aboutinfo mt-5">
                             <div className="item ps-3">
                                 <strong className="d-block h4 ps-3"> رؤيتنا </strong>
                                 <p>

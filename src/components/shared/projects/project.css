@@ -1,4 +1,4 @@
-.sec-projects{
+.projects{
     background-image: url(https://www.asasmakeen.com/frontend/assets/imgs/mk.png);   
     background-size: cover;
     background-position: center center;
@@ -10,7 +10,7 @@ ul{
     list-style: none;
     padding: 0;
 }
-.sec-projects::before {
+.projects::before {
     content: "";
     position: absolute;
     top: 0;
@@ -20,30 +20,20 @@ ul{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
 }
-.sec-title strong {
+.title strong {
     color: #c1970e;
 }
-.project2-item {
+.project-item {
     position: relative;
     height: 479px;
     border-radius: 10px;
     overflow: hidden;
 }
-.project2-item::before {
-    content: "";
-    position: absolute;
-    /* background: linear-gradient(-180deg, rgba(18, 2, 47, 0.0001) 0%, rgb(0 63 63) 84.25%, #000000 100%); */
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    height: 50%;
-    z-index: 1;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.project2-item:hover::before {
+
+.project-item:hover::before {
     height: 80%;
 }
-.project2-item .project2-img {
+.project-item .project-img {
     height: 100%;
     width: 100%;
     border-radius: 10px;
@@ -54,13 +44,13 @@ a, a:hover {
     transition: 0.3s;
     border-bottom: none;
 }
-.project2-item .project2-img a {
+.project-item .project-img a {
     display: block;
     height: 100%;
     width: 100%;
 }
 
-.project2-item .project2-img img {
+.project-item .project-img img {
     border-radius: 10px;
     object-fit: cover;
     height: 100%;
@@ -68,13 +58,13 @@ a, a:hover {
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.project2-item .project2-badge {
+.project-item .project-badge {
     position: absolute;
     top: 20px;
     left: 0;
     padding: 0 0.5rem;
 }
-.project2-item .project2-badge .construction-badge {
+.project-item .project-badge .construction-badge {
     color: #fff;
     padding: 5px;
     border-radius: 3px;
@@ -95,7 +85,7 @@ a, a:hover {
     background-color: #c1970e;
     color: #fff !important;
 }
-.project2-item .project2-badge .project2-place {
+.project-item .project-badge .project-place {
     font-weight: 700;
     background-color: #c1970e;
     color: #ffff;
@@ -104,7 +94,7 @@ a, a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 5px;
 }
-.project2-item .project2-badge .sale-badge {
+.project-item .project-badge .sale-badge {
     color: #fff;
     padding: 5px;
     border-radius: 3px;
@@ -126,23 +116,27 @@ a, a:hover {
     /* background-color:green; */
     color: #fff !important;
 }
-.project2-item:hover  .project2-info{
+.project-item:hover  .project-info{
+    display: block;
     height: 150px;
+    animation: fadeup 0.3s linear;
+    box-shadow:0px -20px 54px 40px #fffffff0
 }
-.project2-item .project2-info {
+.project-item .project-info {
     height: 0px;
     position: absolute;
     bottom: 0;
     right: 0;
     width: 100%;
     z-index: 1;
+    display: none;
     /* color: #fff; */
     padding: 0.3rem 1rem;
-    background-color: white;
-    transition-duration: 1s;
-    transition-property: height;
+    background-color: #fffffff0;
+    transition: height 2s ease-in-out 0s,display 2s ease-in-out 0s;
+
 }
-.project2-item .project2-info .project2-title {
+.project-item .project-info .project-title {
     display: block;
     /* color: #fff; */
     color:rgb(101 127 168) !important;
@@ -150,7 +144,7 @@ a, a:hover {
     font-size: 26px;
     margin-bottom: 0.1rem;
 }
-.project2-item .project2-info .project2-description {
+.project-item .project-info .project-description {
     font-size: 18px;
 }
 .btn.btn-dark:hover, .project-btn-actions a:hover {
@@ -160,4 +154,21 @@ a, a:hover {
 }
 .list-units-item .fas{
     color:rgb(101 127 168) !important;
+}
+@keyframes fadeup{
+    0%{
+        height: 0;
+    }
+    25%{
+        height: 37.5px;
+    }
+    50%{
+        height: 75px;
+    }
+    75%{
+        height: 112.5px;
+    }
+    100%{
+        height: 150px;
+    }
 }

@@ -5,7 +5,7 @@ const FeatureComponent = () => {
         <section id="features" className="sec-features py-5">
             <div className="container">
                 <div className="sec-title text-center mb-5">
-                    <strong className="h1 fw-bold d-block text-brown"> مزايانا </strong>
+                    <strong className="h1 fw-bold d-block text-title"> مزايانا </strong>
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-lg-4 col-md-6 col-12 mb-2 d-flex align-items-stretch services-wrap">

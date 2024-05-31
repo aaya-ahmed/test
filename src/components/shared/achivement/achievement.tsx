@@ -3,15 +3,15 @@ import './achievement.css'
 
 const AchievementComponent = () => {
     return (<>
-        <section className="sec-achievements py-5">
+        <section className="achievements-items py-5">
             <div className="container">
-                <div className="sec-title text-center mb-5">
+                <div className="title text-center mb-5">
                     <strong className="h1 fw-bold d-block"> إنجازاتنا </strong>
                 </div>
-                <div className="row justify-content-evenly d-flex">
-                    <div className="mb-4 item">
+                <div className="row">
+                <div className="col-md-4 col-12 firstitem p-0">
                         <div className="item-achievement d-flex align-item-start justify-content-start">
-                            <i className="fas fa-3x img-icon fa-home "></i>
+                            <i className="fas img-icon fa-home "></i>
                             <div>
                             <strong className="h5 d-block"> فلة </strong>
                                 <strong className="h2 d-block">
@@ -22,9 +22,9 @@ const AchievementComponent = () => {
 
                         </div>
                     </div>
-                    <div className="mb-4 item">
+                    <div className="col-md-4 col-12 firstitem p-0">
                         <div className="item-achievement d-flex align-item-start justify-content-start">
-                            <i className="fas fa-3x img-icon fa-key "></i>
+                            <i className="fas img-icon fa-key "></i>
                             <div>
                             <strong className="h5 d-block"> وحدة سكنية </strong>
                             <strong className="h2 d-block">
@@ -34,9 +34,9 @@ const AchievementComponent = () => {
 
                         </div>
                     </div>
-                    <div className="mb-4 item">
+                    <div className="col-md-4 col-12 firstitem p-0">
                         <div className="item-achievement d-flex align-item-start justify-content-start">
-                            <i className="fas fa-3x img-icon fa-project-diagram "></i>
+                            <i className="fas img-icon fa-project-diagram "></i>
                             <div>
                             <strong className="h5 d-block"> مشروع </strong>
                             <strong className="h2 d-block">
@@ -48,9 +48,12 @@ const AchievementComponent = () => {
 
                         </div>
                     </div>
-                    <div className="mb-4 item">
+                </div>
+                <div className="row">
+
+                    <div className="col-md-4 col-12 item p-0">
                         <div className="item-achievement d-flex align-item-start justify-content-start">
-                            <i className="fas fa-3x img-icon fa-building "></i>
+                            <i className="fas img-icon fa-building "></i>
                             <div>
                             <strong className="h5 d-block"> مبنى </strong>
                             <strong className="h2 d-block">
@@ -62,9 +65,9 @@ const AchievementComponent = () => {
 
                         </div>
                     </div>
-                    {/* <div className="mb-4 item">
+                    <div className="col-md-4 col-12 item p-0">
                         <div className="item-achievement d-flex align-item-start justify-content-start">
-                            <i className="fas fa-3x img-icon fa-city "></i>
+                            <i className="fas img-icon fa-city "></i>
                             <div>
                             <strong className="h5 d-block"> مسطحات المباني المنفذة </strong>
                             <strong className="h2 d-block">
@@ -82,9 +85,9 @@ const AchievementComponent = () => {
 
                         </div>
                     </div>
-                    <div className="mb-4 item">
+                    <div className="col-md-4 col-12 item p-0">
                         <div className="item-achievement d-flex align-item-start justify-content-start">
-                            <i className="fas fa-3x img-icon fa-drafting-compass "></i>
+                            <i className="fas img-icon fa-drafting-compass "></i>
                             <div>
                             <strong className="h5 d-block"> مسطحات الأراضي المطوّرة </strong>
                             <strong className="h2 d-block">
@@ -101,7 +104,7 @@ const AchievementComponent = () => {
                             </div>
 
                         </div>
-                    </div> */}
+                    </div>
 
 
 

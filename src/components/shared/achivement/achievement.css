@@ -1,4 +1,4 @@
-.sec-achievements{
+.achievements-items{
     background-image: url(https://www.asasmakeen.com/frontend/assets/imgs/mk.png);
     background-color: #f2f6f7;
     background-size: cover;
@@ -8,7 +8,8 @@
     z-index: 1;
 
 }
-.sec-achievements::before {
+
+.achievements-items::before {
     content: "";
     position: absolute;
     top: 0;
@@ -18,23 +19,46 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
-.sec-title strong {
+.title strong {
     color: #c1970e;
 }
-.sec-achievements .item-achievement {
+.achievements-items .item-achievement {
     text-align: center;
-    color: rgb(101 127 168) !important;
     height: 100%;
-    gap:25px
+    gap:10px;
+    align-items: center;
+    padding: 2rem;
+
 }
-.sec-achievements .item-achievement .h2 {
+.firstitem:nth-child(odd){
+    background-color: #f4f4f4!important;
+}
+.firstitem:nth-child(even){
+    background-color: white!important;
+}
+.item:nth-child(even){
+    background-color: #f4f4f4!important;
+}
+.item:nth-child(odd){
+    background-color: white!important;
+}
+.item-achievement .fas{
+    color: #e3be17;
+    font-size: 2.5em;
+
+}
+.achievements-items .item-achievement .h2 {
     font-weight: bold;
-    color: white
+    color: rgb(101 127 168) !important;
+
 }
-.sec-achievements .item-achievement .h5 {
-    font-weight: 700;
-    color: white;
+.achievements-items .item-achievement .h5 {
+    font-weight: 900;
+    font-size: 1.3ems;
 }
-.item{
-    width: fit-content;
+@media(min-width:900px){
+    .row{
+        width:90%;
+        margin:auto
+    }
 }

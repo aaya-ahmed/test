@@ -1,5 +1,5 @@
-.sec-achievements{
-    background-image: url(https://www.asasmakeen.com/frontend/assets/imgs/mk.png);
+.achievements-items{
+    background-image: url('../../../../public/assets/images/011.png');
     background-color: #f2f6f7;
     background-size: cover;
     background-position: center center;
@@ -7,7 +7,7 @@
     position: relative;
     z-index: 1;
 }
-.sec-achievements::before {
+.achievements-items::before {
     content: "";
     position: absolute;
     top: 0;
@@ -17,7 +17,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
-.sec-title strong {
+.title strong {
     color: #c1970e;
 }
 .partner-item {

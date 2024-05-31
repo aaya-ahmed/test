@@ -2,29 +2,29 @@ import React, { Fragment } from "react";
 import './project.css'
 const ProjectComponent = () => {
     return (<>
-        <section className="sec-projects py-5">
+        <section className="projects py-5">
             <div className="container">
-                <div className="sec-title text-center mb-5">
+                <div className="title text-center mb-5">
                     <strong className="h1 fw-bold d-block"> مشاريعنا </strong>
                 </div>
 
                 <div className="row">
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/001.jpg" className="img-fluid" alt="مكين 34" />
                                 </a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                         <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق فاخرة
                                     </p>
@@ -46,21 +46,21 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/002.jpg" className="img-fluid" alt="مكين 39" />
                                 </a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                         <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق فاخرة
                                     </p>
@@ -85,20 +85,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/003.jpg" className="img-fluid" alt="مكين 48" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                         <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق فاخرة
                                     </p>
@@ -122,20 +122,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/004.jpg" className="img-fluid" alt="مكين 50" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                         <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق فاخرة
                                     </p>
@@ -160,20 +160,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/005.jpg" className="img-fluid" alt="مكين 42" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         فلل وادوار فاخرة
                                     </p>
@@ -195,20 +195,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/009.webp" className="img-fluid" alt="مكين 52" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق وأدوار فاخرة
                                     </p>
@@ -232,20 +232,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/001.jpg" className="img-fluid" alt="مكين 47" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         56 تاون هاوس فاخر - مساحات تبدأ من 280م إلى 330م
                                     </p>
@@ -267,20 +267,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/001.jpg" className="img-fluid" alt="مكين 46" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         34 تاون هاوس فاخر -  مساحات تبدأ من 300م  وإلى 500م
                                     </p>
@@ -305,20 +305,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/002.jpg" className="img-fluid" alt="مكين 35" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق فاخرة
                                     </p>
@@ -343,20 +343,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/003.jpg" className="img-fluid" alt="مكين 53" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" sale-badge">متاح للبيع </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         ادوار فاخرة
                                     </p>
@@ -375,20 +375,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/009.webp" className="img-fluid" alt="مكين 51" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" construction-badge">تحت الإنشاء </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         مجمع تجاري وفندقي
                                     </p>
@@ -403,20 +403,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/009.webp" className="img-fluid" alt="مكين 56" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" construction-badge">تحت الإنشاء </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق فاخرة
                                     </p>
@@ -432,20 +432,20 @@ const ProjectComponent = () => {
                     </div>
 
                     <div className="col-lg-4 col-md-6 col-12 mb-4">
-                        <div className="project2-item">
-                            <div className="project2-img">
+                        <div className="project-item">
+                            <div className="project-img">
                                 <a href="#">
                                     <img src="/assets/images/009.webp" className="img-fluid" alt="مكين 54" /></a>
-                                <div className="project2-badge w-100 d-flex align-items-center justify-content-between">
-                                    <span className="project2-place">
+                                <div className="project-badge w-100 d-flex align-items-center justify-content-between">
+                                    <span className="project-place">
 
                                         <i className="fas fa-map-pin"></i> العنوان </span>
                                     <span className=" construction-badge">تحت الإنشاء </span>
                                 </div>
                             </div>
-                            <div className="project2-info">
-                                <a href="#" className="project2-title"> وحده 1 </a>
-                                <div className="project2-description">
+                            <div className="project-info">
+                                <a href="#" className="project-title"> وحده 1 </a>
+                                <div className="project-description">
                                     <p>
                                         شقق تأجير
                                     </p>
@@ -463,7 +463,7 @@ const ProjectComponent = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="sec-title text-center mb-5">
+                    <div className="title text-center mb-5">
 
                         <a href="#" className="btn btn-dark    ">
                             <i className="fa fa-plus"></i>
