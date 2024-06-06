@@ -1,5 +1,5 @@
 footer {
-    background-color:rgb(101 127 168) !important;
+    background-color:rgb(41 56 56) !important;
     color: #fff;
 }
 @media (max-width: 767px) {
@@ -64,7 +64,7 @@ footer ul.links li a::before {
     opacity: 0;
 }
 .bottom-footer {
-    background-color: #fff;
+    background-color: #9d773b
 }
 .bottom-footer p {
     font-weight: bold;

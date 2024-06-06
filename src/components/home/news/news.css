@@ -1,0 +1,176 @@
+
+
+.news-item-slider:hover .swiper-button-prev, .news-slider:hover .swiper-button-prev, .project-slider:hover .swiper-button-prev {
+    right: 10px;
+}
+.news-item-slider .swiper-button-prev, .news-slider .swiper-button-prev, .project-slider .swiper-button-prev {
+    right: -50px;
+}
+.news-item-slider .swiper-button-next, .news-item-slider .swiper-button-prev {
+    top: 35%;
+}
+
+.news-item-slider .swiper-button-next, .news-item-slider .swiper-button-prev, .news-slider .swiper-button-next, .news-slider .swiper-button-prev, .project-slider .swiper-button-next, .project-slider .swiper-button-prev {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    text-align: center;
+    z-index: 1;
+    /* color: rgb(43, 88, 159)!important; */
+    transition: 0.4s;
+}
+
+
+.news-item-slider .swiper-button-next::after, .news-item-slider .swiper-button-prev::after, .news-slider .swiper-button-next::after, .news-slider .swiper-button-prev::after, .project-slider .swiper-button-next::after, .project-slider .swiper-button-prev::after {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    background: none;
+    font-size: 20px;
+}
+.news-item-slider:hover .swiper-button-next, .news-slider:hover .swiper-button-next, .project-slider:hover .swiper-button-next {
+    left: 10px;
+}
+
+.news-item-slider .swiper-button-next, .news-slider .swiper-button-next, .project-slider .swiper-button-next {
+    left: -50px;
+}
+.news-item-slider .swiper-button-next, .news-item-slider .swiper-button-prev {
+    top: 35%;
+}
+.news-item-slider .swiper-button-next, .news-item-slider .swiper-button-prev, .news-slider .swiper-button-next, .news-slider .swiper-button-prev, .project-slider .swiper-button-next, .project-slider .swiper-button-prev {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    text-align: center;
+    z-index: 1;
+    /* color: rgb(43, 88, 159)!important; */
+    transition: 0.4s;
+}
+.newitem:hover .newimg::before {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: all 700ms ease 100ms;
+}
+
+.newitem .newimg::before {
+    bottom: 0;
+    right: 0;
+    transform: perspective(1000px) rotateY(90deg);
+    transform-origin: bottom right;
+}
+.newitem .newimg::after, .newitem .newimg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.newitem:hover .newimg::after {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: all 700ms ease 300ms;
+}
+
+.newitem .newimg::after {
+    top: 0;
+    left: 0;
+    transform: perspective(1000px) rotateY(-90deg);
+    transform-origin: top left;
+}
+.newitem .newimg::after, .newitem .newimg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.5s;
+    opacity: 0;
+}
+.newitem .newimg a {
+    height: 260px;
+    display: block;
+}
+.newitem .newimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* .newitem .newimg a:hover i {
+    color: rgb(43, 88, 159)!important;
+} */
+
+.newitem:hover .newimg a i {
+    transform: translate(-50%, -50%) scale(1);
+}
+.newitem .newimg a i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #fff;
+    z-index: 9;
+    transition: all 1s ease;
+}
+.newitem .newimg {
+    position: relative;
+    overflow: hidden;
+}
+.newitem .newinfo {
+    padding-top: 20px;
+}
+@media (max-width: 1399px) {
+    .newitem .newinfo a.title__news {
+        font-size: 16px!important;
+        width: 260px!important;
+    }
+}
+.news-item-slider .swiper-button-next:hover, .news-item-slider .swiper-button-prev:hover, .news-slider .swiper-button-next:hover, .news-slider .swiper-button-prev:hover, .project-slider .swiper-button-next:hover, .project-slider .swiper-button-prev:hover {
+    background-color:rgb(101 127 168) !important;
+    color: #fff;
+}
+.newitem .newinfo a.title__news {
+    color: #27282c;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 400px;
+    white-space: nowrap;
+}
+.newitem .newinfo .newdesc {
+    color: #828282;
+    overflow: hidden;
+    height: 50px;
+}
+.newitem .newinfo .link-more {
+    color: #27282c;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: "Rubik", sans-serif;
+    transition: all 500ms ease;
+}
+.newitem .newinfo .link-more i {
+    transition: 0.5s;
+}
+
+[dir="rtl"] .fa-arrow-right::before  {
+    content: "\f060"!important;
+}
+.newitem .newinfo a.title__news:hover, .newitem .newinfo .link-more:hover {
+    color: rgba(43, 87, 159, 0.668)!important;
+}
+.news-item-slider .swiper-button-prev::after, .news-slider .swiper-button-prev::after, .project-slider .swiper-button-prev::after {
+    content: "\f061";
+}
+.news-item-slider .swiper-button-next::after, .news-slider .swiper-button-next::after, .project-slider .swiper-button-next::after {
+    content: "\f060";
+}

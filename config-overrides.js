@@ -16,6 +16,7 @@ module.exports = function override(config, env) {
     // '@models': path.resolve(__dirname, 'src/models'),
     // '@scss': path.resolve(__dirname, 'src/scss'),
     // '@types': path.resolve(__dirname, 'src/types'),
+    
   };
   return config;
 };

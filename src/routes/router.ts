@@ -13,6 +13,9 @@ const works=lazy(
 const communication=lazy(
     ()=>import('../components/communication/communication')
 );
+const services=lazy(
+    ()=>import('../components/home/home')
+);
 const router:IRouter[]=[
     {
         path:'/',
@@ -37,6 +40,12 @@ const router:IRouter[]=[
         component:communication,
         name:'تواصل معانا',
         protected:false
-    }
+    },
+    {
+        path:'/#services',
+        component:home,
+        name:'خدماتنا',
+        protected:false
+    },
 ];
 export default router;

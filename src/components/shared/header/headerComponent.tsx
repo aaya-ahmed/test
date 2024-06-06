@@ -1,97 +1,61 @@
-import React, { Fragment, useEffect } from "react";
-import './headerComponent.css';
+import { Fragment, useEffect } from "react";
+import styles from './headerComponent.module.scss';
 
 const HeaderComponent = ({ routerList }: { routerList: any[] }) => {
     const setMobileView=()=>{
         const classies=document?.getElementById('navbarNav');
-        if(classies?.classList.contains('open')){
-            classies.classList.remove('open')
+        if(classies?.classList.contains(styles['open'])){
+            classies.classList.remove(styles['open'])
         }
         else{
-            classies?.classList.add('open')
+            classies?.classList.add(styles['open'])
         }
     }
+    const windowLocation=window.location.pathname;
     useEffect(()=>{
         window.addEventListener('scroll',()=>{
             const classies=document.getElementById('navbar-sticky');
             if(window.scrollY ==0){
-                classies?.classList?.remove("sticky");
+                classies?.classList?.remove(styles['sticky']);
             }
             else{
-                classies?.classList?.add('sticky')
+                classies?.classList?.add(styles['sticky'])
 
             }
         })
     },[])
     return (<>
-        <header className="navigation-header">
-            <nav className="navbar navbar-sticky navbar-expand-lg bg-body-tertiary bg-dark py-1" id="navbar-sticky" data-bs-theme="dark">
-                <div className="container">
-                    <a className="navbar-brand" href="/" aria-label="Logo">
-                        <img src="/assets/images/logo.gif" className="no_sticky img-fluid" alt="Logo" />
-                        <img src="/assets/images/logo.gif" className="sticky_logo img-fluid" alt="Logo" />
+        <header className={`${styles['navigation-header']}`}>
+            <nav className={`navbar navbar-sticky navbar-expand-lg ${styles['navbar-sticky']} ${styles['navbar-expand-lg']} ${styles['bg-body-tertiary']} bg-dark py-1`} id="navbar-sticky" data-bs-theme="dark">
+                <div className={`container`}>
+                    <a className={`${styles['navbar-brand']}`} href="/" aria-label="Logo">
+                        <img src="/assets/images/logo.jpg" className={`${styles['no_sticky']} ${styles['img-fluid']}`} alt="Logo" />
+                        <img src="/assets/images/logo.jpg" className={`${styles['sticky_logo']} ${styles['img-fluid']}`} alt="Logo" />
                     </a>
-                    <div className="mobile-view justify-content-center" id="navbarNav">
-                        <i className="menu-close fa-solid fa-close fa-lg" onClick={setMobileView}></i>
-                        <img src="/assets/images/logo.gif" className="mobile-logo w-75 m-auto d-block img-fluid d-none" alt="Logo Mobile" />
-                        <ul className="navbar-nav align-items-lg-center">
+                    <div className={`${styles['mobile-view']} justify-content-center`} id="navbarNav">
+                        <i className={`${styles['menu-close']} fa-solid fa-close fa-lg`} onClick={setMobileView}></i>
+                        <img src="/assets/images/logo.jpg" className={`${styles['mobile-logo']} w-75 m-auto d-block img-fluid d-none`} alt="Logo Mobile" />
+                        <ul className={`navbar-nav ${styles['navbar-nav']} align-items-lg-center`}>
                         {routerList?.map(
                         (route: any, index: number) => {
                             return <Fragment key={index}>
-                                <li className={`nav-item ${index==0?'active':''}`} aria-current="page" >
-                                    <a className="nav-link "  href={route.path}>{route.name}</a>
+                                <li className={`nav-item ${styles['nav-item']} ${index==0?'active':''}`} aria-current="page" >
+                                    <a className={`nav-link ${styles['nav-link']}`}  href={route.path}>{route.name}</a>
                                 </li>
                             </Fragment>
                         }
                     )}
                         </ul>
                     </div>
-                    <div className="header_actions">
-                        <a className="btn btn-primary fw-bold btn_reg_fav rounded-5" href="#"> سجل اهتمامك </a>
-                        <button className="navbar-toggler btn btn-primary shadow-none ms-3" style={{outline:"none"}} type="button" aria-label="Toggle navigation" onClick={setMobileView}>
-                            <i className="fa-solid fa-bars-staggered" id="menu-icon"></i>
+                    <div className={`${styles['header_actions']}`}>
+                        <a className={`btn btn-primary fw-bold btn_reg_fav rounded-5`} href="#"> سجل اهتمامك </a>
+                        <button className={`navbar-toggler btn btn-primary ${styles['navbar-toggler']}  shadow-none ms-3`} style={{outline:"none"}} type="button" aria-label="Toggle navigation" onClick={setMobileView}>
+                            <i className={`fa-solid fa-bars-staggered`} id="menu-icon"></i>
                         </button>
                     </div>
                 </div>
             </nav>
         </header>
-        <section className="header-banner position-relative">
-            <div className="swiper banner-slides h-100 swiper-fade swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl swiper-watch-progress swiper-backface-hidden">
-                <div className="swiper-wrapper" id="swiper-wrapper-78d96a8f3626e35e" aria-live="polite" 
-                style={{transitionDuration: "0ms"}}
-                >
-                    <div className="swiper-slide swiper-slide-active swiper-slide-visible" role="group" aria-label="1 / 1" 
-                    style={{opacity: "1", transform: 'translate3d(0px, 0px, 0px)', transitionDuration: '0ms'}}
-                    >
-                        <video playsInline={true} autoPlay={true} muted={true} loop={true} className="banner-video">
-                            <source src="/assets/videos/001.mp4" type="video/mp4" />
-                            Your browser does not support HTML5 video.
-                        </video>
-                        <div className="banner-content">
-                            <div className="container">
-                                <strong className="h1 d-block"> مكين أجود <span>  </span>
-                                </strong>
-                                <p> الريادة والتميز في التطوير العقاري </p>
-                                <div className="d-flex align-items-center justify-content-lg-start justify-content-md-start justify-content-center mt-5">
-                                    <a id="play-video" className="play-button" href="/assets/videos/001.mp4" aria-label="play-video" data-fancybox="">
-                                        <i className="fas fa-play"></i>
-                                    </a>
-                                    <a href="#" className="btn btn-primary ms-5 fw-bold btn_reg_fav rounded-5">
-                                        اكتشف مشاريعنا
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-bullets-dynamic swiper-pagination-lock" 
-                style={{width: '40px'}}
-                >
-                    <span className="swiper-pagination-bullet swiper-pagination-bullet-active swiper-pagination-bullet-active-main" tabIndex={0} role="button" aria-label="Go to slide 1" aria-current="true" 
-                    style={{right:'0px'}}
-                    ></span></div>
-                <span className="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-        </section>
     </>);
 }
 export default HeaderComponent;

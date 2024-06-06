@@ -1,0 +1,41 @@
+.about{
+    padding: 5rem 0;
+}
+.about p {
+    font-weight: 500;
+}
+
+.aboutinfo .item {
+    margin-bottom: 30px;
+}
+.aboutinfo .item strong {
+    border-right: 5px solid rgb(101, 127, 168) !important;
+    color: rgb(101, 127, 168) !important;
+    font-weight: 600;
+}
+.col-lg-5{
+    padding: 0px;
+}
+.col-lg-6{
+    .title{
+        padding:1rem 0 0 0;
+        text-align: center;
+    color :rgb(101, 127, 168) !important;}
+    background-color: #c1970e0f;
+
+}
+.about-img{
+    position: relative;
+    background-image: url('../../../../public/assets/images/we.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height:445px;
+}
+@media(max-width:1000px){
+    .col-lg-5{
+        display: none;
+    }
+    .about .col-lg-6 .title{
+        text-align: center;
+    }
+}

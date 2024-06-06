@@ -7,7 +7,7 @@ const FooterComponent = ({routerList}:{routerList:IRouter[]}) => {
             <div className="container pb-5">
                 <div className="row">
                     <div className="col-md-4">
-                        <img src="/assets/images/logo.gif" 
+                        <img src="/assets/images/logo.jpg" 
                         className="logo-footer img-fluid w-75 mb-4" alt="LOGO" />
                         <p className="lines-5">
                             في عام 2010م وضعت شركةُ “أساس مكين للتطوير والاستثمار العقاري” أساسَ أول مشروعِ تطويرٍ عقاري لها، وعلى مدى ثلاثة عشر سنة حققت الشركة نجاحات رسخت اسم مكين في سوق التطوير العقاري
@@ -30,26 +30,24 @@ const FooterComponent = ({routerList}:{routerList:IRouter[]}) => {
                     </div>
                     <div className="col-md-5">
                         <h5 className="title">  ابقَ على اتصال دائما  </h5>
-                        <a className="d-block mb-3" href="mailto:Info@asasmakeen.com"> <i className="far fa-envelope"></i> Info@asasmakeen.com
+                        <a className="d-block mb-3" href="mailto:info@almouhaysni.com"> <i className="far fa-envelope"></i> info@almouhaysni.com
                         </a>
-                        <a className="d-block mb-3" href="tel:920033"> <i className="fas fa-phone-volume"></i> 920033366 </a>
+                        <a className="d-block mb-3" href="tel:+966920027028"> <i className="fas fa-phone-volume"></i> 966920027028+ </a>
 
                         <h5 className="title">  العنوان  </h5>
 
                         <ul>
-                            <li> شركة أساس مكين للتطوير والاستثمار العقاري - رقم السجل : 1010895854 - الرقم الضريبي : 310251874500013
-
-                                2023 - العنوان : 4112 النرجس - طريق انس بن مالك - المنطقة الوسطى - الرياض 13327 </li>
+                            <li>مكة المكرمة - التخصصي - مبنى الغرفة التجارية - الدور الثالث - مكتب رقم 4 </li>
                         </ul>
 
                         <ul className="social-media m-0 mt-4">
 
 
-                            <li><a href="https://twitter.com/asas_maken" rel="noreferrer" target="_blank" aria-label="twitter"><i className="fa-brands fa-x-twitter"></i></a></li>
-                            <li><a href="https://www.linkedin.com/company/asasmakeen/" rel="noreferrer" target="_blank" aria-label="linkedin"><i className="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="https://www.youtube.com/@AsasMakeen"rel="noreferrer" target="_blank" aria-label="youtube"><i className="fab fa-youtube"></i></a></li>
-                            <li><a href="https://www.instagram.com/asas_maken/" rel="noreferrer" target="_blank" aria-label="instagram"><i className="fab fa-instagram"></i></a></li>
-                            <li><a href="https://www.snapchat.com/add/asas_maken" target="_blank" rel="noreferrer" aria-label="snapchat"><i className="fab fa-snapchat"></i></a></li>
+                            <li><a href="https://twitter.com/almouhaysni" rel="noreferrer" target="_blank" aria-label="twitter"><i className="fa-brands fa-x-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/almouhaysni/" rel="noreferrer" target="_blank" aria-label="linkedin"><i className="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.youtube.com/@almouhaysni"rel="noreferrer" target="_blank" aria-label="youtube"><i className="fab fa-youtube"></i></a></li>
+                            <li><a href="https://www.instagram.com/almouhaysni/" rel="noreferrer" target="_blank" aria-label="instagram"><i className="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.snapchat.com/add/almouhaysni" target="_blank" rel="noreferrer" aria-label="snapchat"><i className="fab fa-snapchat"></i></a></li>
 
                         </ul>
                     </div>
