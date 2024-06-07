@@ -124,7 +124,7 @@ a, a:hover {
     bottom: 0;
     right: 0;
     width: 100%;
-    z-index: 11;
+    z-index: 5;
     /* display: none; */
     /* color: #fff; */
     font-weight: bold;
@@ -207,7 +207,7 @@ a, a:hover {
     position: absolute;
     width: 100%;
     top: 50%;
-    z-index: 11;
+    z-index: 5;
     transform: translateY(-50%);
     color: white;
 }

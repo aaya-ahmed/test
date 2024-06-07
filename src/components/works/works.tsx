@@ -12,7 +12,7 @@ const works = () => {
   };
   return (
     <>
-          <section className="sec-news">
+          <section>
         <div className={`${styles['sec-title']} text-center`}>
           <strong className={`h1 fw-bold d-block ${styles['text-title']} `}>
             مشاريعنا
