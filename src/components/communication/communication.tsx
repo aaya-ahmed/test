@@ -16,7 +16,7 @@ const Communication = () => {
             تواصل معانا
           </strong>
         </div>
-    <Breadcrumb path={[{name:'home',href:'/home'},{name:'communication',href:'/communication'}]} />
+    <Breadcrumb path={[{name:'الصفحه الرئيسيه',href:'/'},{name:'نواصل معانا',href:'/communication'}]} />
         <div className={`${styles['contact-page']} py-5 `}>
             <div className="container">
                 <div className="row">

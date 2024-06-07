@@ -115,7 +115,7 @@ a, a:hover {
 /* .project-item:hover  */
  .project-info{
     position: absolute;
-    z-index: 900;
+    z-index: 6;
     bottom: 0;
     width: 100%;
 

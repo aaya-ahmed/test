@@ -22,9 +22,10 @@ const HeaderBanner = () => {
                         </video>
                         <div className={`${styles['banner-content']}`}>
                             <div className="container">
-                                <strong className="h1 d-block"> مكين أجود <span>  </span>
+                                <strong className="h1 d-block">  المحيسني <span>  </span>
                                 </strong>
-                                <p> الريادة والتميز في التطوير العقاري </p>
+                                <p> الرائدة في مجال الاستثمار
+                                والتطوير والتسويق العقاري </p>
                                 <div className="d-flex align-items-center justify-content-lg-start justify-content-md-start justify-content-center mt-5">
                                     <a id="play-video" className={`${styles['play-button']}`} href="/assets/videos/001.mp4" aria-label="play-video" data-fancybox="">
                                         <i className="fas fa-play"></i>

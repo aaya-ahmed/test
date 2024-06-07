@@ -18,7 +18,7 @@ const works = () => {
             مشاريعنا
           </strong>
         </div>
-        <Breadcrumb path={[{name:'home',href:"/home"},{name:'works',href:'/works'}]}/>
+        <Breadcrumb path={[{name:'الصفحه الرئيسيه',href:"/"},{name:'اعمالنا',href:'/works'}]}/>
         {showWork&&<WorkItem setShowWork={setShowWork}/>}
         {!showWork&&<WorksList goToWork={goToWork} setShow={setShowWork}/>}
       </section>

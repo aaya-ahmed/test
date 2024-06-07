@@ -61,7 +61,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 34{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -112,7 +112,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 35{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -162,7 +162,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 39{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -213,7 +213,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 50{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -264,7 +264,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 42{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>فلل وادوار فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -315,7 +315,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 46{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>34 تاون هاوس فاخر - مساحات تبدأ من 300م وإلى 500م</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -366,7 +366,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 47{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>56 تاون هاوس فاخر - مساحات تبدأ من 280م إلى 330م</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -417,7 +417,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 48{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -468,7 +468,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 52{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق وأدوار فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -519,7 +519,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 53{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>ادوار فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -557,7 +557,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الياسمين{' '}
                     </span>
 
-                    <span className="construction-badge"> تحت الإنشاء</span>
+                    <span className={`${ProjectStyle['construction-badge']}`}> تحت الإنشاء</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -568,7 +568,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 54{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق تأجير</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -606,7 +606,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي العارض{' '}
                     </span>
 
-                    <span className="construction-badge"> تحت الإنشاء</span>
+                    <span className={`${ProjectStyle['construction-badge']}`}> تحت الإنشاء</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -617,7 +617,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 56{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -655,7 +655,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الحمراء{' '}
                     </span>
 
-                    <span className="construction-badge"> تحت الإنشاء</span>
+                    <span className={`${ProjectStyle['construction-badge']}`}> تحت الإنشاء</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -666,7 +666,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 51{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>مجمع تجاري وفندقي</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -704,7 +704,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي قرطبة{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -715,7 +715,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 30{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -754,7 +754,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي اليرموك{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -765,7 +765,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 31{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -804,7 +804,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي اليرموك{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -815,7 +815,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 32{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -854,7 +854,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي العارض{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -865,7 +865,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 36{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -905,7 +905,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي العارض{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -916,7 +916,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 37{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -956,7 +956,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الياسمين{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -967,7 +967,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 38{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p>شقق فاخرة</p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1006,7 +1006,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الملقا{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1017,7 +1017,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 28{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1055,7 +1055,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الياسمين{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1066,7 +1066,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 27{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1104,7 +1104,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الازدهار{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1115,7 +1115,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 26{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1153,7 +1153,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الملقا{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1164,7 +1164,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 25{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1202,7 +1202,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي العقيق{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1213,7 +1213,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 24{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1251,7 +1251,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الملقا{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1262,7 +1262,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 19{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1300,7 +1300,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي القيروان{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1311,7 +1311,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 18{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1349,7 +1349,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الملقا{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1360,7 +1360,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 17{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1398,7 +1398,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي حطين{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1409,7 +1409,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 15{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1447,7 +1447,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الملقا{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1458,7 +1458,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 13{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
@@ -1496,7 +1496,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                       <i className="fas fa-map-pin"></i>حي الملقا{' '}
                     </span>
 
-                    <span className="soldout-badge"> مباع بالكامل</span>
+                    <span className={`${styles['soldout-badge']}`}> مباع بالكامل</span>
                   </div>
                 </div>
                 <div className={`${ProjectStyle['project-info']}`}>
@@ -1507,7 +1507,7 @@ const WorksList=({goToWork}:{goToWork:(item:any)=>void,setShow:(show:boolean)=>v
                     {' '}
                     مكين 12{' '}
                   </a>
-                  <div className={`${['project-description']}`}>
+                  <div className={`${ProjectStyle['project-description']}`}>
                     <p></p>
                   </div>
                   <ul className={`${ProjectStyle['list-units-item']} d-flex align-items-center justify-content-evenly pt-3`}>
