@@ -4,11 +4,13 @@ import styles from './news.module.scss';
 import NewsList from './newsList';
 import Breadcrumb from '../shared/breadcrumb/breadcrumb';
 const news = () => {
+  const [path,setPath]=useState<{name:string,href:string}[]>([{name:'الصفحه الرئيسيه',href:"/"},{name:'الاخبار',href:'/news'}]);
     const [showNew,SetShowNew]=useState<boolean>(false)
     const [New,SetNew]=useState<any>()
     const GoToNew=(newItem:any)=>{
         SetShowNew(true);
         SetNew(newItem);
+        setPath([{name:'الصفحه الرئيسيه',href:"/"},{name:'الاخبار',href:'/news'},{name:newItem,href:''}])
     };
   return (
     <>
@@ -18,7 +20,7 @@ const news = () => {
             الأخبار
           </strong>
         </div>
-        <Breadcrumb path={[{name:'الصفحه الرئيسيه',href:"/"},{name:'الاخبار',href:'/news'}]}/>
+        <Breadcrumb path={path}/>
         {showNew&&<NewsItem setShow={SetShowNew}/>}
         {!showNew&&<NewsList GoToNew={GoToNew}/>}
       </section>

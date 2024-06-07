@@ -3,8 +3,8 @@ const HeaderBanner = () => {
     return (<>
         <section className={`${styles['header-banner']} position-relative`}>
             <div className={`h-100 swiper ${styles['banner-slides']} 
-            ${styles['swiper-fade']} 
-            ${styles['swiper-initialized']} 
+            swiper-fade
+            swiper-initialized
             ${styles['swiper-horizontal']} 
             swiper-pointer-events
             swiper-rtl

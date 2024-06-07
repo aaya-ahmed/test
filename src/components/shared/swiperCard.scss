@@ -1,0 +1,56 @@
+.swiperCard{
+    .swiper {
+        width: 60%;
+        height: 375px;
+      }
+      
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+      }
+      
+      .swiper-slide:nth-child(1n) {
+        background-color:rgb(118 174 169)
+       
+      }
+      
+      .swiper-slide:nth-child(2n) {
+        background-color: rgb(101, 127, 168);
+      }
+      
+      .swiper-slide:nth-child(3n) {
+        background-color: rgb(10, 184, 111);
+      }
+      
+      .swiper-slide:nth-child(4n) {
+        background-color: rgb(157, 158, 83);
+      }
+      
+      .swiper-slide:nth-child(5n) {
+        background-color: rgb(118, 163, 12);
+      }
+      
+      
+      .swiper-slide:nth-child(6n) {
+        background-color: rgb(211, 122, 7);
+      }
+      
+      .swiper-slide:nth-child(7n) {
+        background-color: rgb(78, 116, 69);
+      }
+      
+      .swiper-slide:nth-child(8n) {
+        background-color: rgb(80, 94, 131);
+      }
+      
+      .swiper-slide:nth-child(9n) {
+        background-color: rgb(136, 107, 13);
+      }
+      
+      .swiper-slide:nth-child(10n) {
+        background-color:   rgb(162, 153, 79);
+      }
+      
+}

@@ -1,5 +1,11 @@
 
 
+.sec-news{
+    padding: 10rem 0;
+}
+.text-title{
+    color: rgb(101, 127, 168);;
+}
 .news-item-slider:hover .swiper-button-prev, .news-slider:hover .swiper-button-prev, .project-slider:hover .swiper-button-prev {
     right: 10px;
 }

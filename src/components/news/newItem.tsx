@@ -3,13 +3,13 @@ const NewsItem = ({setShow}:{setShow:(show:boolean)=>void}) => {
     return (
         <>
             <div className="row p-0 m-0 justify-content-center">
-                <div className="col-8 blog_post_preview format-standard-image">
+                <div className={`col-11 ${styles['blog_post_preview-new']} format-standard-image`}>
                     <div className="item_wrapper">
                         <div className="blog_content">
                             <h2 className={`${styles['post_title']}`}>
                                     مشاركة أساس المحسني في شركة مساكن الطائف
                             </h2>
-                            <div className={`${styles['post_media']}`}>
+                            <div className={`${styles['post_media']} ${styles['blog_post_media-new']}`}>
                                 <img src="./assets/images/News.jpeg" alt="" />
                             </div>
                             <div className="listing_meta_wrap">
@@ -20,7 +20,7 @@ const NewsItem = ({setShow}:{setShow:(show:boolean)=>void}) => {
                                 </div>
                             </div>
                             <div
-                                className={`my-2`}
+                                className={`${styles['blog_item_description_new']}my-2`}
                             >
                                 أقامت شركة أساس مكين جناحا تعريفيا لها في المقر
                                 الرئيسي لشركة ثقة التابعة لصندوق الاستثمارات العامة،
@@ -37,9 +37,9 @@ const NewsItem = ({setShow}:{setShow:(show:boolean)=>void}) => {
                                 وذلك خلال الفترة: 28-29 مايو، بمشاركة بنك الراجحي،
                                 وبنك ساب. #أساس_مكين
                             </div>
-                            <div className={`${styles['post_footer']} my-2`}>
+                            <div className={`${styles['post_footer']} my-5`}>
                                 <div className="module_button_list">
-                                <button onClick={()=>{setShow(false)}}>رجوع</button>
+                                <button onClick={()=>{setShow(false)}}>{`رجوع >> `}</button>
 
                                 </div>
                             </div>

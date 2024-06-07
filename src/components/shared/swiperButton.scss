@@ -1,0 +1,66 @@
+
+
+.item-slider:hover .swiper-button-prev, .news-slider:hover .swiper-button-prev, .project-slider:hover .swiper-button-prev {
+    right: 0px;
+}
+.item-slider .swiper-button-prev, .news-slider .swiper-button-prev, .project-slider .swiper-button-prev {
+    right: -50px;
+}
+.item-slider .swiper-button-next, .item-slider .swiper-button-prev {
+    top: 50%;
+}
+
+.item-slider .swiper-button-next, .item-slider .swiper-button-prev, .news-slider .swiper-button-next, .news-slider .swiper-button-prev, .project-slider .swiper-button-next, .project-slider .swiper-button-prev {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    text-align: center;
+    z-index: 1;
+    /* color: rgb(43, 88, 159)!important; */
+    transition: 0.4s;
+}
+
+
+.item-slider .swiper-button-next::after, .item-slider .swiper-button-prev::after, .news-slider .swiper-button-next::after, .news-slider .swiper-button-prev::after, .project-slider .swiper-button-next::after, .project-slider .swiper-button-prev::after {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    background: none;
+    font-size: 20px;
+}
+.item-slider:hover .swiper-button-next, .news-slider:hover .swiper-button-next, .project-slider:hover .swiper-button-next {
+    left: 0px;
+}
+
+.item-slider .swiper-button-next, .news-slider .swiper-button-next, .project-slider .swiper-button-next {
+    left: -50px;
+}
+.item-slider .swiper-button-next, .item-slider .swiper-button-prev {
+    top: 50%;
+}
+.item-slider .swiper-button-next, .item-slider .swiper-button-prev, .news-slider .swiper-button-next, .news-slider .swiper-button-prev, .project-slider .swiper-button-next, .project-slider .swiper-button-prev {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    text-align: center;
+    z-index: 1;
+    /* color: rgb(43, 88, 159)!important; */
+    transition: 0.4s;
+}
+.item-slider .swiper-button-next:hover, .item-slider .swiper-button-prev:hover, .news-slider .swiper-button-next:hover, .news-slider .swiper-button-prev:hover, .project-slider .swiper-button-next:hover, .project-slider .swiper-button-prev:hover {
+    background-color:rgb(101 127 168) !important;
+    color: #fff;
+}
+
+[dir="rtl"] .fa-arrow-right::before  {
+    content: "\f060"!important;
+}
+
+.item-slider .swiper-button-prev::after, .news-slider .swiper-button-prev::after, .project-slider .swiper-button-prev::after {
+    content: "\f061";
+}
+.item-slider .swiper-button-next::after, .news-slider .swiper-button-next::after, .project-slider .swiper-button-next::after {
+    content: "\f060";
+}
