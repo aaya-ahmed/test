@@ -3,8 +3,10 @@ import './login.scss'
 import { useForm } from 'react-hook-form';
 import LoginService from '../../../services/login.service';
 import logo from './login.png'
+import { useNavigate } from 'react-router-dom';
 const LoginCompponent = () => {
     const [typeInputPass,setTypeInputPass]=useState<string>('password');
+    const navigation = useNavigate();
     const showPassword=()=>{
         (typeInputPass==='password')?
         setTypeInputPass('text'):
@@ -25,7 +27,7 @@ const LoginCompponent = () => {
         new LoginService().login(e).then(
             res=>{
                 localStorage.setItem('token',res.token)
-                
+                navigation('/dashboard');
             }
         )
     }
