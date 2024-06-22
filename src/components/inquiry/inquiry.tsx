@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
-import './inquiry.css'
+import './inquiry.scss'
 import Breadcrumb from "../shared/breadcrumb/breadcrumb";
 const Inquiry = () => {
     const {
@@ -11,8 +11,14 @@ const Inquiry = () => {
     } = useForm({mode:'onBlur'});
     const Submit=(data)=>{console.log(data)}
     return (<>
+        <div className={`${'sec-title'} text-center`}>
+          <strong className={`h1 fw-bold d-block ${'text-title'} `}>
+            الأخبار
+          </strong>
+        </div>
     <Breadcrumb path={[{name:'home',href:'/home'},{name:'inquiry',href:'/inquiry'}]} />
         <div className="contact-page py-5">
+
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-8 col-11">

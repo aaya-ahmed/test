@@ -10,18 +10,18 @@ const news = () => {
     const GoToNew=(newItem:any)=>{
         SetShowNew(true);
         SetNew(newItem);
-        setPath([{name:'الصفحه الرئيسيه',href:"/"},{name:'الاخبار',href:'/news'},{name:newItem,href:''}])
+        setPath([{name:'الصفحه الرئيسيه',href:"/"},{name:'الاخبار',href:'/news'},{name:newItem.title,href:''}])
     };
   return (
     <>
-      <section className="sec-news">
+      <section className={`${styles['sec-news']}`}>
         <div className={`${styles['sec-title']} text-center`}>
           <strong className={`h1 fw-bold d-block ${styles['text-title']} `}>
             الأخبار
           </strong>
         </div>
         <Breadcrumb path={path}/>
-        {showNew&&<NewsItem setShow={SetShowNew}/>}
+        {showNew&&<NewsItem setShow={SetShowNew} item={New}/>}
         {!showNew&&<NewsList GoToNew={GoToNew}/>}
       </section>
     </>

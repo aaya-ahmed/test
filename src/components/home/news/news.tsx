@@ -2,11 +2,15 @@ import React, { Fragment } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './news.css'
 import { Navigation } from "swiper/modules";
-const ar = [1, 2, 3, 4, 5, 6];
-
+import { useGetPagedData } from "../../../hooks/getpageddata";
+import NewService from "../../../services/news.service";
+const Service = new NewService();
 const NewsComponent = () => {
+    const {
+        listData,
+    } = useGetPagedData(Service, 0, 10);
     return (<>
-        <section className="sec-news">
+        <section className="sec-news sec-news-background">
             <div className="container">
                 <div className="sec-title text-center mb-5">
                     <strong className="h1 fw-bold d-block text-title"> الأخبار </strong>
@@ -31,40 +35,27 @@ const NewsComponent = () => {
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
                 >
-                    {ar.map((item, index) => {
+                    {listData.map((item, index) => {
                         return (
                             <>
                                 <SwiperSlide>
                                     <div className="newitem">
                                         <div className="newimg">
                                             <a href="#">
-                                                <img src="./assets/images/News.jpeg" className="img-fluid" alt="مشاركة أساس المحسني في شركة مساكن الطائف" />
+                                            <img className="img-fluid" src={`${process.env.REACT_APP_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`} alt={item.title}/>
                                                 <i className="fas fa-external-link-alt fa-lg"></i>
                                             </a>
                                         </div>
                                         <div className="newinfo">
-                                            <a href="/news" className="d-block title__news mb-2 mt-2">
-                                                مشاركة أساس المحسني في شركة مساكن الطائف
+                                            <a href={`/news/${item.id}`} className="d-block title__news mb-2 mt-2">
+                                                {item.title}
                                             </a>
                                             <p className="newdesc">
                                                 <i className="fa fa-calendar-check"></i>
-                                                أقامت شركة أساس مكين جناحا تعريفيا لها في المقر
-                                                الرئيسي لشركة ثقة التابعة لصندوق الاستثمارات العامة،
-                                                وذلك خلال الفترة: 28-29 مايو، بمشاركة بنك الراجحي،
-                                                وبنك ساب. #أساس_مكين أقامت شركة أساس مكين جناحا
-                                                تعريفيا لها في المقر الرئيسي لشركة ثقة التابعة لصندوق
-                                                الاستثمارات العامة، وذلك خلال الفترة: 28-29 مايو،
-                                                بمشاركة بنك الراجحي، وبنك ساب. #أساس_مكين أقامت شركة
-                                                أساس مكين جناحا تعريفيا لها في المقر الرئيسي لشركة ثقة
-                                                التابعة لصندوق الاستثمارات العامة، وذلك خلال الفترة:
-                                                28-29 مايو، بمشاركة بنك الراجحي، وبنك ساب. #أساس_مكين
-                                                أقامت شركة أساس مكين جناحا تعريفيا لها في المقر
-                                                الرئيسي لشركة ثقة التابعة لصندوق الاستثمارات العامة،
-                                                وذلك خلال الفترة: 28-29 مايو، بمشاركة بنك الراجحي،
-                                                وبنك ساب. #أساس_مكين
+                                                {item.description}
 
                                             </p>
-                                            <a href="/news" className="link-more">  اقرأ المزيد
+                                            <a href={`/news/${item.id}`} className="link-more">  اقرأ المزيد
                                                 <i className="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>

@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
-import './footer.css';
+import './footer.scss';
 import { IRouter } from "@routes/IRouter.type";
-const FooterComponent = ({routerList}:{routerList:IRouter[]}) => {
+const FooterComponent = ({routerList}:{routerList:any[]}) => {
     return (<>
         <footer className="pt-5">
             <div className="container pb-5">
                 <div className="row">
                     <div className="col-md-4">
-                        <img src="/assets/images/logo.jpg" 
-                        className="logo-footer img-fluid w-75 mb-4" alt="LOGO" />
+                        <img src="/assets/images/logo.gif" 
+                        className="logo-footer img-fluid w-100 mb-4" alt="LOGO" />
                         <p className="lines-5">
                         نحن متخصصون في توفير المنتجات العقارية المتوافقة مع مبادئ الشريعة الإسلامية
 
@@ -21,20 +21,20 @@ const FooterComponent = ({routerList}:{routerList:IRouter[]}) => {
 
                         {routerList?.map(
                         (route: any, index: number) => {
-                            return <Fragment key={index}>
+                            return !route.protected&&(<Fragment key={index}>
                                 <li className={`nav-item ${index==0?'active':''}`} aria-current="page" >
                                     <a className="nav-link "  href={route.path}>{route.name}</a>
                                 </li>
-                            </Fragment>
+                            </Fragment>)
                         }
                     )}
                         </ul>
                     </div>
                     <div className="col-md-5">
                         <h5 className="title">  ابقَ على اتصال دائما  </h5>
-                        <a className="d-block mb-3" href="mailto:info@almouhaysni.com"> <i className="far fa-envelope"></i> info@almouhaysni.com
+                        <a className="d-block mb-3 contact-link" href="mailto:info@almouhaysni.com"> <i className="far fa-envelope"></i> info@almouhaysni.com
                         </a>
-                        <a className="d-block mb-3" href="tel:+966920027028"> <i className="fas fa-phone-volume"></i> 966920027028+ </a>
+                        <a className="d-block mb-3 contact-link" href="tel:+966920027028"> <i className="fas fa-phone-volume"></i> 966920027028+ </a>
 
                         <h5 className="title">  العنوان  </h5>
 
@@ -57,11 +57,7 @@ const FooterComponent = ({routerList}:{routerList:IRouter[]}) => {
             </div>
 
             <div className="bottom-footer py-4 text-center">
-                <p className="m-0"> جميع الحقوق محفوظة
-
-                    -
-                    تصميم وتطوير
-                    <a href="https://expert-code.com/" style={{ color: "black" }}>Expert-Code</a>
+                <p className="m-0"> الحسيني@2024
                 </p>
             </div>
         </footer>

@@ -1,8 +1,10 @@
 @import '../../shared/animation.module.scss';
+@import '../../shared/color.scss';
 .navigation-header {
     position: absolute;
-    z-index: 9;
+    z-index: 10;
     width: 100%;
+    background-color: transparent;
 }
 .navbar-sticky .navbar-brand img.no_sticky {
     display: block;
@@ -12,7 +14,7 @@
 }
 
 .navbar-brand img {
-    max-height: 60px;
+    max-height: 100px;
 }
 .navbar-brand img.sticky_logo {
     max-height: 60px;
@@ -31,8 +33,8 @@ a, a:hover {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
+    color: white;
     font-weight: 600;
-    color: #fff;
     padding-left: 20px;
     padding-right: 20px;
     position: relative;
@@ -40,7 +42,7 @@ a, a:hover {
 
 
 .navbar-toggler i {
-    color: #fff;
+    color: white;
     font-size: 28px;
     transition: 0.5s;
     
@@ -52,7 +54,7 @@ a, a:hover {
     content: "\f550";
 }
 .navbar-toggler i {
-    color: #fff;
+    color: white;
     font-size: 28px;
     transition: 0.5s;
 }
@@ -72,18 +74,27 @@ a, a:hover {
     position: fixed;
     top: 0px;
     background-color: white!important;
-    box-shadow: 0px 5px 13px 0px #0000003b;
+    box-shadow: 0px 5px 13px 0px $backgroundcolor_lite_black;
     left: 0;
     width: 100%;
-    z-index: 9;
+    z-index: 20;
     animation: goDown 0.5s ease-in-out forwards;
 }
 .navbar-nav .nav-item .nav-link:hover{
     color:white!important;
 }
 .navbar-sticky.sticky{
+    .container{
+        align-items: center!important;
+        .navbar-nav{
+            margin: 0!important;
+        }
+        .header_actions{
+            margin: 0!important;
+        }
+    }
     .nav-link {
-        color: #878585!important;
+        color:$color_gray!important;
     }
 }
 @media (min-width:991.99px){
@@ -102,9 +113,10 @@ a, a:hover {
         top:0;
         left:0;
         margin: 0;
+        opacity: 1;
         display: block;
-        background-color:rgb(101 127 168) !important;
-        animation: outborder 0.5s ease-in-out forwards;
+        background-color: $color_green !important;
+        animation: outborder 1s ease-in-out forwards;
     }
     .navbar.bg-body-tertiary.bg-dark.navbar-sticky.sticky .navbar-nav .nav-link{
         color:black!important;
@@ -115,9 +127,6 @@ a, a:hover {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-left: 20px;
         padding-right: 20px;
-    }
-    .navbar-brand img {
-        max-height: 60px;
     }
 }
 @media (max-width: 991.98px) {
@@ -143,7 +152,7 @@ a, a:hover {
         padding-top: 1.5rem;
         height: 100vh;
         width: 250px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px $color_gray;
         transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     }
     .menu-close {
@@ -152,7 +161,7 @@ a, a:hover {
         left: 10px;
         top: 15px;
         z-index: 9;
-        color: #fff;
+        color: white;
         cursor: pointer;
 
     }
@@ -166,7 +175,7 @@ a, a:hover {
         padding: 0px;
     }
     .navbar-expand-lg .navbar-nav .nav-item:not(:last-child) {
-        border-bottom: 1px solid #222;
+        border-bottom: 1px solid black;
     }
     .navbar-expand-lg .navbar-nav .nav-link {
         padding: 1rem 0;

@@ -1,11 +1,11 @@
 .achievements-items{
-    background-image: url('../../../../public/assets/images/011.png');
+    background-image: url('../../../../public/assets/images/achevment-back.gif');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
     position: relative;
     z-index: 1;
-    padding: 10rem 0;
+    padding: 4rem 0;
 
 }
 

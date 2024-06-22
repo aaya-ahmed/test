@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from './communication.module.scss'
 import { useForm } from "react-hook-form";
 import Breadcrumb from "../../components/shared/breadcrumb/breadcrumb";
+import ContactReasonService from "../../services/contact-reason.service";
+import ContactUsService from "../../services/contact.service";
+const Service=new ContactReasonService();
 const Communication = () => {
+    const [contactReasonList,setContactReasonList]=useState<any[]>()
+    useEffect(()=>{
+        Service.Get().then(
+            res=>{
+                setContactReasonList(res)
+            }
+        )
+    },[])
     const {
         register,
         handleSubmit,
-        formState:{errors}
+        formState:{errors,isValid},
+        reset
     }=useForm({mode:'onBlur'})
-    const submit=()=>{}
+    const submit=(e)=>{
+        new ContactUsService().Post(e).then(
+            res=>{
+                reset();
+                
+            }
+        )
+    }
     return (<>
     <section className={`${styles['sec-communication']}`}>
     <div className={`${styles['sec-title']} text-center`}>
@@ -29,35 +48,43 @@ const Communication = () => {
                             <div className="row">
                                 <div className="col-md-6 mb-4">
                                     <div className="form-floating">
-                                        <select className="form-select" id="floatingSelect"
-                                        {...register('floatingSelect',{required:true})}>
+                                        <select className={`form-select ${errors?.contactReasonId?'is-invalid':''}`} id="floatingSelect"
+                                        {...register('contactReasonId',{required:true})}
+                                        
+                                        >
                                             <option> اختر </option>
-                                            <option value="شكاوى  أو مقترحات"> شكاوى  أو مقترحات </option>
-                                            <option value="المبيعات"> المبيعات </option>
-                                            <option value="استفسارات أخرى "> استفسارات أخرى  </option>
+                                            {contactReasonList?.map((item,i)=>{
+                                                return <option value={item.id} key={i}>{item.name}</option>
+
+                                            })}
                                         </select>
+                                        <p></p>
                                         <label htmlFor="floatingSelect"> سبب التواصل </label>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <div className="form-floating">
-                                        <input type="text" className="form-control" placeholder=" الاسم " 
-                                        {...register('name',{required:true})}/>
+                                        <input type="text"  placeholder=" الاسم " 
+                                        {...register('name',{required:true})}
+                                        className={`form-control ${errors?.name?'is-invalid':''}`}/>
                                         <label htmlFor="floatingInput"> الاسم </label>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <div className="form-floating">
-                                        <input type="number" className="form-control"
-                                        {...register('phone',{required:true})}
-                                        placeholder=" الهاتف " />
+                                        <input type="number"
+                                        {...register('phoneNumber',{required:true})}
+                                        placeholder=" الهاتف " 
+                                        className={`form-control ${errors?.phoneNumber?'is-invalid':''}`}
+                                        />
                                         <label htmlFor="floatingInput"> الهاتف </label>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <div className="form-floating">
-                                        <input type="email" className="form-control" placeholder=" البريد الاكتروني " 
+                                        <input type="email"  placeholder=" البريد الاكتروني " 
                                         {...register('email',{required:true})}
+                                        className={`form-control ${errors?.email?'is-invalid':''}`}
                                         />
                                         <label htmlFor="floatingInput"> البريد الاكتروني </label>
                                     </div>
@@ -65,14 +92,14 @@ const Communication = () => {
                                 <div className="col-md-12 mb-4">
                                     <div className="form-floating">
                                         <textarea className="form-control" id="floatingInput" placeholder=" الرسالة  "
-                                        {...register('message',{required:true})}
+                                        {...register('description',{required:true})}
                                         ></textarea>
                                         <label htmlFor="floatingInput"> الرسالة  </label>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-12 text-center">
-                                <button type="submit" className="btn btn-dark d-block py-3 w-100 h-100 fw-bold" aria-label="search"> إرسال
+                                <button type="submit" disabled={!isValid} className="btn btn-dark d-block py-3 w-100 h-100 fw-bold" aria-label="search"> إرسال
                                     الأن
                                 </button>
                             </div>

@@ -30,7 +30,7 @@ const HeaderBanner = () => {
                                     <a id="play-video" className={`${styles['play-button']}`} href="/assets/videos/001.mp4" aria-label="play-video" data-fancybox="">
                                         <i className="fas fa-play"></i>
                                     </a>
-                                    <a href="#" className={`btn btn-primary ms-5 fw-bold btn_reg_fav rounded-5`}>
+                                    <a href="#" className={`btn btn-primary ms-5 fw-bold btn_reg_fav rounded-5 ${styles['btn-yellow']}`}>
                                         اكتشف مشاريعنا
                                     </a>
                                 </div>

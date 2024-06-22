@@ -29,22 +29,22 @@
 }
 @keyframes outborder{
     0%{
-    width: 0%;
+    opacity: 0%;
     }
     25%{
-        width: 25%;
+        opacity: 25%;
 
     }
     50%{
-        width: 50%;
+        opacity: 50%;
 
     }
     75%{
-        width: 75%;
+        opacity: 75%;
 
     }
     100%{
-       width: 100%;
+        opacity: 100%;
 
     }
 }

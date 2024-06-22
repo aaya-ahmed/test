@@ -1,48 +1,51 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './news.module.scss';
-const NewsItem = ({setShow}:{setShow:(show:boolean)=>void}) => {
+import { Autoplay, Grid, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
+const NewsItem = ({item,setShow}:{item:any,setShow:(show:boolean)=>void}) => {
     return (
         <>
-            <div className="row p-0 m-0 justify-content-center">
+            <div className="row p-0 justify-content-center container ms-auto">
                 <div className={`col-11 ${styles['blog_post_preview-new']} format-standard-image`}>
                     <div className="item_wrapper">
-                        <div className="blog_content">
+                        <div className={`${styles['blog_content']}`}>
                             <h2 className={`${styles['post_title']}`}>
-                                    مشاركة أساس المحسني في شركة مساكن الطائف
+                                   {item.title}
+                                   <span>{item.createdDate}</span>
                             </h2>
+                            <div className='d-flex mt-3 mb-5'>
+                            <div className={`container ${styles['blog_item_description_new']}`}>
+                               {item.description}
+                            </div>
                             <div className={`${styles['post_media']} ${styles['blog_post_media-new']}`}>
-                                <img src="./assets/images/News.jpeg" alt="" />
+                                <img src={`${process.env.REACT_APP_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`}/>
                             </div>
-                            <div className="listing_meta_wrap">
-                                <div className="listing_meta">
-                                    <span className="post_date my-2 text-primary">
-                                        September 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div
-                                className={`${styles['blog_item_description_new']}my-2`}
-                            >
-                                أقامت شركة أساس مكين جناحا تعريفيا لها في المقر
-                                الرئيسي لشركة ثقة التابعة لصندوق الاستثمارات العامة،
-                                وذلك خلال الفترة: 28-29 مايو، بمشاركة بنك الراجحي،
-                                وبنك ساب. #أساس_مكين أقامت شركة أساس مكين جناحا
-                                تعريفيا لها في المقر الرئيسي لشركة ثقة التابعة لصندوق
-                                الاستثمارات العامة، وذلك خلال الفترة: 28-29 مايو،
-                                بمشاركة بنك الراجحي، وبنك ساب. #أساس_مكين أقامت شركة
-                                أساس مكين جناحا تعريفيا لها في المقر الرئيسي لشركة ثقة
-                                التابعة لصندوق الاستثمارات العامة، وذلك خلال الفترة:
-                                28-29 مايو، بمشاركة بنك الراجحي، وبنك ساب. #أساس_مكين
-                                أقامت شركة أساس مكين جناحا تعريفيا لها في المقر
-                                الرئيسي لشركة ثقة التابعة لصندوق الاستثمارات العامة،
-                                وذلك خلال الفترة: 28-29 مايو، بمشاركة بنك الراجحي،
-                                وبنك ساب. #أساس_مكين
-                            </div>
-                            <div className={`${styles['post_footer']} my-5`}>
-                                <div className="module_button_list">
-                                <button onClick={()=>{setShow(false)}}>{`رجوع >> `}</button>
 
-                                </div>
                             </div>
+                            {item?.attachments&&(<div className={`${styles['post_media']} ${styles['blog_post_media-new']} w-100 my-5`}>
+                                <Swiper 
+                                 slidesPerView={3}
+                                 spaceBetween={30}
+                                 pagination={{
+                                   clickable: true,
+                                 }}
+                                 autoplay={
+                                    { delay:2500}
+                                 }
+                                 modules={[Autoplay, Pagination]}
+
+                                >
+                                   {item.attachments.map((item,i)=>{
+                                    return (
+                                    <SwiperSlide>
+                                    <img src={`${process.env.REACT_APP_baseImageUrl}${item.attachmentUrl}`}/>
+
+                                    </SwiperSlide>)
+                                   })}
+                                </Swiper>
+                            </div>)}
                         </div>
                     </div>
                 </div>

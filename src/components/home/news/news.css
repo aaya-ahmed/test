@@ -1,10 +1,27 @@
 
 
 .sec-news{
-    padding: 10rem 0;
+    padding: 3rem 0;
+}
+.sec-news-background{
+    background-image: url('../../../../public/assets/images/005.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.sec-news-background::after{
+    content: "";
+    display: block;
+    background-color: #ffffffc4;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 .text-title{
-    color: rgb(101, 127, 168);;
+    color: #c1970e;
+    z-index: 2;
+    position: relative;
 }
 .news-item-slider:hover .swiper-button-prev, .news-slider:hover .swiper-button-prev, .project-slider:hover .swiper-button-prev {
     right: 10px;
@@ -133,7 +150,6 @@
 @media (max-width: 1399px) {
     .newitem .newinfo a.title__news {
         font-size: 16px!important;
-        width: 260px!important;
     }
 }
 .news-item-slider .swiper-button-next:hover, .news-item-slider .swiper-button-prev:hover, .news-slider .swiper-button-next:hover, .news-slider .swiper-button-prev:hover, .project-slider .swiper-button-next:hover, .project-slider .swiper-button-prev:hover {
@@ -147,7 +163,6 @@
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 400px;
     white-space: nowrap;
 }
 .newitem .newinfo .newdesc {

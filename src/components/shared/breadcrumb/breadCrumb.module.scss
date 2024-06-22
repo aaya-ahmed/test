@@ -40,6 +40,9 @@ ul {
     font-weight: 700;
     color: #fff!important;
     font-size: 14px;
+    a{
+        color: #fff !important;
+    }
 }
 [dir="rtl"] .breadcrumb_list ul li:last-child {
     margin-right: 0;

@@ -1,0 +1,53 @@
+@import '../../shared/color.scss';
+.slider{
+    height: 100vh;
+    position: relative;
+    .swiper{
+        height: 100%!important;
+        width: calc(100% - 400px);
+        z-index: -1;
+        margin-left: 0;
+        &::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: $backgroundcolor_lite_black;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+        }
+        .slider-item-img1{
+            background-image: url('../../../../public/assets/images/slider1.png');
+        }
+        .slider-item-img2{
+            background-image: url('../../../../public/assets/images/slider2.png');
+        }
+        .slider-item-img3{
+            background-image: url('../../../../public/assets/images/slider3.png');
+        }
+        .img{
+            width: 100%;
+            top: 2rem;
+            left: 2rem;
+            width: 100%;
+            z-index: 10;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    }
+    .slider-item{
+        position: absolute;
+        width: 400px;
+        height: 100%;
+        background-color:#1a363424;
+        top: 0;
+        right: 0;
+        z-index: 11;
+
+        
+    }
+    
+}

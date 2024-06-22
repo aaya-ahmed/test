@@ -1,6 +1,25 @@
+import { useRef, useState } from 'react';
 import styles from './achievement.module.css';
+import useScrollTriggeredCountUp from '../../../hooks/useScrollTriggeredCountUp';
 
 const AchievementComponent = () => {
+  const numberOfValiaRef = useRef<HTMLDivElement>(null);
+  const numberOfValiaCount = useScrollTriggeredCountUp(numberOfValiaRef, 58);
+
+  const numberOfBuildingRef = useRef<HTMLDivElement>(null);
+  const numberOfBuildingCount = useScrollTriggeredCountUp(numberOfBuildingRef, 2500);
+
+  const numberOfProjectRef = useRef<HTMLDivElement>(null);
+  const numberOfProjectCount = useScrollTriggeredCountUp(numberOfProjectRef, 50);
+
+  const numberOfBuildsRef = useRef<HTMLDivElement>(null);
+  const numberOfBuildsCount = useScrollTriggeredCountUp(numberOfBuildsRef, 156);
+
+  const plansOfExecutedBuildingsRef = useRef<HTMLDivElement>(null);
+  const plansOfExecutedBuildingsCount = useScrollTriggeredCountUp(plansOfExecutedBuildingsRef, 467536);
+
+  const developedLandSurfacesRef = useRef<HTMLDivElement>(null);
+  const developedLandSurfacesCount = useScrollTriggeredCountUp(developedLandSurfacesRef, 211654);
   return (
     <>
       <section className={`${styles['achievements-items']}`}>
@@ -10,82 +29,100 @@ const AchievementComponent = () => {
           </div>
           <div className="row px-4">
             <div className={`col-md-4 col-12 ${styles['firstitem']} p-0`}>
-              <div className={`${styles['item-achievement']} d-flex align-item-start justify-content-start`}>
-                <i className={`${styles['fas']} fas img-icon fa-home`}></i>
+              <div className={`${styles['item-achievement']} `}>
+                <div className='d-flex align-item-start justify-content-center'>
+                  <i className={`${styles['fas']} fas img-icon fa-home`}></i>
+                  <strong className="h2 d-block">
+                    <span className=" counter " ref={numberOfValiaRef}> +{numberOfValiaCount}</span>
+                  </strong>
+                </div>
                 <div>
                   <strong className="h5 d-block"> فلة </strong>
-                  <strong className="h2 d-block">
-                    <span className=" counter "> +58</span>
-                  </strong>
                 </div>
               </div>
             </div>
             <div className={`col-md-4 col-12 ${styles['firstitem']} p-0`}>
-              <div className={`${styles['item-achievement']} d-flex align-item-start justify-content-start`}>
-                <i className={`${styles['fas']} fas img-icon fa-key`}></i>
+              <div className={`${styles['item-achievement']}`}>
+                <div className='d-flex align-item-start justify-content-center'>
+
+                  <i className={`${styles['fas']} fas img-icon fa-key`}></i>
+                  <strong className="h2 d-block">
+                    <span className="  " ref={numberOfBuildingRef}>v{numberOfBuildingCount}</span>
+                  </strong>
+                </div>
                 <div>
                   <strong className="h5 d-block"> وحدة سكنية </strong>
-                  <strong className="h2 d-block">
-                    <span className="  ">v2,500</span>
-                  </strong>
+
                 </div>
               </div>
             </div>
             <div className={`col-md-4 col-12 ${styles['firstitem']} p-0`}>
-              <div className={`${styles['item-achievement']} d-flex align-item-start justify-content-start`}>
-                <i className={`${styles['fas']} fas img-icon fa-project-diagram`}></i>
+              <div className={`${styles['item-achievement']} `}>
+                <div className='d-flex align-item-start justify-content-center'>
+                  <i className={`${styles['fas']} fas img-icon fa-project-diagram`}></i>
+                  <strong className="h2 d-block">
+                    <span className=" counter " ref={numberOfProjectRef}>+{numberOfProjectCount}</span>
+                  </strong>
+                </div>
                 <div>
                   <strong className="h5 d-block"> مشروع </strong>
-                  <strong className="h2 d-block">
-                    <span className=" counter ">+50</span>
-                  </strong>
                 </div>
               </div>
             </div>
           </div>
           <div className="row px-4">
             <div className={`col-md-4 col-12 ${styles['item']} p-0`}>
-              <div className={`${styles['item-achievement']} d-flex align-item-start justify-content-start`}>
-                <i className={`${styles['fas']} fas img-icon fa-building`}></i>
+              <div className={`${styles['item-achievement']}`}>
+                <div className='d-flex align-item-start justify-content-center'>
+
+                  <i className={`${styles['fas']} fas img-icon fa-building`}></i>
+                  <strong className="h2 d-block">
+                    <span className=" counter " ref={numberOfBuildsRef}>+{numberOfBuildsCount}</span>
+                  </strong>
+                </div>
                 <div>
                   <strong className="h5 d-block"> مبنى </strong>
-                  <strong className="h2 d-block">
-                    <span className=" counter ">+156</span>
-                  </strong>
+
                 </div>
               </div>
             </div>
             <div className={`col-md-4 col-12 ${styles['item']} p-0`}>
-              <div className={`${styles['item-achievement']} d-flex align-item-start justify-content-start`}>
-                <i className={`${styles['fas']} fas img-icon fa-city`}></i>
+              <div className={`${styles['item-achievement']} `}>
+                <div className='d-flex align-item-start justify-content-center'>
+
+                  <i className={`${styles['fas']} fas img-icon fa-city`}></i>
+                  <strong className="h2 d-block">
+                    <bdi>
+                      +<span className="  " ref={plansOfExecutedBuildingsRef}>{plansOfExecutedBuildingsCount}</span>
+                    </bdi>
+                  </strong>
+                </div>
                 <div>
                   <strong className="h5 d-block">
                     {' '}
                     مسطحات المباني المنفذة{' '}
                   </strong>
-                  <strong className="h2 d-block">
-                    <bdi>
-                      +<span className="  ">467,536</span>
-                      <span className="  ">م2</span>
-                    </bdi>
-                  </strong>
+
                 </div>
               </div>
             </div>
             <div className={`col-md-4 col-12 ${styles['item']} p-0`}>
-              <div className={`${styles['item-achievement']} d-flex align-item-start justify-content-start`}>
-                <i className={`${styles['fas']} fas img-icon fa-drafting-compass`}></i>
+              <div className={`${styles['item-achievement']}`}>
+                <div className='d-flex align-item-start justify-content-center'>
+                  <i className={`${styles['fas']} fas img-icon fa-drafting-compass`}></i>
+                  <strong className="h2 d-block">
+                    <bdi>
+                      +<span className="  " ref={developedLandSurfacesRef}>{developedLandSurfacesCount}</span>
+                    </bdi>
+                  </strong>
+                </div>
                 <div>
+
                   <strong className="h5 d-block">
                     {' '}
                     مسطحات الأراضي المطوّرة{' '}
                   </strong>
-                  <strong className="h2 d-block">
-                    <bdi>
-                      +<span className="  ">211,654</span>
-                      <span className="  ">م2</span>
-                    </bdi>
-                  </strong>
+
                 </div>
               </div>
             </div>
