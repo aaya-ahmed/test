@@ -3,6 +3,7 @@ import Home from '../home/home.tsx';
 import routers from '../../routes/router.ts';
 import { BrowserRouter, Route, Routes, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import MainLayout from '../UserLayout/MainLayout/main-layout.tsx';
+import { Suspense } from 'react';
 
 
 
@@ -14,7 +15,22 @@ function App() {
       routers.map((item,i)=>{return <Route key={i} path={item.path} Component={item.layout}>
         {item.routes.map(
                 (nestedItem,nestedindex)=>{
-                  return <Route key={nestedindex} path={nestedItem.path} Component={nestedItem.component}></Route>
+                  return <Route
+                  key={nestedindex} path={nestedItem.path}
+                  element={
+                    <Suspense
+                      fallback={<></>
+                        // <div className="loader-container">
+                        //   <div className="loader-container-inner">
+                        //     <RollingLoader />
+                        //   </div>
+                        // </div>
+                      }
+                    >
+                      <nestedItem.component />
+                    </Suspense>
+                  }
+                />
                 }
               )}
       </Route>})

@@ -27,13 +27,13 @@ const DashboardLayout = () => {
                             {
                                 routerList.map((item, i) => {
                                     return <li className="sidebar-item" key={i}>
-                                        <a
-                                            href={`/dashboard/${item.path}`}
+                                        <Link
+                                            to={`/dashboard/${item.path}`}
                                             className="sidebar-link"
                                             
                                         >
                                             <span>{item.name}</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                 })
                             }
