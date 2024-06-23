@@ -17,8 +17,8 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
       } catch (error) {
         // Handle error
       }
-  }, [page, itemPerPage,filter]);
-  
+  }, [filter]);
+
 
   const goToNextPage = () => {
     if (listData.length === itemPerPage) {
