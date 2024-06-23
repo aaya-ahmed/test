@@ -35,7 +35,7 @@ const NewsComponent = () => {
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
                 >
-                    {listData.map((item, index) => {
+                    {listData?.map((item, index) => {
                         return (
                             <>
                                 <SwiperSlide>

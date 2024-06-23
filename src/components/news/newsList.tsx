@@ -23,7 +23,7 @@ const {
     <>
       <div className="row p-0 m-0 justify-content-center">
         <div className="col-lg-10">
-          {listData.map((item, index) => {
+          {listData?.map((item, index) => {
             return (
               <>
                 <div className={`${styles['blog_post_preview']} format-standard-image`} onClick={() => { GoToNew(item) }}>
