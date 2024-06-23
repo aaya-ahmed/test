@@ -44,7 +44,7 @@ const HeaderComponent = ({ routerList }: { routerList: any[] }) => {
                         (route: any, index: number) => {
                             return <Fragment key={index}>
                                 <li className={`nav-item ${styles['nav-item']} ${index==0?'active':''}`} aria-current="page" >
-                                    <a className={`nav-link ${styles['nav-link']}`}  href={route.path}>{route.name}</a>
+                                    <a className={`nav-link ${styles['nav-link']}`}  href={`/${route.path}`}>{route.name}</a>
                                 </li>
                             </Fragment>
                         }

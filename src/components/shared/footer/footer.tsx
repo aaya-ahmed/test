@@ -23,7 +23,7 @@ const FooterComponent = ({routerList}:{routerList:any[]}) => {
                         (route: any, index: number) => {
                             return !route.protected&&(<Fragment key={index}>
                                 <li className={`nav-item ${index==0?'active':''}`} aria-current="page" >
-                                    <a className="nav-link "  href={route.path}>{route.name}</a>
+                                    <a className="nav-link "   href={`/${route.path}`}>{route.name}</a>
                                 </li>
                             </Fragment>)
                         }
