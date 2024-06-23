@@ -8,7 +8,10 @@ const Service = new NewService();
 
 const NewsComponent = () => {
     const[listData,setListData]=useState<any[]>([]);
-    useGetPagedData(Service, 0, 10,{filtring:[]},setListData);
+    const [filter, setFilter] = useState<{filtring:{type:string,name:string,value:string}[]}>(
+        {filtring:[]}
+    );
+    useGetPagedData(Service, 0, 10,filter,setListData);
 
     return (<>
         <section className="sec-news sec-news-background">

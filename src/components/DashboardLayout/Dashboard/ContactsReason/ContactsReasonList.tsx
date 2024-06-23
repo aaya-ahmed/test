@@ -9,13 +9,15 @@ type ContactsReasonListProp = {
 const ContactsReasonListComponent = ({ setData }: ContactsReasonListProp) => {
 
     const[listData,setListData]=useState<any[]>([]);
-
+    const [filter, setFilter] = useState<{filtring:{type:string,name:string,value:string}[]}>(
+        {filtring:[]}
+    );
     const {
         page,
         itemPerPage,
         goToNextPage,
         goToPrevPage,
-    } = useGetPagedData(Service, 0, 10,{filtring:[]},setListData);
+    } = useGetPagedData(Service, 0, 10,filter,setListData);
     return <>
         <div className="row w-100">
             {listData?.map((item, i) => {

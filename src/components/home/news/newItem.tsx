@@ -36,13 +36,14 @@ const NewsItemMain = () => {
                                     {item?.title}
                                     <span>{item?.createdDate}</span>
                                 </h2>
-                                <div className='d-flex mt-3'>
-                                    <div className={`container ${styles['blog_item_description_new']}`}>
-                                        {item?.description}
-                                    </div>
-                                    <div className={`${styles['post_media']} ${styles['blog_post_media-new']}`}>
+                                <div className='row mt-3'>
+                                <div className={`col-md-6 col-12  ${styles['post_media']} ${styles['blog_post_media-new']}`}>
                                         <img src={`${process.env.REACT_APP_baseImageUrl}${item?.attachments?.filter(p => p.isMain)[0].attachmentUrl}`} />
                                     </div>
+                                    <div className={`col-lg-4 col-md-6 col-12 container ${styles['blog_item_description_new']}`}>
+                                        {item?.description}
+                                    </div>
+
 
                                 </div>
                                 {item?.attachments && (<div className={`${styles['post_media']} ${styles['blog_post_media-new']} w-100  my-5`}>

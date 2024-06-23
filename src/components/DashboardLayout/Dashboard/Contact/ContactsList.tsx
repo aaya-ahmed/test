@@ -10,12 +10,13 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 const Service = new ContactUsService();
 
 const ContactsListComponent = () => {
-    const [filter, setFilter] = useState<{ type: string, name: string, value: string }[]>(
-        [{
+
+    const [filter, setFilter] = useState<{filtring:{type:string,name:string,value:string}[]}>(
+        {filtring:[{
             name: "ContactReasonId",
             type: 'Number',
             value: null
-        }]
+        }]}
     );
     const[listData,setListData]=useState<any[]>([]);
     const {
@@ -23,7 +24,7 @@ const ContactsListComponent = () => {
         itemPerPage,
         goToNextPage,
         goToPrevPage,
-    } = useGetPagedData(Service, 0, 10, {filtring:filter},setListData);
+    } = useGetPagedData(Service, 0, 10, filter,setListData);
     const [message, setMessage] = useState<any>();
     const [reasons, setReasons] = useState<any[]>()
     useEffect(() => {
@@ -35,8 +36,8 @@ const ContactsListComponent = () => {
     }, [])
     const getData = (e) => {
         console.log(e.target.value)
-        filter[0].value = e.target.value == -1 ? null : e.target.value;
-        setFilter([...filter])
+        filter.filtring[0].value = e.target.value == -1 ? null : e.target.value;
+        setFilter({...filter})
     }
     return <>
         <div className="page-heading">

@@ -7,19 +7,19 @@ const Service = new NewService();
 const NewsList = ({ GoToNew }: { GoToNew: (item: any) => void }) => {
   const[listData,setListData]=useState<any[]>([]);
 
-  const [filter, setFilter] = useState<{type:string,name:string,value:string}[]>(
-    [{
-        name:"CreatedDate",
-        type:'Date',
-        value:null
-    }]
+const [filter, setFilter] = useState<{filtring:{type:string,name:string,value:string}[]}>(
+  {filtring:[{
+    name:"CreatedDate",
+    type:'Date',
+    value:null
+}]}
 );
 const {
     page,
     itemPerPage,
     goToNextPage,
     goToPrevPage,
-} = useGetPagedData(Service, 0, 10,{filtring:filter},setListData);
+} = useGetPagedData(Service, 0, 10,filter,setListData);
   return (
     <>
       <div className="row p-0 m-0 justify-content-center">
@@ -61,8 +61,14 @@ const {
               </>
             );
           })}
+                  <div className={`${styles['new_footer']}`}>
+                <button id={"next"} className={`btn ${styles['next-btn']}`} onClick={goToNextPage} disabled={listData && listData?.length < itemPerPage}>next</button>
+                <button id={"prev"} className={`btn ${styles['prev-btn']}`} onClick={goToPrevPage} disabled={page == 0}>prev</button>
+            </div>
         </div>
+
       </div>
+
     </>
   );
 };

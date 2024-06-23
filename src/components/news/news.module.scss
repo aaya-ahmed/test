@@ -1,3 +1,4 @@
+@import '../shared/color.scss';
 .sec-news{
     padding: 0 0 2rem 0;
 }
@@ -210,4 +211,20 @@
         }
     
     }
+}
+.next-btn,.prev-btn{
+    border-radius: 0;
+    outline: none;
+    border: none;
+}
+.next-btn{
+    background-color: $backgroundcolor_lite_yellow!important;
+}
+.prev-btn{
+    background-color: $backgroundcolor_brown!important;
+}
+.new_footer{
+    display: flex;
+    justify-content: end;
+    padding: 0.3rem 1rem;
 }

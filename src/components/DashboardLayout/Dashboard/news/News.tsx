@@ -25,7 +25,7 @@ const NewsComponent = () => {
             <section >
                 <div className={`${styles['sec-new']}`}>
                     {!ShowForm && <div className={`${styles['btn-group']}`}>
-                        <button className={`btn btn-success`}  onClick={() => SetShowForm(true)}>Add</button>
+                        <button className={`btn btn-success`}  onClick={() => {SetData(null);SetShowForm(true)}}>Add</button>
                         <button className={`btn btn-warning`} disabled={!data} onClick={() => SetShowForm(true)}>Edit</button>
                         <button className={`btn btn-danger`} disabled={!data} onClick={confirmDelete}>Delete</button>
                     </div>}

@@ -15,7 +15,7 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
       }
     })();
       
-  }, [page,initialItemsPerPage]);
+  }, [page,initialItemsPerPage,filter]);
 
 
   const goToNextPage = () => {

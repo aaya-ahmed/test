@@ -24,7 +24,7 @@
     position: relative;
 }
 .news-item-slider:hover .swiper-button-prev, .news-slider:hover .swiper-button-prev, .project-slider:hover .swiper-button-prev {
-    right: 10px;
+    right: 50px;
 }
 .news-item-slider .swiper-button-prev, .news-slider .swiper-button-prev, .project-slider .swiper-button-prev {
     right: -50px;
