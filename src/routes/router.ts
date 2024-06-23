@@ -44,7 +44,7 @@ export const routers:IRouter[] = [
         path:'/',
         routes: [
             {
-                path:'/',
+                path:'',
                 component:home,
                 name:'الصفحه الرئيسيه',
                 protected:false
