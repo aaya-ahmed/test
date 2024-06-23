@@ -5,10 +5,11 @@ import { Navigation } from "swiper/modules";
 import { useGetPagedData } from "../../../hooks/getpageddata";
 import NewService from "../../../services/news.service";
 const Service = new NewService();
-const {
-    listData,
-} = useGetPagedData(Service, 0, 10);
+
 const NewsComponent = () => {
+    const {
+        listData,
+    } = useGetPagedData(Service, 0, 10);
 
     return (<>
         <section className="sec-news sec-news-background">
@@ -16,7 +17,7 @@ const NewsComponent = () => {
                 <div className="sec-title text-center mb-5">
                     <strong className="h1 fw-bold d-block text-title"> الأخبار </strong>
                 </div>
-                <Swiper
+                {/* <Swiper
                     modules={[Navigation]}
                     spaceBetween={50}
                     breakpoints={{
@@ -64,7 +65,7 @@ const NewsComponent = () => {
                             </>
                         );
                     })}
-                </Swiper>
+                </Swiper> */}
             </div>
 
         </section>
