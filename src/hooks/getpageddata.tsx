@@ -8,9 +8,9 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
   useEffect(() => {
     console.log(filter)
       try {
-        const res = service.GetPaged(page, itemPerPage,filter);
-        setListData(res);
-        console.log(res)
+        service.GetPaged(page, itemPerPage,filter).then(
+          res=>{setListData(res);console.log(res)}
+        );
       } catch (error) {
         // Handle error
       }
