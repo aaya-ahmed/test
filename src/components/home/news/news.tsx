@@ -8,17 +8,14 @@ const Service = new NewService();
 
 const NewsComponent = () => {
     const[listData,setListData]=useState<any[]>([]);
-
-    const {
-    } = useGetPagedData(Service, 0, 10,[],setListData);
-
+    useGetPagedData(Service, 0, 10,[],setListData);
     return (<>
         <section className="sec-news sec-news-background">
             <div className="container">
                 <div className="sec-title text-center mb-5">
                     <strong className="h1 fw-bold d-block text-title"> الأخبار </strong>
                 </div>
-                {/* <Swiper
+                <Swiper
                     modules={[Navigation]}
                     spaceBetween={50}
                     breakpoints={{
@@ -66,7 +63,7 @@ const NewsComponent = () => {
                             </>
                         );
                     })}
-                </Swiper> */}
+                </Swiper>
             </div>
 
         </section>
