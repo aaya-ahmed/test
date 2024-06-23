@@ -8,14 +8,14 @@ type ContactsReasonListProp = {
 }
 const ContactsReasonListComponent = ({ setData }: ContactsReasonListProp) => {
 
+    const[listData,setListData]=useState<any[]>([]);
 
     const {
         page,
         itemPerPage,
-        listData,
         goToNextPage,
         goToPrevPage,
-    } = useGetPagedData(Service, 0, 10);
+    } = useGetPagedData(Service, 0, 10,[],setListData);
     return <>
         <div className="row w-100">
             {listData?.map((item, i) => {

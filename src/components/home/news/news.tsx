@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './news.css'
 import { Navigation } from "swiper/modules";
@@ -7,9 +7,10 @@ import NewService from "../../../services/news.service";
 const Service = new NewService();
 
 const NewsComponent = () => {
+    const[listData,setListData]=useState<any[]>([]);
+
     const {
-        listData,
-    } = useGetPagedData(Service, 0, 10);
+    } = useGetPagedData(Service, 0, 10,[],setListData);
 
     return (<>
         <section className="sec-news sec-news-background">

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 10,filter=[]) => {
+export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 10,filter=[],setListData) => {
   const [page, setPage] = useState(initialPage);
   const [itemPerPage, setItemPerPage] = useState(initialItemsPerPage);
-  const [listData, setListData] = useState([]);
 
   useEffect(() => {
     console.log(filter)
@@ -21,9 +20,7 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
 
 
   const goToNextPage = () => {
-    if (listData.length === itemPerPage) {
       setPage(page + 1);
-    }
   };
 
   const goToPrevPage = () => {
@@ -35,7 +32,6 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
   return {
     page,
     itemPerPage,
-    listData,
     goToNextPage,
     goToPrevPage,
   };

@@ -5,6 +5,8 @@ import { useGetPagedData } from '../../hooks/getpageddata';
 import NewService from '../../services/news.service';
 const Service = new NewService();
 const NewsList = ({ GoToNew }: { GoToNew: (item: any) => void }) => {
+  const[listData,setListData]=useState<any[]>([]);
+
   const [filter, setFilter] = useState<{type:string,name:string,value:string}[]>(
     [{
         name:"CreatedDate",
@@ -15,10 +17,9 @@ const NewsList = ({ GoToNew }: { GoToNew: (item: any) => void }) => {
 const {
     page,
     itemPerPage,
-    listData,
     goToNextPage,
     goToPrevPage,
-} = useGetPagedData(Service, 0, 10,filter);
+} = useGetPagedData(Service, 0, 10,filter,setListData);
   return (
     <>
       <div className="row p-0 m-0 justify-content-center">
