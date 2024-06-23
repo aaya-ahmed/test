@@ -19,7 +19,7 @@ const {
     itemPerPage,
     goToNextPage,
     goToPrevPage,
-} = useGetPagedData(Service, 0, 10,filter,setListData);
+} = useGetPagedData(Service, 0, 10,{filtring:filter},setListData);
   return (
     <>
       <div className="row p-0 m-0 justify-content-center">

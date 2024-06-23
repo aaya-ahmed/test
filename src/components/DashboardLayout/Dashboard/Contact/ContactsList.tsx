@@ -23,7 +23,7 @@ const ContactsListComponent = () => {
         itemPerPage,
         goToNextPage,
         goToPrevPage,
-    } = useGetPagedData(Service, 0, 10, filter,setListData);
+    } = useGetPagedData(Service, 0, 10, {filtring:filter},setListData);
     const [message, setMessage] = useState<any>();
     const [reasons, setReasons] = useState<any[]>()
     useEffect(() => {

@@ -15,7 +15,7 @@ const ContactsReasonListComponent = ({ setData }: ContactsReasonListProp) => {
         itemPerPage,
         goToNextPage,
         goToPrevPage,
-    } = useGetPagedData(Service, 0, 10,[],setListData);
+    } = useGetPagedData(Service, 0, 10,{filtring:[]},setListData);
     return <>
         <div className="row w-100">
             {listData?.map((item, i) => {

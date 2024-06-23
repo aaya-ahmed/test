@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 10,filter=[],setListData) => {
+export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 10,filter={filtring:[]},setListData) => {
   const [page, setPage] = useState(initialPage);
   const [itemPerPage, setItemPerPage] = useState(initialItemsPerPage);
 
@@ -8,14 +8,14 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
     (async function get(){
       try {
         console.log(filter)
-        const result=await service.GetPaged(page, itemPerPage,filter);
+        const result=await service.GetPaged(page, itemPerPage,filter.filtring);
         setListData(result);console.log(result)
       } catch (error) {
         // Handle error
       }
     })();
       
-  }, [page,itemPerPage,filter]);
+  }, [page,initialItemsPerPage]);
 
 
   const goToNextPage = () => {
