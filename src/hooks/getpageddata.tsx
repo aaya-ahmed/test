@@ -7,17 +7,13 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
 
   useEffect(() => {
     console.log(filter)
-    const fetchData = async () => {
       try {
-        const res = await service.GetPaged(page, itemPerPage,filter);
+        const res = service.GetPaged(page, itemPerPage,filter);
         setListData(res);
         console.log(res)
       } catch (error) {
         // Handle error
       }
-    };
-
-    fetchData();
   }, [page, itemPerPage,filter]);
 
   const goToNextPage = () => {
