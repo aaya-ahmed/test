@@ -5,10 +5,11 @@ import { Navigation } from "swiper/modules";
 import { useGetPagedData } from "../../../hooks/getpageddata";
 import NewService from "../../../services/news.service";
 const Service = new NewService();
+const {
+    listData,
+} = useGetPagedData(Service, 0, 10);
 const NewsComponent = () => {
-    const {
-        listData,
-    } = useGetPagedData(Service, 0, 10);
+
     return (<>
         <section className="sec-news sec-news-background">
             <div className="container">

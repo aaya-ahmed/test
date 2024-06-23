@@ -11,6 +11,7 @@ export const useGetPagedData = (service,initialPage = 0, initialItemsPerPage = 1
         service.GetPaged(page, itemPerPage,filter).then(
           res=>{setListData(res);console.log(res)}
         );
+
       } catch (error) {
         // Handle error
       }
