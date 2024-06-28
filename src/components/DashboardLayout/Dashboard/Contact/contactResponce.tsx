@@ -1,5 +1,5 @@
-import ContactUsService from "../../../../services/contact.service";
 import { useForm } from "react-hook-form";
+import ContactUsService from "@services/contact.service";
 
 const ResponceComponent = ({ message,setMessage }: { message: any,setMessage:(data:any)=>void }) => {
     const{

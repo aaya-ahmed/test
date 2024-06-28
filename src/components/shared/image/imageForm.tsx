@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import styles from './image.module.scss'
-import { status } from "const/status"
+import { status } from "../../../const/status"
 import upload from './upload.jpg';
 export const ImageFormComponent = ({ images, setImage}: {
     images: {
@@ -50,7 +50,7 @@ export const ImageFormComponent = ({ images, setImage}: {
                     {item.status!=status.Delete&&
                         (
                             <div className={`${styles['image']}`}>
-                                <img src={item.file ? URL.createObjectURL(item.file) : process.env.REACT_APP_baseImageUrl + item.attachmentUrl} />
+                                <img src={item.file ? URL.createObjectURL(item.file) : import.meta.env.VITE_baseImageUrl + item.attachmentUrl} />
                                 <button type="button" onClick={() => RemoveFromImages(item.id)}>
                                     <i className="fa fa-trash"></i>
                                 </button>

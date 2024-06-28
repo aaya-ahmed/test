@@ -31,7 +31,7 @@ const {
                   <div className="item_wrapper">
                     <div className={`${styles['blog_content']}`}>
                       <div className={`${styles['blog_post_media']}`}>
-                      <img src={`${process.env.REACT_APP_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`}/>
+                      <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`}/>
                       </div>
                       <div className={`${styles['content']}`}>
                         <h2 className={`${styles['blogpost_title']} my-2`}>

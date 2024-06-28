@@ -20,7 +20,7 @@ const NewsItem = ({item,setShow}:{item:any,setShow:(show:boolean)=>void}) => {
                                {item.description}
                             </div>
                             <div className={`${styles['post_media']} ${styles['blog_post_media-new']}`}>
-                                <img src={`${process.env.REACT_APP_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`}/>
+                                <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`}/>
                             </div>
 
                             </div>
@@ -40,7 +40,7 @@ const NewsItem = ({item,setShow}:{item:any,setShow:(show:boolean)=>void}) => {
                                    {item.attachments.map((item,i)=>{
                                     return (
                                     <SwiperSlide>
-                                    <img src={`${process.env.REACT_APP_baseImageUrl}${item.attachmentUrl}`}/>
+                                    <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachmentUrl}`}/>
 
                                     </SwiperSlide>)
                                    })}

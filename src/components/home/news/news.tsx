@@ -46,7 +46,7 @@ const NewsComponent = () => {
                                     <div className="newitem">
                                         <div className="newimg">
                                             <a href="#">
-                                            <img className="img-fluid" src={`${process.env.REACT_APP_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`} alt={item.title}/>
+                                            <img className="img-fluid" src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0].attachmentUrl}`} alt={item.title}/>
                                                 <i className="fas fa-external-link-alt fa-lg"></i>
                                             </a>
                                         </div>

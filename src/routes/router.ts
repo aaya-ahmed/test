@@ -37,7 +37,12 @@ const LastNews=lazy(
 const Inquiry=lazy(
     ()=>import('../components/inquiry/inquiry')
 );
-
+const projectFeatures=lazy(
+    ()=>import('../components/DashboardLayout/Dashboard/ProjectFeatures/project-feature')
+);
+const projects=lazy(
+    ()=>import('../components/DashboardLayout/Dashboard/Projects/projects')
+);
 export const routers:IRouter[] = [
     {
         layout: MainLayout,
@@ -110,15 +115,15 @@ export const routers:IRouter[] = [
                     protected:false
                 },
                 {
-                    path:'FeatureUnit',
-                    component:login,
-                    name:'مميزات الوحدات',
+                    path:'FeatureProject',
+                    component:projectFeatures,
+                    name:'مميزات المشاريع',
                     protected:true
                 },
                 {
-                    path:'FeatureProject',
-                    component:login,
-                    name:'مميزات المشاريع',
+                    path:'Projects',
+                    component:projects,
+                    name:'المشاريع',
                     protected:true
                 },
             ]

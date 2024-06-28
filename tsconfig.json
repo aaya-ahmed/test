@@ -3,19 +3,21 @@
     "baseUrl": "src",
     "paths": {
       "@src/*": ["/*"],
-      "@components/*": ["components/*"],
-      "@assets/*": ["assets/*"],
-      "@context/*": ["context/*"],
-      "@helpers/*": ["helpers/*"],
-      "@hooks/*": ["hooks/*"],
-      "@routes/*": ["routes/*"],
-      "@services/*": ["services/*"],
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./assets/*"],
+      "@context/*": ["./context/*"],
+      "@helpers/*": ["./helpers/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@routes/*": ["./routes/*"],
+      "@services/*": ["./services/*"],
       "@localization/*": ["localization/*"],
-      "@models/*": ["models/*"],
-      "@shared/*": ["components/shared/*"],
-      "@types/*": ["components/types/*"]
+      "@models/*": ["./models/*"],
+      "@shared/*": ["./components/shared/*"],
+      "@types/*": ["./components/types/*"]
     },
     "target": "ESNext",
+    //vite
+    "types": ["vite/client"],
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
@@ -31,6 +33,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "src/services"],
   "exclude": ["node_modules"]
 }

@@ -1,8 +1,6 @@
 
-import Home from '../home/home.tsx';
 import routers from '../../routes/router.ts';
-import { BrowserRouter, Route, Routes, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import MainLayout from '../UserLayout/MainLayout/main-layout.tsx';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import { Suspense } from 'react';
 
 
