@@ -8,6 +8,8 @@
 }
 .navbar-sticky .navbar-brand img.no_sticky {
     display: block;
+    width: 200px;
+    height: 200px;
 }
 .navbar-sticky.sticky .navbar-brand img.no_sticky {
     display: none;
@@ -33,7 +35,7 @@ a, a:hover {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-    color: white;
+    color: $color_yellow;
     font-weight: 600;
     padding-left: 20px;
     padding-right: 20px;
@@ -80,9 +82,7 @@ a, a:hover {
     z-index: 20;
     animation: goDown 0.5s ease-in-out forwards;
 }
-.navbar-nav .nav-item .nav-link:hover{
-    color:white!important;
-}
+
 .navbar-sticky.sticky{
     .container{
         align-items: center!important;
@@ -92,9 +92,6 @@ a, a:hover {
         .header_actions{
             margin: 0!important;
         }
-    }
-    .nav-link {
-        color:$color_gray!important;
     }
 }
 @media (min-width:991.99px){
@@ -147,7 +144,7 @@ a, a:hover {
         top: 0;
         right: 0px;
         z-index: 9999;
-        background-color: #121212;
+        background-color: white;
         padding: 3rem 1rem;
         padding-top: 1.5rem;
         height: 100vh;
@@ -161,7 +158,7 @@ a, a:hover {
         left: 10px;
         top: 15px;
         z-index: 9;
-        color: white;
+        color: $color_green;
         cursor: pointer;
 
     }

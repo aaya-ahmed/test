@@ -25,9 +25,9 @@ const ContactsReasonComponent = () => {
             <section >
                 <div className={`${styles['sec-ContactReason']}`}>
                     {!ShowForm && <div className={`${styles['btn-group']}`}>
-                        <button className={`btn btn-success`} disabled={data} onClick={() => {SetData(null);SetShowForm(true)}}>Add</button>
-                        <button className={`btn btn-warning`} disabled={!data} onClick={() => SetShowForm(true)}>Edit</button>
-                        <button className={`btn btn-danger`} disabled={!data} onClick={confirmDelete}>Delete</button>
+                        <button className={`btn btn-success`} disabled={data} onClick={() => {SetData(null);SetShowForm(true)}}>إضافه</button>
+                        <button className={`btn btn-warning`} disabled={!data} onClick={() => SetShowForm(true)}>تعديل</button>
+                        <button className={`btn btn-danger`} disabled={!data} onClick={confirmDelete}>حذف</button>
                     </div>}
 
                     {ShowForm && <ContactsReasonFormComponent setShowForm={SetShowForm} data={data} setData={SetData}/>}

@@ -8,7 +8,7 @@ ul{
     padding: 0;
 }
 .title strong {
-    color: #c1970e;
+    color: $color_yellow;
 }
 .project-item {
     position: relative;
@@ -79,10 +79,10 @@ a, a:hover {
     padding: 5px;
 }
 .col-lg-4:nth-child(odd) .project-badge .project-place,.col-lg-4:nth-child(odd)  .construction-badge {
-    background-color: #c1970e;
+    background-color: $color_yellow;
 }
 .col-lg-4:nth-child(even) .project-badge .project-place,.col-lg-4:nth-child(even) .construction-badge {
-    background-color: #9aa6a6;
+    background-color: $color_green;
 }
 .project-item .project-badge .sale-badge {
     color: #fff;
@@ -176,11 +176,11 @@ a, a:hover {
     margin-bottom: 1rem;
 }
 .col-lg-4:nth-child(odd) .project-info::after{
-    background-color: #c1970e;
+    background-color: $color_yellow;
 
 }
 .col-lg-4:nth-child(even) .project-info::after{
-    background-color: #9aa6a6;
+    background-color: $color_green;
 }
 
 /* @media(max-width:700px){
@@ -202,16 +202,16 @@ a, a:hover {
 
  }
  .col-lg-4:nth-child(odd) .project-footer{
-    background-color: #c1970e;
+    background-color: $color_yellow;
  }
  .col-lg-4:nth-child(even) .project-footer{
-    background-color: #9aa6a6;
+    background-color: $color_green;
  }
  .col-lg-4:nth-child(odd) .project-info{
-    background-color: #c1970e;
+    background-color: $color_yellow;
  }
  .col-lg-4:nth-child(even) .project-info{
-    background-color: #9aa6a6;
+    background-color: $color_green;
  }
  .project-footer ul{
     margin: 0;

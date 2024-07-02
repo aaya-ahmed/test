@@ -22,18 +22,20 @@ const HeaderBanner = () => {
                         </video>
                         <div className={`${styles['banner-content']}`}>
                             <div className="container">
-                                <strong className="h1 d-block">  المحيسني <span>  </span>
-                                </strong>
-                                <p> الرائدة في مجال الاستثمار
-                                والتطوير والتسويق العقاري </p>
-                                <div className="d-flex align-items-center justify-content-lg-start justify-content-md-start justify-content-center mt-5">
+                                {/* <strong className="h1 d-block">  المحيسني <span>  </span>
+                                </strong> */}
+                                <div className="d-flex align-items-center justify-content-lg-start justify-content-md-start justify-content-center my-5">
                                     <a id="play-video" className={`${styles['play-button']}`} href="/assets/videos/001.mp4" aria-label="play-video" data-fancybox="">
                                         <i className="fas fa-play"></i>
                                     </a>
-                                    <a href="#" className={`btn btn-primary ms-5 fw-bold btn_reg_fav rounded-5 ${styles['btn-yellow']}`}>
-                                        اكتشف مشاريعنا
+                                    <a href="#">
+                                    <img src="/assets/images/logo1.gif" className={`${styles['img-fluid']}`} alt="Logo" width={'250px'} height={'180px'}/>
+
                                     </a>
                                 </div>
+                                <p> الرائدة في مجال الاستثمار
+                                والتطوير والتسويق العقاري </p>
+                               
                             </div>
                         </div>
                     </div>

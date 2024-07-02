@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styles from './project.module.css'
+import styles from './project.module.scss'
 
 const ProjectComponent = () => {
     return (<>

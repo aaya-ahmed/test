@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import FeatureProjectService from "../../../../services/feature-project.service";
 import uploadimage from "./upload.jpg";
 import { status } from "../../../../const/status";
-import FeatureService from "@services/feature.service";
-
+import FeatureService from "../../../../services/feature.service";
 type ProjectFeatureFormProp = {
     setShowForm: (data: boolean) => void,
     data: any,
@@ -15,6 +14,7 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
     const [features, setFeatures] = useState<any[]>([]);
     const [file, setFile] = useState<File>(null);
     const [selecteditem, setSelecteditem] = useState<any>();
+    const [valueIcon, setValueIcon] = useState<any>();
     const [featureName, setFeatureName] = useState<string>('');
     useEffect(() => {
         if (data) {
@@ -147,6 +147,7 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
         setSelecteditem(null);
         (document.getElementById('featureName') as any).value = '';
     }
+    useEffect(()=>{console.log(valueIcon)},[valueIcon])
     return (
         <>
             <form method='post' onSubmit={handleSubmit(Submit)} className={`mb-5 p-4 bg-white rounded-3`}>

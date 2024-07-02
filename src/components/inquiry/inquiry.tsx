@@ -1,22 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form';
 import './inquiry.scss'
 import Breadcrumb from "../shared/breadcrumb/breadcrumb";
+import InterestedService from "../../services/interested.service";
+import ProjectService from "../../services/projects.service";
 const Inquiry = () => {
+    const [projects, setProjects] = useState<any[]>([]);
+    useEffect(() => {
+        new ProjectService().Get().then(
+            res => {
+                setProjects(res)
+            }
+        )
+    }, []);
     const {
         register,
         handleSubmit,
         formState: { errors },
-        
+        reset
     } = useForm({mode:'onBlur'});
-    const Submit=(data)=>{console.log(data)}
+    const submit=(e)=>{
+        new InterestedService().Post(e).then(
+            res=>{
+                reset();
+                
+            }
+        )
+    }
     return (<>
         <div className={`${'sec-title'} text-center`}>
           <strong className={`h1 fw-bold d-block ${'text-title'} `}>
-            الأخبار
+            سجل اهتمامك
           </strong>
         </div>
-    <Breadcrumb path={[{name:'home',href:'/home'},{name:'inquiry',href:'/inquiry'}]} />
+    <Breadcrumb path={[{name:'الصفحه الرئيسيه',href:'/home'},{name:'سجل اهتمامك',href:'/inquiry'}]} />
         <div className="contact-page py-5">
 
             <div className="container">
@@ -25,7 +42,7 @@ const Inquiry = () => {
                         <div className="text-center mb-5">
                             <strong className="h4 d-block"> سجل اهتمامك  </strong>
                         </div>
-                        <form onSubmit={handleSubmit(Submit)} className="mt-4" style={{ border: "1px solid #ddd", padding: "20px", boxShadow: "#ddd" }}>
+                        <form onSubmit={handleSubmit(submit)} className="mt-4" style={{ border: "1px solid #ddd", padding: "20px", boxShadow: "#ddd" }}>
                             <div className="row">
                                 <div className="col-12 mb-4">
                                     <input type="text"
@@ -51,69 +68,15 @@ const Inquiry = () => {
 
                                 <div className="col-12 mb-4">
                                     <select
-                                        {...register('project_id', { required: true })}
+                                        {...register('projectId', { required: true })}
                                         className="form-control">
-                                        <option value="">اختر المشروع </option>
-
-                                        <option value="4">مكين 34 - حي العارض  </option>
-
-                                        <option value="5">مكين 30 - حي قرطبة  </option>
-
-                                        <option value="6">مكين 31 - حي اليرموك  </option>
-
-                                        <option value="7">مكين 32 - حي اليرموك  </option>
-
-                                        <option value="8">مكين 35 - حي العارض  </option>
-
-                                        <option value="9">مكين 36 - حي العارض  </option>
-
-                                        <option value="10">مكين 37 - حي العارض  </option>
-
-                                        <option value="11">مكين 38 - حي الياسمين  </option>
-
-                                        <option value="12">مكين 39 - حي الرمال  </option>
-
-                                        <option value="13">مكين 50 - حي العارض  </option>
-
-                                        <option value="14">مكين 42 - حي الرمال  </option>
-
-                                        <option value="15">مكين 46 - حي النرجس  </option>
-
-                                        <option value="16">مكين 47 - حي العارض  </option>
-
-                                        <option value="17">مكين 48 - حي جرير  </option>
-
-                                        <option value="21">مكين 28 - حي الملقا  </option>
-
-                                        <option value="22">مكين 27 - حي الياسمين  </option>
-
-                                        <option value="23">مكين 26 - حي الازدهار  </option>
-
-                                        <option value="24">مكين 25 - حي الملقا  </option>
-
-                                        <option value="25">مكين 24 - حي العقيق  </option>
-
-                                        <option value="26">مكين 19 - حي الملقا  </option>
-
-                                        <option value="27">مكين 18 - حي القيروان  </option>
-
-                                        <option value="28">مكين 17 - حي الملقا  </option>
-
-                                        <option value="29">مكين 15 - حي حطين  </option>
-
-                                        <option value="30">مكين 13 - حي الملقا  </option>
-
-                                        <option value="31">مكين 12 - حي الملقا  </option>
-
-                                        <option value="33">مكين 52 - حي العارض  </option>
-
-                                        <option value="34">مكين 53 - حي الياسمين  </option>
-
-                                        <option value="35">مكين 54 - حي الياسمين  </option>
-
-                                        <option value="36">مكين 56 - حي العارض  </option>
-
-                                        <option value="38">مكين 51 - حي الحمراء  </option>
+                                        {
+                                            projects.map((item,i)=>{
+                                                return <>
+                                                <option value={item.id}>{item.name}</option>
+                                                </>
+                                            })
+                                        }
                                     </select>
                                     {errors?.project_id?.type=='required'&&<p>this field is required</p>}
                                 </div>
@@ -122,7 +85,7 @@ const Inquiry = () => {
                                     <textarea
                                         className="form-control"
                                         placeholder="اكتب ملاحظاتك ..."
-                                        {...register('message', { required: true, maxLength: 500 })}
+                                        {...register('description', { required: true, maxLength: 500 })}
                                     ></textarea>
                                     {errors?.message?.type=='required'&&<p>this field is required</p>}
                                     {errors?.message?.type=='maxLength'&&<p>this field max length is 50 character</p>}

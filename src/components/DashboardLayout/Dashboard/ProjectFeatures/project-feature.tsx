@@ -29,7 +29,7 @@ export default function ProjectFeaturesComponent(){
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12">
-                            <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: "/" }, { name: 'اسباب التواصل', href: '' }]} />
+                            <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: "/" }, { name: 'مميزات المشروع', href: '' }]} />
                         </div>
                     </div>
                 </div>
@@ -37,11 +37,11 @@ export default function ProjectFeaturesComponent(){
             <section >
                 <div className={`${styles['sec-ContactReason']}`}>
                     {!ShowForm && <div className={`${styles['btn-group']}`}>
-                        <button className={`btn btn-success`} disabled={data} onClick={() => {SetData(null);SetShowForm(true)}}>Add</button>
-                        <button className={`btn btn-warning`} disabled={!data} onClick={() => SetShowForm(true)}>Edit</button>
+                        <button className={`btn btn-success`} disabled={data} onClick={() => {SetData(null);SetShowForm(true)}}>إضافه</button>
+                        <button className={`btn btn-warning`} disabled={!data} onClick={() => SetShowForm(true)}>تعديل</button>
                         <button className={`btn btn-danger`} disabled={!data} 
                         onClick={confirmDelete}
-                        >Delete</button>
+                        >حذف</button>
                     </div>}
 
                     {ShowForm && <ProjectFeatureForm setShowForm={SetShowForm} data={data} setData={SetData}/>}

@@ -1,19 +1,18 @@
-import styles from './Contact.module.scss'
+import styles from './Interested.module.scss'
 import { Fragment, useEffect, useState } from "react";
-import ContactUsService from '../../../../services/contact.service';
 import { useGetPagedData } from '../../../../hooks/getpageddata';
 import Breadcrumb from '../../../../components/shared/breadcrumb/breadcrumb';
-import ResponceComponent from './contactResponce';
-import ContactReasonService from '../../../../services/contact-reason.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-const Service = new ContactUsService();
+import InterestedService from '../../../../services/interested.service';
+import InterestedComponent from './InterestedResponce';
+const Service = new InterestedService();
 
-const ContactsListComponent = () => {
+const InterestedsListComponent = () => {
 
     const [filter, setFilter] = useState<{filtring:{type:string,name:string,value:string}[]}>(
         {filtring:[{
-            name: "ContactReasonId",
+            name: "ProjectId",
             type: 'Number',
             value: null
         }]}
@@ -28,7 +27,7 @@ const ContactsListComponent = () => {
     const [message, setMessage] = useState<any>();
     const [reasons, setReasons] = useState<any[]>()
     useEffect(() => {
-        new ContactReasonService().Get().then(
+        new InterestedService().Get().then(
             res => {
                 setReasons(res)
             }
@@ -68,7 +67,7 @@ const ContactsListComponent = () => {
                             <div className={`${styles['contact-body']}`}>
                                 <p className={"d-flex justify-content-between"}>
                                     <strong>{item?.name}</strong>
-                                    <i>{item?.contactReasonName}</i>
+                                    <i>{item?.phone}</i>
                                 </p>
                                 <p>{item?.description}</p>
                             </div>
@@ -82,7 +81,7 @@ const ContactsListComponent = () => {
             </div>
         </div>
 
-        {message && <ResponceComponent message={message} setMessage={setMessage} />}
+        {message && <InterestedComponent message={message} setMessage={setMessage} />}
     </>
 }
-export default ContactsListComponent;
+export default InterestedsListComponent;

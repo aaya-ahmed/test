@@ -1,11 +1,11 @@
 import Breadcrumb from '../../../shared/breadcrumb/breadcrumb';
 import { useState } from 'react';
-import styles from './News.module.scss'
-import NewsListComponent from './NewsList';
-import NewService from '../../../../services/news.service';
-import NewsFormComponent from './NewsForm';
-const Service = new NewService();
-const NewsComponent = () => {
+import styles from '../news/News.module.scss'
+import UnitService from '../../../../services/units.service';
+import UnitsFormComponent from './unit-form';
+import UnitsListComponent from './unit-list';
+const Service = new UnitService();
+const UnitsComponent = () => {
     const [ShowForm, SetShowForm] = useState<boolean>(false)
     const [data, SetData] = useState<any>(null)
     const confirmDelete = () => {
@@ -17,7 +17,7 @@ const NewsComponent = () => {
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12">
-                            <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: '/' }, { name: 'الاخبار', href: '' }]} />
+                            <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: '/' }, { name: 'الوحدات', href: '' }]} />
                         </div>
                     </div>
                 </div>
@@ -30,11 +30,15 @@ const NewsComponent = () => {
                         <button className={`btn btn-danger`} disabled={!data} onClick={confirmDelete}>حذف</button>
                     </div>}
 
-                    {ShowForm && <NewsFormComponent setData={SetData} setShowForm={SetShowForm} data={data} />}
-                    {!ShowForm && <NewsListComponent setData={SetData} data={data}/>}
+                    {ShowForm && <UnitsFormComponent
+                     setData={SetData} setShowForm={SetShowForm} data={data} 
+                    />}
+                    {!ShowForm && <UnitsListComponent 
+                    setData={SetData} data={data}
+                  />}
                 </div>
             </section>
         </>
     );
 };
-export default NewsComponent;
+export default UnitsComponent;

@@ -18,7 +18,7 @@ const ProjectsComponent = () => {
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12">
-                            <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: '/' }, { name: 'الاخبار', href: '' }]} />
+                            <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: '/' }, { name: 'المشاريع', href: '' }]} />
                         </div>
                     </div>
                 </div>
@@ -26,9 +26,9 @@ const ProjectsComponent = () => {
             <section >
                 <div className={`${styles['sec-new']}`}>
                     {!ShowForm && <div className={`${styles['btn-group']}`}>
-                        <button className={`btn btn-success`}  onClick={() => {SetData(null);SetShowForm(true)}}>Add</button>
-                        <button className={`btn btn-warning`} disabled={!data} onClick={() => SetShowForm(true)}>Edit</button>
-                        <button className={`btn btn-danger`} disabled={!data} onClick={confirmDelete}>Delete</button>
+                        <button className={`btn btn-success`}  onClick={() => {SetData(null);SetShowForm(true)}}>إضافه</button>
+                        <button className={`btn btn-warning`} disabled={!data} onClick={() => SetShowForm(true)}>تعديل</button>
+                        <button className={`btn btn-danger`} disabled={!data} onClick={confirmDelete}>حذف</button>
                     </div>}
 
                     {ShowForm && <ProjectsFormComponent

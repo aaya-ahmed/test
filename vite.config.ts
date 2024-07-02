@@ -1,9 +1,9 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
-
+import viteTsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
-    plugins:[react()],
+    plugins:[react(),viteTsconfigPaths()],
     server:{
         port:3000,
         open:true

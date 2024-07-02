@@ -38,8 +38,8 @@ export default function ProjectFeatureList({setData,filter}:ProjectFeatureListPr
         </div>
         {project&&<FeaturesComponent project={project} setProject={setProject}/>}
         <div className={`${styles['ContactsReason_footer']}`}>
-            <button id={"next"} className={`btn ${styles['next-btn']}`} onClick={goToNextPage} disabled={listData&&listData?.length < itemPerPage}>next</button>
-            <button id={"prev"} className={`btn ${styles['prev-btn']}`} onClick={goToPrevPage} disabled={page == 0}>prev</button>
+            <button id={"next"} className={`btn ${styles['next-btn']}`} onClick={goToNextPage} disabled={listData&&listData?.length < itemPerPage}>التالي</button>
+            <button id={"prev"} className={`btn ${styles['prev-btn']}`} onClick={goToPrevPage} disabled={page == 0}>السابق</button>
         </div>
     </>
 }
