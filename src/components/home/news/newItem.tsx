@@ -11,11 +11,12 @@ import NewService from '../../../services/news.service';
 const NewsItemMain = () => {
     const { id } = useParams();
     const[item,setItem]=useState<any>();
+    const[imagesNew,setImagesNew]=useState<any>();
     useEffect(()=>{
-        console.log(id)
         new NewService().GetById(+id).then(
             res=>{
                 setItem(res)
+                setImagesNew(res.attachments.filter(p=>!p.isMain))
             }
         )
     },[id])
@@ -46,7 +47,7 @@ const NewsItemMain = () => {
 
 
                                 </div>
-                                {item?.attachments && (<div className={`${styles['post_media']} ${styles['blog_post_media-new']} w-100  my-5`}>
+                                {imagesNew&& (<div className={`${styles['post_media']} ${styles['blog_post_media-new']} w-100  my-5`}>
                                     <Swiper
                                         slidesPerView={3}
                                         spaceBetween={30}
@@ -59,21 +60,16 @@ const NewsItemMain = () => {
                                         modules={[Autoplay, Pagination]}
 
                                     >
-                                        {item?.attachments.map((item, i) => {
+                                        {imagesNew.map((item, i) => {
                                             return (
                                                 <SwiperSlide>
                                                     <img src={`${import.meta.env.VITE_baseImageUrl}${item?.attachmentUrl}`} />
 
-                                                </SwiperSlide>)
+                                                </SwiperSlide>
+                                                )
                                         })}
                                     </Swiper>
                                 </div>)}
-                                {/* <div className={`${styles['post_footer']} my-5`}>
-                                    <div className="module_button_list">
-                                        <button onClick={() => { setShow(false) }}>{`رجوع >> `}</button>
-
-                                    </div>
-                                </div> */}
                             </div>
                         </div>
                     </div>

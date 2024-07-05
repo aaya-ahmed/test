@@ -4,10 +4,9 @@ const WeComponent = () => {
   return (
     <>
       <section className={`${styles['about']}`}>
-          <div className={`row w-100 align-items-center justify-content-center m-0`}>
-            <div className={`col-lg-6 ${styles['col-lg-5']} ${styles['about-img']}`}>
+            <div className={`${styles['about-img']}`}>
             </div>
-            <div className={`col-lg-6 ${styles['col-lg-6']}`}>
+            <div className={`${styles['about-text']}`}>
               <strong className={`${styles['title']} h2 d-block fw-bold mb-4`}> من نحن ؟ </strong>
               <p>
                 نحن متخصصون في توفير المنتجات العقارية المتوافقة مع مبادئ
@@ -34,7 +33,6 @@ const WeComponent = () => {
                 </div>
               </div>
             </div>
-          </div>
       </section>
     </>
   );

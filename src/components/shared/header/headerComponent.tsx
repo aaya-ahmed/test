@@ -31,7 +31,7 @@ const HeaderComponent = ({ routerList }: { routerList: any[] }) => {
     return (<>
         <header className={`${styles['navigation-header']}`}>
             <nav className={`navbar navbar-sticky navbar-expand-lg ${styles['navbar-sticky']} ${styles['navbar-expand-lg']} ${styles['bg-body-tertiary']} bg-dark py-1`} id="navbar-sticky" data-bs-theme="dark">
-                <div className={`d-flex w-100 justify-content-between mx-5 align-items-start ${styles['container']}`}>
+                <div className={`${styles['container']}`}>
                     <a className={`${styles['navbar-brand']}`} href="/" aria-label="Logo">
                         <img src="/assets/images/logo1.gif" className={`${styles['no_sticky']} ${styles['img-fluid']}`} alt="Logo" />
                         <img src="/assets/images/logo.gif" className={`${styles['sticky_logo']} ${styles['img-fluid']}`} alt="Logo" />

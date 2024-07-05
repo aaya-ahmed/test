@@ -34,7 +34,7 @@
 }
 .sec-new{
     position: relative;
-    margin: 1rem 2rem ;
+    margin: 1rem 2rem 3rem 2rem ;
 
 }
 .new{
@@ -63,7 +63,7 @@
                     -webkit-box-orient: vertical;  
                     -webkit-line-clamp: 4;
                     i{
-                        color:$backgroundcolor_lite_black;
+                        color:$color_brown;
                         font-size: 0.8em;
                     }
                 }
@@ -87,7 +87,7 @@
     }
 }
 .next-btn{
-    background-color: $backgroundcolor_lite_yellow!important;
+    background-color: $backgroundcolor_yellow!important;
 }
 .prev-btn{
     background-color: $backgroundcolor_brown!important;

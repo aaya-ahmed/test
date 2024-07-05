@@ -1,10 +1,22 @@
 @import '../../shared/animation.module.scss';
 @import '../../shared/color.scss';
+.container{
+    width: 100%;
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 .navigation-header {
     position: absolute;
     z-index: 10;
     width: 100%;
     background-color: transparent;
+.navbar-nav{
+    *{
+        overflow-x: hidden;
+    }
+}
 }
 .navbar-sticky .navbar-brand img.no_sticky {
     display: block;
@@ -58,11 +70,7 @@ a:hover {
 .fa-bars-staggered::before, .fa-reorder::before, .fa-stream::before {
     content: "\f550";
 }
-.navbar-toggler i {
-    color: white;
-    font-size: 28px;
-    transition: 0.5s;
-}
+
 
 
 .navbar-sticky{
@@ -229,12 +237,28 @@ a:hover {
     }
 }
 
-@media (max-width: 600px) {
-    .navbar-brand img {
-        max-height: 50px;
-    }
-}
+// @media (max-width: 600px) {
+//     .navbar-brand img {
+//         max-height: 50px;
+//     }
+// }
 @media (max-width: 480px) {
+    .container{
+        flex-direction: column;
+        .navigation-header{
+            text-align: center;
+            img{
+                width: 250px;
+                height: 250px;
+            }
+        }
+        .header_actions{
+            padding: 0 1rem;
+        }
+        .navbar-brand{
+            margin: auto;
+        }
+    }
     .btn_reg_fav {
         font-size: 13px!important;
         margin-left: 0px !important;
@@ -246,7 +270,7 @@ a:hover {
         height: calc(100vh - 58px);
     }
     .banner-content p {
-        font-size: 12px;
+        font-size: 20px;
         text-align: center;
     }
     .play-button i {
@@ -261,8 +285,8 @@ a:hover {
     }
 }
 
-@media (max-width: 353.98px) {
-    .navbar-brand img {
-        max-height: 30px;
-    }
-}
+// @media (max-width: 353.98px) {
+//     .navbar-brand img {
+//         max-height: 30px;
+//     }
+// }

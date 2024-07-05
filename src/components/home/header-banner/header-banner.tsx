@@ -24,12 +24,12 @@ const HeaderBanner = () => {
                             <div className="container">
                                 {/* <strong className="h1 d-block">  المحيسني <span>  </span>
                                 </strong> */}
-                                <div className="d-flex align-items-center justify-content-lg-start justify-content-md-start justify-content-center my-5">
+                                <div className={`${styles['container-box']}`}>
                                     <a id="play-video" className={`${styles['play-button']}`} href="/assets/videos/001.mp4" aria-label="play-video" data-fancybox="">
                                         <i className="fas fa-play"></i>
                                     </a>
-                                    <a href="#">
-                                    <img src="/assets/images/logo1.png" className={`${styles['img-fluid']}`} alt="Logo" width={'280px'} height={'180px'}/>
+                                    <a href="#" className='text-right'>
+                                    <img src="/assets/images/logo1.png" className={`${styles['img-fluid']}`} alt="Logo"/>
 
                                     </a>
                                 </div>

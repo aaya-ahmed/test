@@ -8,7 +8,7 @@
     position: relative;
     z-index: 1;
     margin: auto;
-    border-bottom: 1px solid #f5f5f5;
+    width: 100%;
 }
 .bg_pattern::before, .breadcrumb_area::before {
     content: "";

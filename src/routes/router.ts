@@ -103,6 +103,31 @@ export const routers:IRouter[] = [
         path:'/dashboard',
             routes: [
                 {
+                    path:'FeatureProject',
+                    component:projectFeatures,
+                    name:'مميزات المشاريع',
+                    protected:true
+                },
+                {
+                    path:'Projects',
+                    component:projects,
+                    name:'المشاريع',
+                    protected:true
+                },
+                {
+                    path:'Units',
+                    component:units,
+                    name:'الوحدات',
+                    protected:true
+                },
+                
+                {
+                    path:'LastNews',
+                    component:LastNews,
+                    name:'الاخبار',
+                    protected:false
+                },
+                {
                     path:'ContactReason',
                     component:contactReason,
                     name:'اسباب التواصل',
@@ -121,30 +146,7 @@ export const routers:IRouter[] = [
                     name:'سجل الاهتمامات',
                     protected:true
                 },
-                {
-                    path:'LastNews',
-                    component:LastNews,
-                    name:'الاخبار',
-                    protected:false
-                },
-                {
-                    path:'FeatureProject',
-                    component:projectFeatures,
-                    name:'مميزات المشاريع',
-                    protected:true
-                },
-                {
-                    path:'Projects',
-                    component:projects,
-                    name:'المشاريع',
-                    protected:true
-                },
-                {
-                    path:'Units',
-                    component:units,
-                    name:'الوحدات',
-                    protected:true
-                },
+                
             ]
     },
     {

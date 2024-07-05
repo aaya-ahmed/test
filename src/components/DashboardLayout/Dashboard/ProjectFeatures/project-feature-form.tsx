@@ -170,7 +170,7 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
                         {errors?.name && (<p className='invalid-feedback'>{errors?.name?.message.toString()}</p>)}
                     </div>
                 </div>
-                <div className="col-12 bg-dark text-white mb-2">
+                <div className="col-12 bg-dark text-white mb-2 p-2">
                     <h3>المميزات</h3>
                 </div>
                 <div className="row align-items-end">
@@ -207,14 +207,18 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
                                 </label>
                             </div>
                             {(!selecteditem?.index || (selecteditem?.index != item.index)) && <div className="col-2">
-                                <button className="btn btn-warning mr-2" type="button" onClick={() => setFields(item)}>تعديل</button>
-                                <button className="btn btn-danger mx-2" type="button" onClick={() => deleteFeature(i)}>حذف</button>
+                                <button className="btn mr-2 text-success p-0" type="button" onClick={() => setFields(item)}>
+                                    <i className="fa fa-edit"></i>
+                                </button>
+                                <button className="btn text-danger mx-2" type="button" onClick={() => deleteFeature(i)}>
+                                    <i className="fa fa-trash"></i>
+                                </button>
                             </div>}
                         </div>
                     </>
                 })}
-                <div className=" col-lg-4 col-sm-12 col-md-3">
-                    <button type='submit' className={`btn rounded-0 ${data ? 'btn-success' : 'btn-info'}`}>{data ? 'تعديل' : 'اضافه'} المميزات</button>
+                <div className=" col-12 my-4 mx-auto">
+                    <button type='submit' className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المميزات</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setData(null); setShowForm(false) }}>تراجع</button>
                 </div>
             </form>

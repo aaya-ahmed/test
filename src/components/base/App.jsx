@@ -2,11 +2,13 @@
 import routers from '../../routes/router.ts';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import { Suspense } from 'react';
-
-
+import './App.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+const queryClient = new QueryClient()
 
 function App() {
   return (
+    <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <Routes>
     {
@@ -20,7 +22,7 @@ function App() {
                       fallback={
                         <div className="loader-container">
                           <div className="loader-container-inner">
-                            <img src="../../../public/assets/images/loader.svg" width={'50px'} height={'50px'}/>
+                            <img src="../../../public/assets/images/loader.svg" width={'100px'} height={'100px'}/>
                           </div>
                         </div>
                       }
@@ -47,6 +49,7 @@ function App() {
     </Routes>
 
     </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

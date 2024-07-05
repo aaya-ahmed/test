@@ -38,11 +38,13 @@ const NewsItem = ({item,setShow}:{item:any,setShow:(show:boolean)=>void}) => {
 
                                 >
                                    {item.attachments.map((item,i)=>{
-                                    return (
-                                    <SwiperSlide>
+                                    return (<>
+                                    
+                                    {(!item.isMain)&&<SwiperSlide>
                                     <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachmentUrl}`}/>
 
-                                    </SwiperSlide>)
+                                    </SwiperSlide>}
+                                    </>)
                                    })}
                                 </Swiper>
                             </div>)}

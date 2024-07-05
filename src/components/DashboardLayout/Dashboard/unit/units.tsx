@@ -13,15 +13,7 @@ const UnitsComponent = () => {
     }
     return (
         <>
-            <div className="page-heading">
-                <div className="page-title">
-                    <div className="row">
-                        <div className="col-12">
-                            <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: '/' }, { name: 'الوحدات', href: '' }]} />
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <section >
                 <div className={`${styles['sec-new']}`}>
                     {!ShowForm && <div className={`${styles['btn-group']}`}>

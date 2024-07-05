@@ -1,9 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import styles from './service.module.css'
-import { Autoplay, EffectCards } from "swiper/modules";
-import 'swiper/css/effect-cards';
-import '../../shared/swiperCard.scss'
-import { useEffect, useState } from 'react';
+import styles from './service.module.scss'
+import { Autoplay, } from "swiper/modules";
+import { Fragment } from 'react/jsx-runtime';
 const services: { icon: string, header: string, body: string }[] = [
     {
         icon: "/assets/images/Real-Estate-Development-icon.png",
@@ -46,32 +44,50 @@ const ServiceComponent = () => {
                 <div className={`text-center mb-5`}>
                     <strong className={`h1 fw-bold d-block ${styles['text-title']}`}> خدماتنا </strong>
                 </div>
-                <div className='swiperCard'>
+                <div className={`${styles['swiperCard']}`}>
                     <Swiper
-                        modules={[EffectCards, Autoplay]}
-                        effect={'cards'}
-                        grabCursor={true}
+                        modules={[Autoplay ]}
+                        breakpoints={
+                            {
+                                0:{
+                                    slidesPerView:1
+                                },
+                                450:{
+                                    slidesPerView:2,
+                                    spaceBetween:40
+                                },
+                                800:{
+                                    slidesPerView:3,
+                                    spaceBetween:80
+                                }
+
+                            }
+                        }
                         autoplay={
                             {
                                 delay: 2500,
                             }
                         }
-                        initialSlide={3}
+                       
+                        
                         className={`${styles['swiper_container']} item-slider `}
                     >
-                        {services.map((item) => {
-                            return <>
+                        {services.map((item,i) => {
+                            return <Fragment key={i}>
                                 <SwiperSlide>
                                     <div className={`${styles['services']}`}>
                                         <div className={`${styles['icon']}`}>
-                                            <img src={item.icon} /></div>
-                                        <div className={`${styles['text']}`}>
+                                            <div className={`${styles['icon-image']}`}>
+                                                <img src={item.icon} />
+                                            </div>
+                                        </div>
+                                        <div>
                                             <h4>{item.header}</h4>
                                             <p className="mb-0">{item.body}</p>
                                         </div>
                                     </div>
                                 </SwiperSlide>
-                            </>
+                            </Fragment>
                         })}
                     </Swiper>
                 </div>

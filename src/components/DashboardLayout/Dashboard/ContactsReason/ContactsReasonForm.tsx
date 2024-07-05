@@ -62,7 +62,7 @@ const ContactsReasonFormComponent = ({ setShowForm, data,setData }: ContactsReas
                         {errors?.name&&(<p className='invalid-feedback'>{errors?.name?.message.toString()}</p>)}
                     </div>
                     <div className=" col-lg-4 col-sm-12 col-md-3">
-                    <button type='submit' className={`btn rounded-0 ${data ? 'btn-success' : 'btn-info'}`}>{data ? 'تعديل' : 'اضافه'} السبب</button>
+                    <button type='submit' className={`btn rounded-0 ${data ? 'btn-success' : styles['btn-submit']}`}>{data ? 'تعديل' : 'اضافه'} السبب</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={()=>{setData(null);setShowForm(false)}}>تراجع</button>
                     </div>
                 </div>

@@ -130,7 +130,7 @@ const NewsFormComponent = ({ data,setData, setShowForm }: { data: any,setData:(d
 
                 <ImageFormComponent images={images} setImage={setImage} />
                 <div className="col-sm-12 d-flex justify-content-center my-2">
-                    <button type='submit' disabled={!(IsValid&&isValid)} className={`btn rounded-0 ${data ? 'btn-success' : 'btn-info'}`}>{data ? 'تعديل' : 'اضافه'} الخبر</button>
+                    <button type='submit' disabled={!(IsValid&&isValid)} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} الخبر</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setShowForm(false) }}>تراجع</button>
                 </div>
             </div>

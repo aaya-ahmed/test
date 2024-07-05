@@ -40,15 +40,6 @@ const ContactsListComponent = () => {
         setFilter({...filter})
     }
     return <>
-        <div className="page-heading">
-            <div className="page-title">
-                <div className="row">
-                    <div className="col-12">
-                        <Breadcrumb path={[{ name: 'الصفحه الرئيسيه', href: '/' }, { name: 'الرسائل', href: '' }]} />
-                    </div>
-                </div>
-            </div>
-        </div>
         <div className="d-flex justify-content-start align-items-baseline mt-4 mx-5">
 
             <label className="mx-2 form-label">
