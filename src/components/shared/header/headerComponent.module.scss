@@ -29,13 +29,16 @@ a, a:hover {
     transition: 0.3s;
 
 }
-
+a:hover {
+    
+    color: white!important;
+}
 .menu-close {
     display: none;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-    color: $color_yellow;
+    color: white;
     font-weight: 600;
     padding-left: 20px;
     padding-right: 20px;
@@ -76,7 +79,7 @@ a, a:hover {
     position: fixed;
     top: 0px;
     background-color: white!important;
-    box-shadow: 0px 5px 13px 0px $backgroundcolor_lite_black;
+    box-shadow: 0px 5px 13px 0px $backgroundcolor_brown;
     left: 0;
     width: 100%;
     z-index: 20;
@@ -91,6 +94,9 @@ a, a:hover {
         }
         .header_actions{
             margin: 0!important;
+        }
+        .nav-link{
+            color: $color_brown;
         }
     }
 }
@@ -151,6 +157,9 @@ a, a:hover {
         width: 250px;
         box-shadow: 0 0 10px $color_gray;
         transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        .nav-link{
+            color: $color_brown!important;
+        }
     }
     .menu-close {
         display: block;

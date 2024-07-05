@@ -51,7 +51,7 @@
             text-overflow: ellipsis;
             text-wrap: nowrap;
             i{
-                color:$backgroundcolor_lite_black;
+                color:$color_brown;
                 font-size: 0.8em;
             }
         }
@@ -73,7 +73,7 @@
     }
 }
 .next-btn{
-    background-color: $backgroundcolor_lite_yellow!important;
+    background-color: $color_lite_yellow!important;
 }
 .prev-btn{
     background-color: $backgroundcolor_brown!important;

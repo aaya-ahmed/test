@@ -1,6 +1,7 @@
 @import '../color.scss';
 footer {
     background-color:$backgroundcolor_green !important;
+    color:$color_yellow;
 }
 @media (max-width: 767px) {
     .logo-footer.w-75 {
@@ -30,7 +31,7 @@ footer ul.links li a {
     display: block;
     font-weight: 600;
     margin-bottom: 16px;
-    color: white;
+    color: $color_yellow;;
 }
 [dir="rtl"] footer ul.links li a::before {
     transform: translateX(16px);
@@ -48,16 +49,16 @@ footer ul.links li a::before {
     transform: translateY(-50%);
     width: 0px;
     height: 3px;
-    background-color: #003f3f;
+    // background-color: ;
     transition: 0.4s ease-in-out;
     opacity: 0;
 }
 .bottom-footer {
-    background-color: $backgroundcolor_brown
+    background-color: $backgroundcolor_yellow
 }
 .bottom-footer p {
     font-weight: bold;
-    color: #003f3f;
+    color:$color_green;
 }
 a, a:hover {
     text-decoration: none;
@@ -133,5 +134,5 @@ a, a:hover {
     background-color: #ffcd36;
 }
     .contact-link{
-        color: white!important;
+        color: $color_yellow!important;
     }

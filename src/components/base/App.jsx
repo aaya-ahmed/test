@@ -17,12 +17,12 @@ function App() {
                   key={nestedindex} path={nestedItem.path}
                   element={
                     <Suspense
-                      fallback={<></>
-                        // <div className="loader-container">
-                        //   <div className="loader-container-inner">
-                        //     <RollingLoader />
-                        //   </div>
-                        // </div>
+                      fallback={
+                        <div className="loader-container">
+                          <div className="loader-container-inner">
+                            <img src="../../../public/assets/images/loader.svg" width={'50px'} height={'50px'}/>
+                          </div>
+                        </div>
                       }
                     >
                       <nestedItem.component />

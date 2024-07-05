@@ -1,3 +1,4 @@
+@import './color.scss';
 .swiperCard{
     .swiper {
         width: 60%;
@@ -12,29 +13,29 @@
       }
       
       .swiper-slide:nth-child(1n) {
-        background-color:rgb(118 174 169)
+        background-color:$color_yellow;
        
       }
       
       .swiper-slide:nth-child(2n) {
-        background-color: rgb(101, 127, 168);
+        background-color: $color_green
       }
       
       .swiper-slide:nth-child(3n) {
-        background-color: rgb(10, 184, 111);
+        background-color: $color_brown
       }
       
       .swiper-slide:nth-child(4n) {
-        background-color: rgb(157, 158, 83);
+        background-color: $color_yellow
       }
       
       .swiper-slide:nth-child(5n) {
-        background-color: rgb(118, 163, 12);
+        background-color: $color_green
       }
       
       
       .swiper-slide:nth-child(6n) {
-        background-color: rgb(211, 122, 7);
+        background-color: $color_brown
       }
       
       .swiper-slide:nth-child(7n) {

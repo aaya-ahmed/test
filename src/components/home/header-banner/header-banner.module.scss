@@ -16,7 +16,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $backgroundcolor_lite_black;
+    background-color: black;
     opacity: 0.5;
 }
 
@@ -65,7 +65,7 @@
     display: block;
     width: 80px;
     height: 80px;
-    background: $color_green !important;;
+    background: $color_yellow !important;;
     border-radius: 50%;
     -webkit-animation: pulse-border 1500ms ease-out infinite;
     animation: pulse-border 1500ms ease-out infinite;
@@ -87,7 +87,7 @@
     display: block;
     width: 80px;
     height: 80px;
-    background: $color_green !important;;
+    background: $color_yellow !important;;
     border-radius: 50%;
     transition: all 200ms;
 }

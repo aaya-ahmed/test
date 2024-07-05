@@ -29,7 +29,7 @@ const HeaderBanner = () => {
                                         <i className="fas fa-play"></i>
                                     </a>
                                     <a href="#">
-                                    <img src="/assets/images/logo1.gif" className={`${styles['img-fluid']}`} alt="Logo" width={'250px'} height={'180px'}/>
+                                    <img src="/assets/images/logo1.png" className={`${styles['img-fluid']}`} alt="Logo" width={'280px'} height={'180px'}/>
 
                                     </a>
                                 </div>

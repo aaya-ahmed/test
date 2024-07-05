@@ -10,8 +10,3 @@ a, a:hover {
     background-color: $color_lite_yellow;
     border-color: $color_lite_yellow;
 }
-.btn_reg_fav:hover {
-    border: 2.5px solid transparent;
-    background-image: linear-gradient(to top, #c1970e, #c1970e, #c1970e, #c1970e);  
-    animation:roundborder 0.2s ease-in-out forwards;
-}

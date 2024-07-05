@@ -7,7 +7,7 @@ const FooterComponent = ({routerList}:{routerList:any[]}) => {
             <div className="container pb-5">
                 <div className="row">
                     <div className="col-md-4">
-                        <img src="/assets/images/logo.gif" 
+                        <img src="/assets/images/logo1.gif" 
                         className="logo-footer img-fluid w-100 mb-4" alt="LOGO" />
                         <p className="lines-5">
                         نحن متخصصون في توفير المنتجات العقارية المتوافقة مع مبادئ الشريعة الإسلامية
