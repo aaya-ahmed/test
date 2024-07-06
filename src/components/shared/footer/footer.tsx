@@ -8,7 +8,7 @@ const FooterComponent = ({routerList}:{routerList:any[]}) => {
                 <div className="row">
                     <div className="col-md-4">
                         <img src="/assets/images/logo1.gif" 
-                        className="logo-footer img-fluid w-100 mb-4" alt="LOGO" />
+                        className="logo-footer img-fluid mb-4" width="200px" alt="LOGO" />
                         <p className="lines-5">
                         نحن متخصصون في توفير المنتجات العقارية المتوافقة مع مبادئ الشريعة الإسلامية
 
@@ -16,7 +16,7 @@ const FooterComponent = ({routerList}:{routerList:any[]}) => {
                         </p>
                     </div>
                     <div className="col-md-3">
-                        <h5 className="title"> روابط سريعة  </h5>
+                        <h5 className="title text-white"> روابط سريعة  </h5>
                         <ul className="links">
 
                         {routerList?.map(
@@ -31,12 +31,12 @@ const FooterComponent = ({routerList}:{routerList:any[]}) => {
                         </ul>
                     </div>
                     <div className="col-md-5">
-                        <h5 className="title">  ابقَ على اتصال دائما  </h5>
+                        <h5 className="title text-white">  ابقَ على اتصال دائما  </h5>
                         <a className="d-block mb-3 contact-link" href="mailto:info@almouhaysni.com"> <i className="far fa-envelope"></i> info@almouhaysni.com
                         </a>
                         <a className="d-block mb-3 contact-link" href="tel:+966920027028"> <i className="fas fa-phone-volume"></i> 966920027028+ </a>
 
-                        <h5 className="title">  العنوان  </h5>
+                        <h5 className="title text-white">  العنوان  </h5>
 
                         <ul>
                             <li>مكة المكرمة - التخصصي - مبنى الغرفة التجارية - الدور الثالث - مكتب رقم 4 </li>

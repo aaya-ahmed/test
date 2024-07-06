@@ -31,10 +31,10 @@ const HeaderComponent = ({ routerList }: { routerList: any[] }) => {
     return (<>
         <header className={`${styles['navigation-header']}`}>
             <nav className={`navbar navbar-sticky navbar-expand-lg ${styles['navbar-sticky']} ${styles['navbar-expand-lg']} ${styles['bg-body-tertiary']} bg-dark py-1`} id="navbar-sticky" data-bs-theme="dark">
-                <div className={`${styles['container']}`}>
-                    <a className={`${styles['navbar-brand']}`} href="/" aria-label="Logo">
-                        <img src="/assets/images/logo1.gif" className={`${styles['no_sticky']} ${styles['img-fluid']}`} alt="Logo" />
-                        <img src="/assets/images/logo.gif" className={`${styles['sticky_logo']} ${styles['img-fluid']}`} alt="Logo" />
+                <div className={`${styles['container']} container`}>
+                    <a className={`${styles['navbar-brand']} navbar-brand`} href="/" aria-label="Logo">
+                        <img src="/assets/images/logo1.gif" className={`${styles['no_sticky']} img-fluid`} alt="Logo" />
+                        <img src="/assets/images/logo.gif" className={`${styles['sticky_logo']} img-fluid`} alt="Logo" />
                     </a>
                     <div className={`${styles['mobile-view']} justify-content-center`} id="navbarNav">
                         <i className={`${styles['menu-close']} fa-solid fa-close fa-lg`} onClick={setMobileView}></i>
@@ -52,8 +52,8 @@ const HeaderComponent = ({ routerList }: { routerList: any[] }) => {
                         </ul>
                     </div>
                     <div className={`${styles['header_actions']}  mt-4`}>
-                        {!isLogin&&<a className={`btn btn-primary fw-bold btn_reg_fav rounded-5`} href="/inquiry" key={2}> سجل اهتمامك </a>}
-                        {isLogin&&<a className={`btn btn-primary fw-bold btn_reg_fav rounded-5`} href="/dashboard" key={3}>بروفيل</a>}
+                        {!isLogin&&<a className={`btn btn-primary fw-bold ${styles['btn_reg_fav']} rounded-5`} href="/inquiry" key={2}> سجل اهتمامك </a>}
+                        {isLogin&&<a className={`btn btn-primary fw-bold ${styles['btn_reg_fav']} rounded-5`} href="/dashboard" key={3}>بروفيل</a>}
                         <button className={`navbar-toggler btn btn-primary ${styles['navbar-toggler']}  shadow-none ms-3`} style={{outline:"none"}} type="button" aria-label="Toggle navigation" onClick={setMobileView}>
                             <i className={`fa-solid fa-bars-staggered`} id="menu-icon"></i>
                         </button>
