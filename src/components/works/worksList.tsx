@@ -1,6 +1,6 @@
 import { Pagination } from "react-bootstrap";
 import styles from './works.module.scss'
-import ProjectStyle from '../home/projects/project.module.css'
+import ProjectStyle from '../home/projects/project.module.scss'
 const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show: boolean) => void }) => {
   return <>
 
