@@ -9,7 +9,6 @@ const DashboardLayout = () => {
     const routerList = routers.find(p => p.path == '/dashboard').routes;
     const [active, setActive] = useState<string>();
     const navigation = useNavigate();
-
     const setMobileView = () => {
         if (document.getElementById("layoutApp").classList.contains('mobile-view-layout'))
             document.getElementById("layoutApp").classList.remove('mobile-view-layout')
