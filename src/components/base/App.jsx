@@ -2,7 +2,7 @@
 import routers from '../../routes/router.ts';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import { Suspense } from 'react';
-import './App.css'
+import './App.scss'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient()
 

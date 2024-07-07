@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import './dashboard-layout.scss';
 import logo from './logo.png';
 import routers from "../../../routes/router";
@@ -8,11 +8,17 @@ import { useState } from "react";
 const DashboardLayout = () => {
     const routerList = routers.find(p => p.path == '/dashboard').routes;
     const [active, setActive] = useState<string>();
+    const navigation = useNavigate();
+
     const setMobileView = () => {
         if (document.getElementById("layoutApp").classList.contains('mobile-view-layout'))
             document.getElementById("layoutApp").classList.remove('mobile-view-layout')
         else
             document.getElementById("layoutApp").classList.add('mobile-view-layout')
+    }
+    const logOut=()=>{
+        localStorage.removeItem('token');
+        navigation('/');
     }
     return <>
         <div id="layoutApp">
@@ -51,7 +57,9 @@ const DashboardLayout = () => {
                                 </li>
                             })
                         }
-
+                        <li className="sidebar-item" onClick={() => logOut()}>
+                            <span className="sidebar-link"> الخروج</span>
+                        </li>
 
                     </ul>
                 </div>

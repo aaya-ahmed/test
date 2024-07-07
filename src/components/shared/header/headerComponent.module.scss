@@ -25,7 +25,7 @@
   display: none;
 }
 
-.navbar-brand img.sticky_logo {
+.navbar-brand img {
   max-height: 60px;
 }
 .navbar-brand img.sticky_logo {
@@ -72,7 +72,7 @@ a:hover {
   display: block;
 }
 
-.navbar-brand img.sticky_logo {
+.navbar-brand img.no_sticky {
   max-height: 60px;
 }
 .navbar-sticky.sticky {
@@ -102,8 +102,11 @@ a:hover {
 }
 @media (min-width: 991.99px) {
   .navigation-header {
-    img {
+    .navbar-brand img.no_sticky {
       max-height: 100px;
+    }
+    .navbar-brand img.sticky_logo {
+      max-height: 60px;
     }
   }
   .navbar-nav .nav-item .nav-link {
@@ -137,7 +140,7 @@ a:hover {
 }
 @media (max-width: 991.98px) {
   .navigation-header {
-    img {
+    .navbar-brand img.no_sticky {
       max-height: 60px;
     }
   }
@@ -197,7 +200,7 @@ a:hover {
 }
 @media (max-width: 767px) {
   .navigation-header {
-    img {
+    .navbar-brand img.no_sticky {
       max-height: 50px;
     }
   }
@@ -250,7 +253,7 @@ a:hover {
 
 @media (max-width: 400px) {
   .navigation-header {
-    img {
+    .navbar-brand img.no_sticky {
       max-height: 30px;
     }
   }

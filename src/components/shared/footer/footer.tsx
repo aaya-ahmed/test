@@ -57,7 +57,7 @@ const FooterComponent = ({routerList}:{routerList:any[]}) => {
             </div>
 
             <div className="bottom-footer py-4 text-center">
-                <p className="m-0"> الحسيني@2024
+                <p className="m-0"> المحيسني@2024
                 </p>
             </div>
         </footer>

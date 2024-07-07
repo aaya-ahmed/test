@@ -1,0 +1,13 @@
+@import '../shared/color.scss';
+.btn-submit,.btn-submit:hover{
+    color: white;
+    background-color: #9c783d;
+}
+.btn-edit,.btn-edit:hover{
+    background-color: #213131;
+}
+.btn.btn-primary {
+    color: white;
+    background-color: $color_lite_yellow;
+    border-color: $color_lite_yellow;
+}

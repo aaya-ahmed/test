@@ -2,7 +2,7 @@ import styles from './breadCrumb.module.scss'
 const Breadcrumb=({path}:{path:{name:string,href:string}[]})=>{
     return <>
     <div className={`${styles['breadcrumb_area']}`}>
-        <div className="container">
+        <div className="container mx-0">
             <div className="row">
                 <div className="col-lg-12">
                     <div className={`${styles['breadcrumb-inner']}`}>

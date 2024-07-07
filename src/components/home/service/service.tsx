@@ -56,7 +56,7 @@ const ServiceComponent = () => {
                                     slidesPerView:2,
                                     spaceBetween:40
                                 },
-                                800:{
+                                900:{
                                     slidesPerView:3,
                                     spaceBetween:80
                                 }
