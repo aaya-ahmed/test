@@ -1,7 +1,7 @@
 export const ProjectStatus={
-    AvailableForSale:0,
-    SoldOut:1,
-    UnderConstruction:2,
-    Rented:3,
-    AvailableForRent:4
+    UnderConstruction:1,
+    AvailableForSale:2,
+    SoldOut:3,
+    AvailableForRental:4,
+    Rental:5
 }

@@ -49,6 +49,9 @@ const units=lazy(
 const interested=lazy(
     ()=>import('../components/DashboardLayout/Dashboard/Interested/InterestedsList')
 );
+const Work=lazy(
+    ()=>import('../components/works/workItem')
+);
 export const routers:IRouter[] = [
     {
         layout: MainLayout,
@@ -94,6 +97,12 @@ export const routers:IRouter[] = [
                 path:'inquiry',
                 component:Inquiry,
                 name:'سجل-اهتمامك',
+                protected:true
+            },
+            {
+                path:'/work/:id/:name/:status',
+                component:Work,
+                name:'المشروع',
                 protected:true
             },
         ]

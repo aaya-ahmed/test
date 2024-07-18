@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import App from './components/base/App.jsx';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 
 const root = ReactDOM.createRoot(

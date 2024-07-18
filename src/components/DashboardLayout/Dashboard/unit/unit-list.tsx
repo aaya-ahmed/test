@@ -1,24 +1,24 @@
-import styles from '../news/News.module.scss'
 import { Fragment, useEffect, useState } from "react";
 import { useGetPagedData } from '../../../../hooks/getpageddata';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import UnitService from '../../../../services/units.service';
 import ProjectService from '@services/projects.service';
+import PageContainerComponent from "@shared/PageContainer/pageContainer";
 
 const Service = new UnitService();
 
 const UnitsListComponent = (
-    { setData, data }: { setData: (data: any) => void, data: any }
+    { setData, data ,refetch}: { setData: (data: any) => void, data: any,refetch:boolean }
 ) => {
     const [listData, setListData] = useState<any[]>([]);
 
     const [filter, setFilter] = useState<{ filtring: { type: string, name: string, value: string }[] }>(
         {
             filtring: [{
-                name: "Name",
-                type: 'String',
-                value: null
+                name: "ProjectId",
+                type: 'Number',
+                value:"-1"
             }]
         }
     );
@@ -28,70 +28,60 @@ const UnitsListComponent = (
         goToNextPage,
         goToPrevPage,
         isLoading
-    } = useGetPagedData(Service, 0, 10, filter, setListData);
+    } = useGetPagedData(Service, 0, 10, filter, refetch, setListData);
     const [projects, setProjects] = useState<any[]>([]);
     useEffect(() => {
         new ProjectService().Get().then(
             res => {
                 setProjects(res)
+                filter.filtring[0].value=res[0].id;
+                setFilter({...filter})
             }
         )
     }, []);
-    useEffect(() => {
-        if (data == null) {
-            filter.filtring[0].value = null;
-            setFilter({ ...filter })
-        }
-    }, [data])
     const getData = (e) => {
         filter.filtring[0].value = e.target.value == -1 ? null : e.target.value;
         setFilter({ ...filter })
     }
     return <>
-        {!isLoading && <>
-            <div className="d-flex justify-content-end align-items-baseline my-4 col-3">
+        <div className="d-flex justify-content-end align-items-baseline my-4 col-3">
 
-                <label className="mx-2 form-label ">
-                    <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
-                <select className={`form-control`} name="projectId" onChange={getData}>
-                    {projects?.map(item => {
-                        return <option value={item.id}>{item.name}</option>
-                    })}
-                </select>
-            </div>
-            <div className="row justifiy-content-center my-2">
-                {listData?.map((item, i) => {
-                    return <Fragment key={i}>
-                        <div className={`col-12 my-3 ${styles['new']}`}
-                            onClick={() => setData(item)}
-                        >
-                            <div className={`${styles['new-item']}`}>
-                                <div>
-                                    <img src={`${import.meta.env.VITE_baseImageUrl}${item.imageUrl}`} />
-                                </div>
-                                <div className={`${styles['new-body']}`}>
-                                    <p className={"d-flex justify-content-between m-0"}>
-                                        <strong>{item?.name}</strong>
-                                        <i>{item?.price}</i>
-                                    </p>
-                                    <p className='m-0 text-'>{item?.insurance}</p>
-                                    <p>{item?.description}</p>
-                                </div>
+            <label className="mx-2 form-label ">
+                <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
+            <select className={`form-control`} name="projectId" onChange={getData}>
+                {projects?.map(item => {
+                    return <option value={item.id}>{item.name}</option>
+                })}
+            </select>
+        </div>
+        <PageContainerComponent
+            isLoading={isLoading}
+            lengthData={listData.length}
+            goToNextPage={goToNextPage}
+            goToPrevPage={goToPrevPage}
+            currentPage={page}
+            itemPerPage={itemPerPage}
+            Children={listData?.map((item, i) => {
+                return <Fragment key={i}>
+                    <div className={`my-3 p-2 bg-white box-shadow items w-100`}
+                        onClick={() => setData(item)}
+                    >
+                        <div className={`d-flex bg-white px-1 py-2 justify-cintent-between item-container`}>
+                            <div className='w-25'>
+                                <img style={{ height: '10rem' }}src={`${import.meta.env.VITE_baseImageUrl}${item.imageUrl}`} />
+                            </div>
+                            <div className='w-75 mx-1'>
+                            <p className={"d-flex justify-content-between item-title"}>
+                                    <strong>{item?.name}</strong>
+                                    <i><strong> السعر</strong>{item?.price}</i>
+                                </p>
+                                <p className='m-0'><strong>التامين </strong> {item?.insurance}</p>
+                                <p className='m-0'>{item?.description}</p>
                             </div>
                         </div>
-                    </Fragment>
-                })}
-                <div className={`${styles['new_footer']}`}>
-                    <button id={"next"} className={`btn ${styles['next-btn']}`} onClick={goToNextPage} disabled={listData && listData?.length < itemPerPage}>التالي</button>
-                    <button id={"prev"} className={`btn ${styles['prev-btn']}`} onClick={goToPrevPage} disabled={page == 0}>السابق</button>
-                </div>
-            </div>
-        </>}
-        {isLoading && <>
-            <div className='d-flex justify-content-center align-items-center'>
-                <img src={'./public/assets/images/loader.svg'} width={'100px'} height={'100px'} />
-            </div>
-        </>}
+                    </div>
+                </Fragment>
+            })} />
     </>
 }
 export default UnitsListComponent;

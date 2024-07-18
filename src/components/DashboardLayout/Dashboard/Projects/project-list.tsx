@@ -1,14 +1,15 @@
-import styles from '../news/News.module.scss'
 import { Fragment, useEffect, useState } from "react";
 import { useGetPagedData } from '../../../../hooks/getpageddata';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import ProjectService from '../../../../services/projects.service';
+import PageContainerComponent from "@shared/PageContainer/pageContainer";
+import '../../items-list.scss';
 
 const Service = new ProjectService();
 
 const ProjectsListComponent = (
-    { setData, data }: { setData: (data: any) => void, data: any }
+    { setData, data, refetch }: { setData: (data: any) => void, data: any, refetch: boolean }
 ) => {
     const [listData, setListData] = useState<any[]>([]);
 
@@ -27,7 +28,7 @@ const ProjectsListComponent = (
         goToNextPage,
         goToPrevPage,
         isLoading
-    } = useGetPagedData(Service, 0, 10, filter, setListData);
+    } = useGetPagedData(Service, 0, 10, filter, refetch, setListData);
     useEffect(() => {
         if (data == null) {
             filter.filtring[0].value = null;
@@ -39,46 +40,46 @@ const ProjectsListComponent = (
         setFilter({ ...filter })
     }
     return <>
-        {!isLoading && <>
-            <div className="d-flex justify-content-end align-items-baseline my-4 col-3">
+        <div className="d-flex justify-content-end align-items-baseline my-4 col-12 col-md-6">
 
-                <label className="mx-2 form-label ">
-                    <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
-                <input type="text" className='form-control' onBlur={getData} placeholder='الاسم' />
-            </div>
-            <div className="row justifiy-content-center my-2">
-                {listData?.map((item, i) => {
-                    return <Fragment key={i}>
-                        <div className={`col-12 my-3 ${styles['new']}`}
-                            onClick={() => setData(item)}
-                        >
-                            <div className={`${styles['new-item']}`}>
-                                <div>
-                                    <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p => p.isMain)[0].attachmentUrl}`} />
-                                </div>
-                                <div className={`${styles['new-body']}`}>
-                                    <p className={"d-flex justify-content-between m-0"}>
-                                        <strong>{item?.name}</strong>
-                                        <i>{item?.startDate}</i>
-                                    </p>
-                                    <p className='m-0 text-'>{item?.address}</p>
-                                    <p>{item?.description}</p>
-                                </div>
+            <label className="mx-2 form-label ">
+                <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
+            <input type="text" className='form-control' onBlur={getData} placeholder='الاسم' />
+        </div>
+        <PageContainerComponent
+            isLoading={isLoading}
+            lengthData={listData.length}
+            goToNextPage={goToNextPage}
+            goToPrevPage={goToPrevPage}
+            currentPage={page}
+            itemPerPage={itemPerPage}
+            Children={listData?.map((item, i) => {
+                return <Fragment key={i}>
+                    <div className={`my-3 p-2 bg-white box-shadow items w-100`}
+                        onClick={() => setData(item)}
+                    >
+                        <div className={`d-flex bg-white px-1 py-2 justify-cintent-between item-container`}>
+                            <div className='w-25'>
+                                <img style={{ height: '10rem' }} src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p => p.isMain)[0].attachmentUrl}`} />
+                            </div>
+                            <div className='w-75 mx-1'>
+                                <p className={"d-flex justify-content-between item-title"}>
+                                    <strong>{item?.name}</strong>
+                                    <i>{item?.startDate?.substring(0, 10)}</i>
+                                </p>
+                                <p className='m-0'>
+                                    <i className="fa fa-location-dot ms-1"></i>
+                                    {item?.address}
+                                    
+                                </p>
+                                <p className='m-0'>
+                                {item?.description}
+                                </p>
                             </div>
                         </div>
-                    </Fragment>
-                })}
-                <div className={`${styles['new_footer']}`}>
-                    <button id={"next"} className={`btn ${styles['next-btn']}`} onClick={goToNextPage} disabled={listData && listData?.length < itemPerPage}>التالي</button>
-                    <button id={"prev"} className={`btn ${styles['prev-btn']}`} onClick={goToPrevPage} disabled={page == 0}>السابق</button>
-                </div>
-            </div>
-        </>}
-        {isLoading && <>
-            <div className='d-flex justify-content-center align-items-center'>
-                <img src={'./public/assets/images/loader.svg'} width={'100px'} height={'100px'} />
-            </div>
-        </>}
+                    </div>
+                </Fragment>
+            })} />
     </>
 }
 export default ProjectsListComponent;

@@ -3,19 +3,7 @@ import styles from './image.module.scss'
 import { status } from "../../../const/status"
 import upload from './upload.jpg';
 export const ImageFormComponent = ({ images, setImage}: {
-    images: {
-        file: File, id: number,
-        name: string,
-        attachmentUrl: string,
-        status?: number,
-        isMain: boolean
-    }[], setImage: (data: {
-        file: File, id: number,
-        name: string,
-        attachmentUrl: string,
-        status?: number,
-        isMain: boolean
-    }[]) => void
+    images: any[], setImage: (data: any[]) => void
 }) => {
     const [isAdd,setIsAdd]=useState<boolean>(true)
     useEffect(()=>{

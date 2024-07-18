@@ -4,10 +4,12 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import { Suspense } from 'react';
 import './App.scss'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ToastContainer } from 'react-toastify';
 const queryClient = new QueryClient()
 
 function App() {
   return (
+    <>
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <Routes>
@@ -50,6 +52,9 @@ function App() {
 
     </BrowserRouter>
     </QueryClientProvider>
+    <ToastContainer/>
+
+    </>
   );
 }
 

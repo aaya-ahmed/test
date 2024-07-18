@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import ContactUsService from "../../../../services/contact.service";
 
-const InterestedComponent = ({ message,setMessage }: { message: any,setMessage:(data:any)=>void }) => {
+const InterestedResponceComponent = ({ message,setMessage }: { message: any,setMessage:(data:any)=>void }) => {
     const{
         handleSubmit,
         formState:{errors,isValid},
@@ -62,4 +62,4 @@ const InterestedComponent = ({ message,setMessage }: { message: any,setMessage:(
 
     </>
 }
-export default InterestedComponent;
+export default InterestedResponceComponent;

@@ -25,7 +25,7 @@ const ProjectComponent = () => {
                             <div className={`${styles['project-item']}`}>
                                 <div className={`${styles['project-body']}`}>
                                     <div className={`${styles['project-img']}`}>
-                                        <a href="#">
+                                    <a href={`/work/${item.id}/${item.name}`}>
                                             <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0]?.attachmentUrl}`} className="img-fluid" alt="مكين 34" />
                                         </a>
                                         <div className={`${styles['project-badge']} w-100 d-flex align-items-center justify-content-start`}>
@@ -35,7 +35,7 @@ const ProjectComponent = () => {
                                         </div>
                                     </div>
                                     <div className={`${styles['project-info']}`}>
-                                        <a href="#" className={`${styles['project-title']}`}> وحده 1 </a>
+                                    <a href={`/work/${item.id}/${item.name}`} className={`${styles['project-title']}`}> وحده 1 </a>
                                         <div className={`${styles['project-description']}`}>
                                             <p>
                                                 {item.description}
@@ -47,7 +47,7 @@ const ProjectComponent = () => {
                                 <div className={`${styles['project-footer']}`}>
                                     <ul className={`${styles['list-units-item']} d-flex align-items-center justify-content-evenly pt-3']}`}>
                                         <li> <i className="fas  fa-home" title=""></i>
-                                            83
+                                            {item.numberOfUnits}
                                             وحدة
                                         </li>
                                         <li> <i className="fas fa-map-pin" title=""></i>
@@ -55,7 +55,7 @@ const ProjectComponent = () => {
                                         </li>
 
                                         <li> <i className="fas  fa-percentage" title=""></i>
-                                            45
+                                            {item.salePrecentage}
 
                                             مباع
                                         </li>
@@ -69,7 +69,7 @@ const ProjectComponent = () => {
                 </div>
                 <div className="title text-center mb-5">
 
-                    <a href="#" className="btn btn-dark    ">
+                    <a href="/works" className="btn btn-dark    ">
                         <i className="fa fa-plus"></i>
                         شاهد جميع المشاريع
                     </a>

@@ -4,7 +4,6 @@ export default class BaseService{
     baseUrl  = import.meta.env.VITE_baseUrl;
     constructor(url:string){
         this.baseUrl=`${this.baseUrl}${url}`;
-        console.log(this.baseUrl)
     }
     GetPaged=async (page:number,itemPerPage:number,filters:any[]=[])=>{
         const responce=await axios.post(this.baseUrl+`/GetPaged?page=${page}&itemPerPage=${itemPerPage}`,filters);
@@ -12,6 +11,10 @@ export default class BaseService{
     }
     Get=async (filters:any[]=[])=>{
         const responce=await axios.post(this.baseUrl+`/GetAll`,filters);
+        return responce.data;
+    }
+    GetNames=async (filters:any[]=[])=>{
+        const responce=await axios.post(this.baseUrl+`/GetNames`,filters);
         return responce.data;
     }
     Post=async (data)=>{

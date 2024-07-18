@@ -1,15 +1,15 @@
-import styles from './News.module.scss'
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import NewService from '../../../../services/news.service';
 import { useGetPagedData } from '../../../../hooks/getpageddata';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-
+import PageContainerComponent from '../../../shared/PageContainer/pageContainer';
+import { news } from './News.type';
+import '../../items-list.scss';
 const Service = new NewService();
 
-const NewsListComponent = ({ setData, data }: { setData: (data: any) => void, data: any }) => {
-    const [listData, setListData] = useState<any[]>([]);
-
+const NewsListComponent = ({ setData,refetch }: { setData: (data: any) => void,refetch:boolean }) => {
+    const [listData, setListData] = useState<news[]>([]);
     const [filter, setFilter] = useState<{ filtring: { type: string, name: string, value: string }[] }>(
         {
             filtring: [{
@@ -25,67 +25,48 @@ const NewsListComponent = ({ setData, data }: { setData: (data: any) => void, da
         goToNextPage,
         goToPrevPage,
         isLoading
-    } = useGetPagedData(Service, 0, 10, filter, setListData);
-    // const [message, setMessage] = useState<any>();
-    // const [reasons, setReasons] = useState<any[]>()
-    // useEffect(() => {
-    //     new ContactReasonService().Get().then(
-    //         res => {
-    //             setReasons(res)
-    //         }
-    //     )
-    // }, [])
-    useEffect(() => {
-        if (data == null) {
-            filter.filtring[0].value = null;
-            setFilter({ ...filter })
-        }
-    }, [data])
+    } = useGetPagedData(Service, 0, 10, filter,refetch, setListData);
     const getData = (e) => {
         filter.filtring[0].value = e.target.value == -1 ? null : e.target.value;
         setFilter({ ...filter })
     }
     return <>
+        <div className="d-flex justify-content-end align-items-baseline my-4 col-lg-3 col-12">
 
-        {!isLoading && <>
-            <div className="d-flex justify-content-end align-items-baseline my-4 col-3">
-
-                <label className="mx-2 form-label ">
-                    <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
-                <input type="text" className='form-control' onBlur={getData} placeholder='العنوان' />
-            </div>
-            <div className="row justifiy-content-center my-2">
-                {listData?.map((item, i) => {
+            <label className="mx-2 form-label ">
+                <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
+            <input type="text" className='form-control' onBlur={getData} placeholder='العنوان' />
+        </div>
+        <PageContainerComponent
+            isLoading={isLoading}
+            lengthData={listData.length}
+            goToNextPage={goToNextPage}
+            goToPrevPage={goToPrevPage}
+            currentPage={page}
+            itemPerPage={itemPerPage}
+            Children={
+                listData?.map((item, i) => {
                     return <Fragment key={i}>
-                        <div className={`col-12 my-3 ${styles['new']}`}
+                        <div className={`my-3 p-2 bg-white box-shadow items`}
+                        role='button'
                             onClick={() => setData(item)}
                         >
-                            <div className={`${styles['new-item']}`}>
-                                <div>
-                                    <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p => p.isMain)[0].attachmentUrl}`} />
+                            <div className={`d-flex bg-white px-1 py-2 justify-cintent-between item-container`}>
+                                <div className='w-25'>
+                                    <img style={{height:'10rem'}} src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p => p.isMain)[0].attachmentUrl}`} />
                                 </div>
-                                <div className={`${styles['new-body']}`}>
-                                    <p className={"d-flex justify-content-between"}>
+                                <div className='w-75 p-3' >
+                                    <p className={"d-flex justify-content-between item-title"}>
                                         <strong>{item?.title}</strong>
-                                        <i>{item?.createdDate}</i>
+                                        <i>{item?.createdDate?.substring(0, 10)}</i>
                                     </p>
-                                    <p>{item?.description}</p>
+                                    <p className='hidden-p'>{item?.description}</p>
                                 </div>
                             </div>
                         </div>
                     </Fragment>
-                })}
-                <div className={`${styles['new_footer']}`}>
-                    <button id={"next"} className={`btn ${styles['next-btn']}`} onClick={goToNextPage} disabled={listData && listData?.length < itemPerPage}>التالي</button>
-                    <button id={"prev"} className={`btn ${styles['prev-btn']}`} onClick={goToPrevPage} disabled={page == 0}>السابق</button>
-                </div>
-            </div>
-        </>}
-        {isLoading && <>
-            <div className='d-flex justify-content-center align-items-center'>
-                <img src={'./public/assets/images/loader.svg'} width={'100px'} height={'100px'} />
-            </div>
-        </>}
+                })
+             } />
     </>
 }
 export default NewsListComponent;

@@ -6,6 +6,7 @@
     box-sizing: border-box!important;
 }
 body,html{
+    overflow-x: hidden;
     overflow-y: auto;
 }
 .loader-container-inner{

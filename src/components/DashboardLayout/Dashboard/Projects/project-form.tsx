@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { status } from "../../../../const/status";
 import ProjectService from "../../../../services/projects.service";
 import { ImageFormComponent } from "../../../shared/image/imageForm";
@@ -9,19 +9,29 @@ import FeatureProjectService from "@services/feature-project.service";
 const  ProjectsFormComponent=(
     { data,setData, setShowForm }: { data: any,setData:(data:any)=>void, setShowForm: (data: any) => void }
 ) =>{
+    const initial=useRef(true);
     const {
         handleSubmit,
         formState: { errors, isValid },
         register,
         setValue
-    } = useForm({ mode: 'onBlur' });
+    } = useForm({ mode: 'onBlur' ,defaultValues:{
+        id:data?.id,
+        name:data?.name,
+        address:data?.address,
+        startDate:data?.startDate?.substring(0,10),
+        endDate:data?.endDate?.substring(0,10),
+        status:data?.status,
+        description:data?.description
+    }});
     const [images, setImages] = useState<{
         file: File,
         id: number,
         name: string,
         attachmentUrl: string,
         isMain: boolean,
-        status?:number
+        status?:number,
+        projectId:number
     }[]>([]);
     const [IsValid,setIsValid]=useState<boolean>();
     const [features,setFeatures]=useState<any[]>([]);
@@ -30,13 +40,16 @@ const  ProjectsFormComponent=(
     useEffect(()=>{
         new FeatureProjectService().GetAllWithFeatures().then(
             res=>{
-
+                res.forEach(ele => {
+                    if(data)
+                    ele.features.forEach(e=>{if(data?.featuresProject?.findIndex(p=>p.featureId==e.id)!=-1)e.check=true;})
+                    });
                 setFeatures(res)
             }
         )
     },[]);
     useEffect(() => {
-        if (data) {
+        if (data&&initial.current) {
             if (data.attachments?.length > 0) {
                 for (let i = 0; i < data.attachments.length; i++) {
                     images.push({
@@ -44,30 +57,38 @@ const  ProjectsFormComponent=(
                         file: null,
                         name: data.attachments[i].name,
                         attachmentUrl: data.attachments[i].attachmentUrl,
-                        isMain: data.attachments[i].isMain
+                        isMain: data.attachments[i].isMain,
+                        projectId: data.attachments[i].projectId
+
                     })
+                    console.log(data)
                 }
                 setImages(data.attachments)
             }
-            for (const key in data) {
-                setValue(key, data[key])
+            if(data.featuresProject.length>0&&projectFeatures.length==0){
+                for (let i = 0; i < data.featuresProject.length; i++) {
+                    projectFeatures.push({featureId:data.featuresProject[i].featureId,id:data.featuresProject[i].id,projectId:data.featuresProject[i].projectId})
+                }
+                setProjectFeatures([...projectFeatures])
             }
+            initial.current=false;
         }
-    }, [data])
+    }, [])
     useEffect(()=>{
         setIsValid(images.length-images.filter(p=>p.status==status.Delete).length>0);
     },[images])
 
     const submit = (e) => {
         const formData = new FormData();
-        const newImages=images.filter(p=>p.status>=0)
+        const newImages=images.filter(p=>p.status>=0&&p.status!=2&&p.id!=null);
+        console.log(newImages)
         for (let i = 0; i < newImages.length; i++) {
             formData.append(`attachments[${i}].id`, `${newImages[i].id}`);
             if(newImages[i].file){
                 formData.append(`attachments[${i}].attachmentFile`, newImages[i].file);
             }
             formData.append(`attachments[${i}].name`, newImages[i].file?.name??newImages[i].name)
-            newImages[i].status&&formData.append(`attachments[${i}].status`, `${newImages[i].status}`)
+            newImages[i].status>=0&&formData.append(`attachments[${i}].status`, `${newImages[i].status}`)
             i == 0 && formData.append(`attachments[${i}].isMain`, `${true}`)
 
         }
@@ -78,6 +99,7 @@ const  ProjectsFormComponent=(
         }
         delete e.attachments;
         for (const key in e) {
+            if(e[key])
             formData.append(key, e[key].toString())
         }
         if(data){
@@ -180,11 +202,14 @@ const  ProjectsFormComponent=(
                     <div className="col-sm-12 col-md-6">
                         <select className="form-control" {...register('status', {
                                 required: true,
-                            })}>
+                            })}
+                            disabled={data?true:false}
+                            >
                                 <option value={ProjectStatus.UnderConstruction}>تحت الانشاء</option>
+                                <option value={ProjectStatus.AvailableForRental}>متاح للتاجير</option>
                                 <option value={ProjectStatus.AvailableForSale}>متاح للبيع</option>
                         </select>
-                        {errors?.createdDate && (<p className='invalid-feedback'>{errors?.createdDate?.message.toString()}</p>)}
+                        {errors?.status && (<p className='invalid-feedback'>{errors?.status?.message.toString()}</p>)}
                     </div>
                 </div>
                 <label htmlFor="inputEmail3" className="col-sm-12 col-form-label">التفاصيل</label>
@@ -211,9 +236,13 @@ const  ProjectsFormComponent=(
                                 item?.features?.map((featureItem,i)=>{return <>
                                 <div className="col-12 col-md-4 position-relative">
                                     
-                                    <input type="checkbox" id={`${featureItem.name}${i}`} value={featureItem.id} className="position-absolute" style={{top:'0.5rem'}} onChange={setFeature}/>
+                                    <input type="checkbox"
+                                    
+                                     id={`${featureItem.name}${i}`}
+                                     defaultChecked={featureItem.check??false} 
+                                      value={featureItem.id} className="position-absolute" style={{top:'0.5rem'}} onChange={setFeature}/>
                                     <label htmlFor={`${featureItem.name}${i}`} className="d-flex align-items-center my-2">
-                                        <img src={`${import.meta.env.VITE_baseImageUrl}${featureItem.icon.attachmentUrl}`} width={'40px'} height={'40px'}/>
+                                        <img src={`${import.meta.env.VITE_baseImageUrl}${featureItem.icon.attachmentUrl}`} style={{width:'40px',height:'40px'}}/>
                                         <p className="m-0 mx-2">{featureItem.name}</p>
                                     </label>
                                 </div>
@@ -226,7 +255,7 @@ const  ProjectsFormComponent=(
                     })
                 }
                 <div className="col-sm-12 d-flex justify-content-center my-2">
-                    <button type='submit' disabled={!(IsValid&&isValid)} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المشروع</button>
+                    <button type='submit' disabled={!(IsValid&&isValid)} className={`btn rounded-0 ${data ? 'btn-success' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المشروع</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setShowForm(false) }}>تراجع</button>
                 </div>
             </div>

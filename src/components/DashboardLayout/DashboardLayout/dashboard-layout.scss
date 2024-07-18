@@ -5,7 +5,7 @@
   min-height: 100vh;
 
   .sidebar-wrapper {
-    width: 300px;
+    width: 250px;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -84,8 +84,8 @@
     transition: all 0.5s;
   }
   #main {
-    width: calc(100% - 300px);
-    margin-right: 300px;
+    width: calc(100% - 250px);
+    margin-right: 250px;
     position: relative;
     .page-heading {
       margin: 0 0 2rem;
@@ -97,8 +97,6 @@
     }
   }
   .dashboard-footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     text-align: center;
     color: white;
@@ -116,10 +114,10 @@
     width: 100%!important;
   }
   .sidebar-wrapper{
-    right: -300px!important;
+    right: -250px!important;
   }
 }
-@media(max-width:400px){
+@media(max-width:800px){
   .sidebar-wrapper{
     position: fixed;
     display: none;

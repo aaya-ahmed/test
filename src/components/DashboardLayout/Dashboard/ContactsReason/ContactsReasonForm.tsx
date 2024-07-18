@@ -1,10 +1,11 @@
 import { useForm } from 'react-hook-form';
-import styles from './ContactsReason.module.scss';
 import ContactReasonService from '../../../../services/contact-reason.service';
 import { useEffect } from 'react';
+import { Notification } from '@shared/notification';
+import { contactreason } from './ContactsReason.types';
 type ContactsReasonFormProp = {
     setShowForm: (show: boolean) => void,
-    data?: any,
+    data?: contactreason,
     setData:(data:any)=>void
 }
 const Service = new ContactReasonService();
@@ -21,7 +22,7 @@ const ContactsReasonFormComponent = ({ setShowForm, data,setData }: ContactsReas
                 setValue(key, data[key])
             }
         }
-    }, [data])
+    }, [data]);
     const Submit = (e) => {
         if (data) {
             Service.Put(e).then(
@@ -34,8 +35,10 @@ const ContactsReasonFormComponent = ({ setShowForm, data,setData }: ContactsReas
         else {
             Service.Post(e).then(
                 res => {
-                    setShowForm(false)
-                    setData(null)
+                    Notification({
+                        title:"تمت العمليه بنجاح",
+                        type:'success'
+                    })
                 }
             )
         }
@@ -44,8 +47,8 @@ const ContactsReasonFormComponent = ({ setShowForm, data,setData }: ContactsReas
         <>
             <form method='post' onSubmit={handleSubmit(Submit)} className={`mb-5 p-4 bg-white rounded-3`}>
                 <div className="row mb-3">
-                    <label htmlFor="inputEmail3" className="col-lg-2 col-sm-12 col-md-3 col-form-label">سبب التواصل</label>
-                    <div className="col-sm-8 col-md-6">
+                    <label htmlFor="inputEmail3" className="form-label">سبب التواصل</label>
+                    <div className="form-group">
                         <input
                             className={`form-control ${errors?.name?'is-invalid':''}`}
                             type="text"
@@ -61,8 +64,8 @@ const ContactsReasonFormComponent = ({ setShowForm, data,setData }: ContactsReas
                         />
                         {errors?.name&&(<p className='invalid-feedback'>{errors?.name?.message.toString()}</p>)}
                     </div>
-                    <div className=" col-lg-4 col-sm-12 col-md-3">
-                    <button type='submit' className={`btn rounded-0 ${data ? 'btn-success' : styles['btn-submit']}`}>{data ? 'تعديل' : 'اضافه'} السبب</button>
+                    <div className="my-2 ms-auto" style={{width:'fit-content'}}>
+                    <button type='submit' className={`btn rounded-0 ${data ? 'btn-success' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} السبب</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={()=>{setData(null);setShowForm(false)}}>تراجع</button>
                     </div>
                 </div>

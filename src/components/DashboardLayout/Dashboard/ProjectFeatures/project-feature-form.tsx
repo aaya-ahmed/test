@@ -26,14 +26,14 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
             )
         }
     }, [])
-    useEffect(() => {
-        if (!featureName) (document.getElementById('featureName') as any).value = '';
-    }, [featureName])
+    // useEffect(() => {
+    //     if (!featureName) (document.getElementById('featureName') as any).value = '';
+    // }, [featureName])
     const {
         setValue,
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors,isValid },
     } = useForm({ mode: 'onBlur' });
     useEffect(() => {
         if (data) {
@@ -115,8 +115,8 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
                 ...features[index],
                 name: featureName,
                 icon: {
-                    id:features[index].id ,
-                    featureId:features[index].featureId,
+                    id: features[index].id,
+                    featureId: features[index].featureId,
                     name: file?.name.substring(0, 5) ?? features[index].icon.name,
                     attachmentFile: file ?? features[index]?.icon?.attachmentFile,
                     attachmentUrl: file ? '' : features[index]?.icon?.attachmentUrl,
@@ -146,15 +146,17 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
         setFeatureName(null);
         setSelecteditem(null);
         (document.getElementById('featureName') as any).value = '';
+        (document.getElementById('icon') as any).value = null;
     }
-    useEffect(()=>{console.log(valueIcon)},[valueIcon])
+    useEffect(() => { console.log(valueIcon) }, [valueIcon])
     return (
         <>
-            <form method='post' onSubmit={handleSubmit(Submit)} className={`mb-5 p-4 bg-white rounded-3`}>
-                <div className="row mb-3">
-                    <label htmlFor="inputEmail3" className="col-lg-1 col-sm-12 col-md-3 col-form-label">الاسم</label>
-                    <div className="col-sm-8 col-md-6">
+            <form method='post' onSubmit={handleSubmit(Submit)}>
+                <div className="ms-auto">
+                    <div className="form-group">
+                        <label htmlFor="feature-title" className="form-label">الاسم *</label>
                         <input
+                            id="feature-title"
                             className={`form-control ${errors?.name ? 'is-invalid' : ''}`}
                             type="text"
                             name="name"
@@ -162,65 +164,64 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
                                 required: true,
                                 maxLength: {
                                     value: 50,
-                                    message: "This input exceed maxLength(50).",
+                                    message: "لا يجب ان يكون اكبر من 50",
                                 },
 
                             })}
                         />
                         {errors?.name && (<p className='invalid-feedback'>{errors?.name?.message.toString()}</p>)}
                     </div>
-                </div>
-                <div className="col-12 bg-dark text-white mb-2 p-2">
-                    <h3>المميزات</h3>
-                </div>
-                <div className="row align-items-end">
-                    <div className="col-1">
-                        <label htmlFor="icon">
-                            <img src={file ? URL.createObjectURL(file) : selecteditem ? `${import.meta.env.VITE_baseImageUrl}${selecteditem.icon.attachmentUrl}` : uploadimage} width={'50px'} height={'50px'} />
-                            {/* {selecteditem&&(<img src={selecteditem.icon.attachmentUrl ?`${import.meta.env.VITE_baseImageUrl}${selecteditem.icon.attachmentUrl}`: URL.createObjectURL(file)} width={'50px'} height={'50px'} />)} */}
-                        </label>
-                        <input type="file" name="icon" accept="image/*" id="icon" hidden onChange={setImage} />
+                    <div className="col-12 bg-dark text-white my-2 p-2">
+                        <h5 className="m-0">المميزات</h5>
                     </div>
-                    <div className="col-8">
-                        <label htmlFor="featureName">
-                            الاسم
-                        </label>
-                        <input type="text" maxLength={50} className="form-control" name="featureName" id="featureName" onBlur={e => setFeatureName(e.target.value)} />
-                    </div>
-                    <div className="col-2">
-                        {(selecteditem == null) && <button className="btn btn-success" type="button" onClick={() => { addFeature() }}>اضافه</button>}
-                        {(selecteditem != null) && <button className="btn btn-success mr-2" type="button" onClick={() => updateFeature()}>حفظ</button>}
-
-                    </div>
-                </div>
-                {features?.map((item, i) => {
-                    return <>
-                        <div className="row align-items-end">
-                            <div className="col-1">
-                                <label>
-                                    <img src={item?.icon?.attachmentUrl ? `${import.meta.env.VITE_baseImageUrl}${item?.icon?.attachmentUrl}` : URL.createObjectURL(item?.icon?.attachmentFile)} width={'50px'} height={'50px'} />
-                                </label>
-                            </div>
-                            <div className="col-8">
-                                <label className="form-control">
-                                    {item.name}
-                                </label>
-                            </div>
-                            {(!selecteditem?.index || (selecteditem?.index != item.index)) && <div className="col-2">
-                                <button className="btn mr-2 text-success p-0" type="button" onClick={() => setFields(item)}>
-                                    <i className="fa fa-edit"></i>
-                                </button>
-                                <button className="btn text-danger mx-2" type="button" onClick={() => deleteFeature(i)}>
-                                    <i className="fa fa-trash"></i>
-                                </button>
-                            </div>}
+                    <div className="row align-items-end  mb-2">
+                        <div className="col-1 ">
+                            <label htmlFor="icon">
+                                <img src={file ? URL.createObjectURL(file) : selecteditem ? `${import.meta.env.VITE_baseImageUrl}${selecteditem.icon.attachmentUrl}` : uploadimage} style={{ width: '50px', height: '50px' }} />
+                            </label>
+                            <input type="file" name="icon" accept="image/*" id="icon" hidden onChange={setImage} />
                         </div>
-                    </>
-                })}
-                <div className=" col-12 my-4 mx-auto">
-                    <button type='submit' className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المميزات</button>
+                        <div className="col-8">
+                            <label htmlFor="featureName">
+                                الاسم
+                            </label>
+                            <input type="text" maxLength={50} className="form-control" name="featureName" id="featureName" onBlur={e => setFeatureName(e.target.value)} />
+                        </div>
+                        <div className="col-2">
+                            {(selecteditem == null) && <button className="btn btn-success" type="button" onClick={() => { addFeature() }}>اضافه</button>}
+                            {(selecteditem != null) && <button className="btn btn-success mr-2" type="button" onClick={() => updateFeature()}>حفظ</button>}
+
+                        </div>
+                    </div>
+                </div>
+                <div className=" col-12 d-flex justify-content-center my-2">
+                    <button type='submit' disabled={isValid&&features?.length==0} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المميزات</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setData(null); setShowForm(false) }}>تراجع</button>
                 </div>
             </form>
+            {features?.map((item, i) => {
+                return <>
+                    <div className="row align-items-end my-1">
+                        <div className="col-1">
+                            <label>
+                                <img src={item?.icon?.attachmentUrl ? `${import.meta.env.VITE_baseImageUrl}${item?.icon?.attachmentUrl}` : URL.createObjectURL(item?.icon?.attachmentFile)} style={{ width: '50px', height: '50px' }} />
+                            </label>
+                        </div>
+                        <div className="col-8">
+                            <label className="form-control">
+                                {item.name}
+                            </label>
+                        </div>
+                        {(!selecteditem?.index || (selecteditem?.index != item.index)) && <div className="col-2">
+                            <button className="btn mr-2 text-success p-0" type="button" onClick={() => setFields(item)}>
+                                <i className="fa fa-edit"></i>
+                            </button>
+                            <button className="btn text-danger mx-2" type="button" onClick={() => deleteFeature(i)}>
+                                <i className="fa fa-trash"></i>
+                            </button>
+                        </div>}
+                    </div>
+                </>
+            })}
         </>);
 }

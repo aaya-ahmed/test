@@ -2,9 +2,7 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { status } from "../../../../const/status";
 import ProjectService from "../../../../services/projects.service";
-import { ImageFormComponent } from "../../../shared/image/imageForm";
 import { ProjectStatus } from "../../../../const/projectStatus";
-import FeatureProjectService from "@services/feature-project.service";
 import uploadimage from "./upload.jpg";
 import UnitService from "@services/units.service";
 
@@ -153,7 +151,8 @@ const UnitsFormComponent = (
                     <select className={`form-control ${errors?.projectId ? 'is-invalid' : ''}`} name="projectId"
                         {...register('projectId', {
                             required: true,
-                        })}>
+                        })}
+                        >
                         {projects?.map(item => {
                             return <option value={item.id}>{item.name}</option>
                         })}
@@ -189,9 +188,9 @@ const UnitsFormComponent = (
                                 required: true,
                             })}>
                                 <option value={ProjectStatus.AvailableForSale}>متاح للبيع</option>
-                                <option value={ProjectStatus.AvailableForRent}>متاح للايجار</option>
+                                <option value={ProjectStatus.AvailableForRental}>متاح للايجار</option>
                                 <option value={ProjectStatus.SoldOut}>تم البيع</option>
-                                <option value={ProjectStatus.Rented}>تم الايجار</option>
+                                <option value={ProjectStatus.Rental}>تم الايجار</option>
                             </select>
                             {errors?.status && (<p className='invalid-feedback'>{errors?.status?.message.toString()}</p>)}
                         </div>
@@ -336,8 +335,7 @@ const UnitsFormComponent = (
             <div className="row align-items-end">
                 <div className="col-1">
                     <label htmlFor="icon">
-                        <img src={file ? URL.createObjectURL(file) : selecteditem ? `${import.meta.env.VITE_baseImageUrl}${selecteditem.icon.attachmentUrl}` : uploadimage} width={'50px'} height={'50px'} />
-                        {/* {selecteditem&&(<img src={selecteditem.icon.attachmentUrl ?`${import.meta.env.VITE_baseImageUrl}${selecteditem.icon.attachmentUrl}`: URL.createObjectURL(file)} width={'50px'} height={'50px'} />)} */}
+                        <img src={file ? URL.createObjectURL(file) : selecteditem ? `${import.meta.env.VITE_baseImageUrl}${selecteditem?.imageUrl}` : uploadimage} width={'50px'} height={'50px'} />
                     </label>
                     <input type="file" name="icon" accept="image/*" id="icon" hidden onChange={setImage} />
                 </div>
@@ -367,8 +365,12 @@ const UnitsFormComponent = (
                             </label>
                         </div>
                         {(!selecteditem?.index || (selecteditem?.index != item.index)) && <div className="col-2">
-                            <button className="btn btn-warning mr-2" type="button" onClick={() => setFields(item)}>تعديل</button>
-                            <button className="btn btn-danger mx-2" type="button" onClick={() => deleteFeature(i)}>حذف</button>
+                            <button className="btn p-0 mr-2 text-success" type="button" onClick={() => setFields(item)}>
+                            <i className="fa fa-edit"></i>
+                            </button>
+                            <button className="btn p-0 mx-2 text-danger" type="button" onClick={() => deleteFeature(i)}>
+                            <i className="fa fa-trash"></i>
+                            </button>
                         </div>}
                     </div>)}
                 </>
@@ -376,7 +378,7 @@ const UnitsFormComponent = (
 
             <div className="col-sm-12 d-flex justify-content-center mt-5">
                 <button type='submit' disabled={!isValid} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} الوحده</button>
-                <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setShowForm(false) }}>تراجع</button>
+                <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => {setData(null); setShowForm(false) }}>تراجع</button>
             </div>
         </form >
     </>

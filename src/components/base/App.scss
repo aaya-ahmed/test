@@ -1,13 +1,52 @@
 @import '../shared/color.scss';
-.btn-submit,.btn-submit:hover{
-    color: white;
-    background-color: #9c783d;
+.btn-submit,
+.btn-submit:hover {
+  color: white;
+  background-color: #9c783d;
 }
-.btn-edit,.btn-edit:hover{
-    background-color: #213131;
+.btn-edit,
+.btn-edit:hover {
+  background-color: #213131;
 }
 .btn.btn-primary {
+  color: white;
+  background-color: $color_lite_yellow;
+  border-color: $color_lite_yellow;
+}
+.next-btn,
+.prev-btn {
+  border-radius: 0;
+  outline: none;
+  border: none;
+}
+.btn-group {
+  button {
+    border-radius: 0 !important;
+    outline: none !important;
+    border: none !important;
+    color: black !important;
+  }
+}
+.next-btn {
+  background-color: $backgroundcolor_yellow !important;
+}
+.prev-btn {
+  background-color: $backgroundcolor_brown !important;
+}
+.box-shadow {
+  box-shadow: 0 6px 5px 0px #00000060;
+  border: 1px solid #00000060;
+}
+.btn-submit{
     color: white;
-    background-color: $color_lite_yellow;
-    border-color: $color_lite_yellow;
+    background-color: $color-yellow;
+}
+img{
+  width: 100%;
+}
+.hidden-p{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;  
+  -webkit-line-clamp: 4;
 }

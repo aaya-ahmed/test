@@ -1,11 +1,11 @@
-import styles from './Interested.module.scss'
 import { Fragment, useEffect, useState } from "react";
 import { useGetPagedData } from '../../../../hooks/getpageddata';
-import Breadcrumb from '../../../../components/shared/breadcrumb/breadcrumb';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import InterestedService from '../../../../services/interested.service';
-import InterestedComponent from './InterestedResponce';
+import InterestedResponceComponent from './InterestedResponce';
+import ProjectService from "@services/projects.service";
+import PageContainerComponent from "../../../shared/PageContainer/pageContainer";
 const Service = new InterestedService();
 
 const InterestedsListComponent = () => {
@@ -26,63 +26,54 @@ const InterestedsListComponent = () => {
         goToNextPage,
         goToPrevPage,
         isLoading
-    } = useGetPagedData(Service, 0, 10, filter, setListData);
+    } = useGetPagedData(Service, 0, 10, filter, false, setListData);
     const [message, setMessage] = useState<any>();
-    const [reasons, setReasons] = useState<any[]>()
+    const [project, setProjects] = useState<any[]>()
     useEffect(() => {
-        new InterestedService().Get().then(
+        new ProjectService().GetNames().then(
             res => {
-                setReasons(res)
+                setProjects(res)
             }
         )
     }, [])
     const getData = (e) => {
-        console.log(e.target.value)
         filter.filtring[0].value = e.target.value == -1 ? null : e.target.value;
         setFilter({ ...filter })
     }
     return <>
-        {!isLoading && <>
-            <div className="d-flex justify-content-start align-items-baseline mt-4 mx-5">
+        <div className="d-flex justify-content-start align-items-baseline mt-4 mx-5">
 
-                <label className="mx-2 form-label">
-                    <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
-                <select className="form-select d-inline-block w-25" onChange={getData}>
-                    <option value={-1}>الكل</option>
-                    {reasons?.map((item, i) => {
-                        return <option value={item.id}>{item.name}</option>
-                    })}
-                </select>
-            </div>
-            <div className="row justifiy-content-center my-4 mx-5">
-                {listData?.map((item, i) => {
-                    return <Fragment key={i}>
-                        <div className={`col-12 my-3 ${styles['content']}`} onClick={() => setMessage(item)}>
-                            <div className={`${styles['contact-item']}`}>
-                                <div className={`${styles['contact-body']}`}>
-                                    <p className={"d-flex justify-content-between"}>
-                                        <strong>{item?.name}</strong>
-                                        <i>{item?.phone}</i>
-                                    </p>
-                                    <p>{item?.description}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </Fragment>
+            <label className="mx-2 form-label">
+                <FontAwesomeIcon icon={faFilter} color='hsla(177, 18%, 26%)' /></label>
+            <select className="form-select d-inline-block w-25" onChange={getData}>
+                <option value={-1}>اختر المشروع</option>
+                {project?.map((item, i) => {
+                    return <option value={item.id}>{item.name}</option>
                 })}
-                <div className={`${styles['ContactsReason_footer']}`}>
-                    <button id={"next"} className={`btn ${styles['next-btn']}`} onClick={goToNextPage} disabled={listData && listData?.length < itemPerPage}>التالي</button>
-                    <button id={"prev"} className={`btn ${styles['prev-btn']}`} onClick={goToPrevPage} disabled={page == 0}>السابق</button>
-                </div>
-            </div>
-
-            {message && <InterestedComponent message={message} setMessage={setMessage} />}
-        </>}
-        {isLoading&&<>
-            <div className='d-flex justify-content-center align-items-center'>
-                <img src={'./public/assets/images/loader.svg'} width={'100px'} height={'100px'}/>
-            </div>
-        </>}
+            </select>
+        </div>
+        <PageContainerComponent
+            isLoading={isLoading}
+            lengthData={listData.length}
+            goToNextPage={goToNextPage}
+            goToPrevPage={goToPrevPage}
+            currentPage={page}
+            itemPerPage={itemPerPage}
+            Children={
+                <>
+                    {listData?.map((item, i) => {
+                        return <Fragment key={i}>
+                            <div className={`m-3 px-2 py-2 bg-white  box-shadow`} role="button" onClick={() => setMessage(item)}>
+                                <p className={"d-flex justify-content-between m-0"}>
+                                    <strong>{item?.name}</strong>
+                                    <i style={{ fontSize: '0.8em', color: '#0000008a' }}>{item?.phone}</i>
+                                </p>
+                                <p className="m-0">{item?.description}</p>
+                            </div>
+                        </Fragment>
+                    })}
+                    {message && <InterestedResponceComponent message={message} setMessage={setMessage} />}
+                </>}/>
     </>
 }
 export default InterestedsListComponent;

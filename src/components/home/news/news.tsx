@@ -11,7 +11,7 @@ const NewsComponent = () => {
     const [filter, setFilter] = useState<{filtring:{type:string,name:string,value:string}[]}>(
         {filtring:[]}
     );
-    useGetPagedData(Service, 0, 10,filter,setListData);
+    useGetPagedData(Service, 0, 10,filter,false,setListData);
 
     return (<>
         <section className="sec-news sec-news-background">

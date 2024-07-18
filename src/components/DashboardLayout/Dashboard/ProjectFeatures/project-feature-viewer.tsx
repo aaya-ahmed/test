@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import FeatureService from "../../../../services/feature.service";
 
-const FeaturesComponent = ({ project,setProject }: { project:{id: number,name:string},setProject:(data:any)=>void }) => {
+const FeaturesComponent = ({ feature,setFeature }: { feature:{id: number,name:string},setFeature:(data:any)=>void }) => {
     const [features, setFeatures] = useState<any[]>([]);
     useEffect(() => {
-        if (project) {
-            new FeatureService().Get([{ type: 'Number', name: 'featureProjectCategoryId', value: `${project.id}` }]).then(
+        if (feature) {
+            new FeatureService().Get([{ type: 'Number', name: 'featureProjectCategoryId', value: `${feature.id}` }]).then(
                 res => {
                     setFeatures(res)
-                    console.log(res)
                 }
             )
         }
@@ -18,13 +17,13 @@ const FeaturesComponent = ({ project,setProject }: { project:{id: number,name:st
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">{project?.name}</h5>
+                        <h5 className="modal-title" id="exampleModalLabel">{feature?.name}</h5>
                     </div>
                     <div className="modal-body">
                         {features?.map((item) => {
                             return <>
                                 <div className="d-flex my-2 align-items-center justify-content-start">
-                                    <img src={`${import.meta.env.VITE_baseImageUrl}${item?.icon?.attachmentUrl}`} width={'50px'} height={'50px'}/>
+                                    <img src={`${import.meta.env.VITE_baseImageUrl}${item?.icon?.attachmentUrl}`} style={{width:'50px',height:'50px'}}/>
                                     <p className="mx-2 my-0">{item.name}</p>
                                 </div>
                                 <hr/>
@@ -32,7 +31,7 @@ const FeaturesComponent = ({ project,setProject }: { project:{id: number,name:st
                         })}
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => setProject(null)}>اغلاق</button>
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => setFeature(null)}>اغلاق</button>
                     </div>
                 </div>
             </div>

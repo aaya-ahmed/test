@@ -1,0 +1,34 @@
+@media (max-width:1025px){
+    .items{      
+        width: 48%;  
+        .item-container{
+            display: flex;
+            flex-direction: column;
+            div{
+                width: 100%!important;
+            }
+            .item-title{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+}
+@media(max-width:500px){
+    .news{      
+        width: 100%;  
+        .new-container{
+            display: flex;
+            flex-direction: column;
+            div{
+                width: 100%!important;
+            }
+            .new-title{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+}
