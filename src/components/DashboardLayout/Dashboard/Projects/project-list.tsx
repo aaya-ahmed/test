@@ -5,6 +5,7 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import ProjectService from '../../../../services/projects.service';
 import PageContainerComponent from "@shared/PageContainer/pageContainer";
 import '../../items-list.scss';
+import { Moment } from "@shared/moment";
 
 const Service = new ProjectService();
 
@@ -65,7 +66,8 @@ const ProjectsListComponent = (
                             <div className='w-75 mx-1'>
                                 <p className={"d-flex justify-content-between item-title"}>
                                     <strong>{item?.name}</strong>
-                                    <i>{item?.startDate?.substring(0, 10)}</i>
+                                    <Moment date={new Date(item?.createdDate)}/>
+
                                 </p>
                                 <p className='m-0'>
                                     <i className="fa fa-location-dot ms-1"></i>

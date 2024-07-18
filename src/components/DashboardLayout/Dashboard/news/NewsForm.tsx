@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { ImageFormComponent } from "../../../../components/shared/image/imageForm";
 import { useEffect, useState } from "react";
 import { status } from "const/status";
+import { Notification } from "@shared/notification";
 
 const NewsFormComponent = ({ data, setData, setShowForm }: { data: any, setData: (data: any) => void, setShowForm: (data: any) => void }) => {
+    const [isLoading,setIsLoading]=useState<boolean>();
     const {
         handleSubmit,
         formState: { errors, isValid },
@@ -47,6 +49,7 @@ const NewsFormComponent = ({ data, setData, setShowForm }: { data: any, setData:
     }, [images])
 
     const submit = (e) => {
+        setIsLoading(true)
         const formData = new FormData();
         const newImages = images.filter(p => p.status >= 0)
         for (let i = 0; i < newImages.length; i++) {
@@ -68,6 +71,20 @@ const NewsFormComponent = ({ data, setData, setShowForm }: { data: any, setData:
                 res => {
                     setData(null)
                     setShowForm(false)
+                    setIsLoading(false)
+                    Notification({
+                        title: "تمت العمليه بنجاح",
+                        type: 'success'
+                    })
+                }
+            ).catch(
+                err=>{
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
+                    
                 }
             )
         } else {
@@ -75,7 +92,19 @@ const NewsFormComponent = ({ data, setData, setShowForm }: { data: any, setData:
                 res => {
                     setData(null)
                     setShowForm(false)
-
+                    setIsLoading(false)
+                    Notification({
+                        title: "تمت العمليه بنجاح",
+                        type: 'success'
+                    })
+                }
+            ).catch(
+                err=>{
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
                 }
             )
         }
@@ -131,10 +160,15 @@ const NewsFormComponent = ({ data, setData, setShowForm }: { data: any, setData:
                     <label htmlFor="images" className="form-label">الصور *</label>
                     <ImageFormComponent images={images} setImage={setImage} />
                 </div>
-                <div className="col-sm-12 d-flex justify-content-center my-2">
+                {isLoading && <>
+                            <div className='d-flex justify-content-center align-items-center'>
+                                <img src={'/assets/images/loader.svg'} width={'100px'} height={'100px'} />
+                            </div>
+                        </>}
+                        {!isLoading &&<><div className="col-sm-12 d-flex justify-content-center my-2">
                     <button type='submit' disabled={!(IsValid && isValid)} className={`btn rounded-0 ${data ? 'btn-success' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} الخبر</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setShowForm(false);setData(null) }}>تراجع</button>
-                </div>
+                </div></>}
             </div>
         </form >
     </>

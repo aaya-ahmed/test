@@ -8,6 +8,7 @@ import Breadcrumb from '../../../components/shared/breadcrumb/breadcrumb';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NewService from '../../../services/news.service';
+import { Moment } from '@shared/moment';
 const NewsItemMain = () => {
     const { id } = useParams();
     const[item,setItem]=useState<any>();
@@ -35,7 +36,7 @@ const NewsItemMain = () => {
                             <div className={`${styles['blog_content']}`}>
                                 <h2 className={`${styles['post_title']}`}>
                                     {item?.title}
-                                    <span>{item?.createdDate}</span>
+                                    <Moment date={new Date(item?.createdDate)}/>
                                 </h2>
                                 <div className='row mt-3'>
                                 <div className={`col-md-6 col-12  ${styles['post_media']} ${styles['blog_post_media-new']}`}>

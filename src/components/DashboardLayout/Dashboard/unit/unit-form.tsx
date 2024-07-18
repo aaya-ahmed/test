@@ -5,10 +5,12 @@ import ProjectService from "../../../../services/projects.service";
 import { ProjectStatus } from "../../../../const/projectStatus";
 import uploadimage from "./upload.jpg";
 import UnitService from "@services/units.service";
+import { Notification } from "@shared/notification";
 
 const UnitsFormComponent = (
     { data, setData, setShowForm }: { data: any, setData: (data: any) => void, setShowForm: (data: any) => void }
 ) => {
+    const [isLoading,setIsLoading]=useState<boolean>();
     const [featureName, setFeatureName] = useState<string>('');
     const [file, setFile] = useState<File>(null);
     const [selecteditem, setSelecteditem] = useState<any>();
@@ -96,7 +98,7 @@ const UnitsFormComponent = (
         }
     }
     const deleteFeature = (index) => {
-        setFeatures(features.map((p, i) => i == index?{...p,status:status.Delete}:p))
+        setFeatures(features.map((p, i) => i == index ? { ...p, status: status.Delete } : p))
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const setImage = (e) => {
@@ -106,6 +108,7 @@ const UnitsFormComponent = (
         setMainImage(e.target.files[0])
     }
     const submit = (e) => {
+        setIsLoading(true);
         const formData = new FormData();
         const newFeatures = features.filter(p => p.status >= 0)
         console.log(newFeatures)
@@ -130,6 +133,18 @@ const UnitsFormComponent = (
                 res => {
                     setData(null)
                     setShowForm(false)
+                    Notification({
+                        title: "تمت العمليه بنجاح",
+                        type: 'success'
+                    })
+                }
+            ).catch(
+                err=>{
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
                 }
             )
         } else {
@@ -137,7 +152,18 @@ const UnitsFormComponent = (
                 res => {
                     setData(null)
                     setShowForm(false)
-
+                    Notification({
+                        title: "تمت العمليه بنجاح",
+                        type: 'success'
+                    })
+                }
+            ).catch(
+                err=>{
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
                 }
             )
         }
@@ -152,7 +178,7 @@ const UnitsFormComponent = (
                         {...register('projectId', {
                             required: true,
                         })}
-                        >
+                    >
                         {projects?.map(item => {
                             return <option value={item.id}>{item.name}</option>
                         })}
@@ -181,7 +207,7 @@ const UnitsFormComponent = (
                             {errors?.name && (<p className='invalid-feedback'>{errors?.name?.message.toString()}</p>)}
                         </div>
                     </div>
-                   {data&&( <div className="row col-sm-12 col-md-6 my-2">
+                    {data && (<div className="row col-sm-12 col-md-6 my-2">
                         <label htmlFor="inputEmail3" className="col-lg-3 col-sm-12 col-md-3 col-form-label">الحاله</label>
                         <div className="col-sm-12 col-md-6">
                             <select className="form-control" {...register('status', {
@@ -312,7 +338,7 @@ const UnitsFormComponent = (
                 </div>
                 <div className="col-12 col-md-6">
                     <label htmlFor="unitImage" className="d-block">
-                        <img src={mainImage ? URL.createObjectURL(mainImage):data?.imageUrl ? `${import.meta.env.VITE_baseImageUrl}${data?.imageUrl}`  : uploadimage} width={'100%'} height={'100%'} />
+                        <img src={mainImage ? URL.createObjectURL(mainImage) : data?.imageUrl ? `${import.meta.env.VITE_baseImageUrl}${data?.imageUrl}` : uploadimage} width={'100%'} height={'100%'} />
                     </label>
                     <input type="file" name="image" accept="image/*" onChange={setUnitImage} hidden id="unitImage" />
                 </div>
@@ -353,7 +379,7 @@ const UnitsFormComponent = (
             </div>
             {features?.map((item, i) => {
                 return <>
-                    {item.status!=status.Delete&&(<div className="row align-items-end">
+                    {item.status != status.Delete && (<div className="row align-items-end">
                         <div className="col-1">
                             <label>
                                 <img src={item?.imageUrl ? `${import.meta.env.VITE_baseImageUrl}${item?.imageUrl}` : URL.createObjectURL(item?.image)} width={'50px'} height={'50px'} />
@@ -366,20 +392,25 @@ const UnitsFormComponent = (
                         </div>
                         {(!selecteditem?.index || (selecteditem?.index != item.index)) && <div className="col-2">
                             <button className="btn p-0 mr-2 text-success" type="button" onClick={() => setFields(item)}>
-                            <i className="fa fa-edit"></i>
+                                <i className="fa fa-edit"></i>
                             </button>
                             <button className="btn p-0 mx-2 text-danger" type="button" onClick={() => deleteFeature(i)}>
-                            <i className="fa fa-trash"></i>
+                                <i className="fa fa-trash"></i>
                             </button>
                         </div>}
                     </div>)}
                 </>
             })}
-
-            <div className="col-sm-12 d-flex justify-content-center mt-5">
-                <button type='submit' disabled={!isValid} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} الوحده</button>
-                <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => {setData(null); setShowForm(false) }}>تراجع</button>
-            </div>
+            {isLoading && <>
+                <div className='d-flex justify-content-center align-items-center'>
+                    <img src={'/assets/images/loader.svg'} width={'100px'} height={'100px'} />
+                </div>
+            </>}
+            {!isLoading && <>
+                <div className="col-sm-12 d-flex justify-content-center mt-5">
+                    <button type='submit' disabled={!isValid} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} الوحده</button>
+                    <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setData(null); setShowForm(false) }}>تراجع</button>
+                </div></>}
         </form >
     </>
 }

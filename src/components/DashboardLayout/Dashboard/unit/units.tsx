@@ -37,7 +37,7 @@ const UnitsComponent = () => {
                      setData={SetData} setShowForm={SetShowForm} data={data} 
                     />}
                     {!ShowForm && <UnitsListComponent refetch={refetch}
-                    setData={SetData} data={data}
+                    setData={SetData}
                   />}
                 </div>
             </section>

@@ -1,3 +1,4 @@
+@import '../../shared/color.scss';
 .sec-news{
     padding: 0 0 2rem 0;
 }
@@ -20,7 +21,7 @@
         &::before{
             content: "";
             display: block;
-            border: 3px solid #e3be17;
+            border: 3px solid $color-yellow;
             margin-left: 1rem;
         }
     }
@@ -31,7 +32,7 @@
         height: 100%;
         position: absolute;
         z-index: 1;
-        background-color: rgb(32 53 54 / 74%);
+        background-color:$color-green;
     }
 }
 
@@ -62,7 +63,7 @@
 }
 
 .post_title{
-    color: #e3be17 !important;
+    color: $color-yellew !important;
     margin-bottom: 0 !important;
     span{
         display: block;
@@ -95,23 +96,23 @@
 }
 
 .blogpost_title,.blog_post_footer{
-    color: #e3be17!important;
+    color: $color-yellow!important;
     margin: 1rem 0;   
     button{
         background-color: transparent;
         border: none;
         outline: none;
-        color: #e3be17!important;
+        color: $color-yellow !important;
     }
 }
 .post_footer{
-    color: #e3be17!important;
+    color: $color-yellow!important;
     margin: 1rem 0;
     button{
         background-color: transparent;
         border: none;
         outline: none;
-        color: #e3be17!important;
+        color: $color-yellow!important;
         font-size: 20px;
         font-weight: 900;
 

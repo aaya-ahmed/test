@@ -25,7 +25,7 @@ const ProjectComponent = () => {
                             <div className={`${styles['project-item']}`}>
                                 <div className={`${styles['project-body']}`}>
                                     <div className={`${styles['project-img']}`}>
-                                    <a href={`/work/${item.id}/${item.name}`}>
+                                    <a href={`/work/${item.id}/${item.name}/${item.status}`}>
                                             <img src={`${import.meta.env.VITE_baseImageUrl}${item.attachments?.filter(p=>p.isMain)[0]?.attachmentUrl}`} className="img-fluid" alt="مكين 34" />
                                         </a>
                                         <div className={`${styles['project-badge']} w-100 d-flex align-items-center justify-content-start`}>
@@ -35,7 +35,7 @@ const ProjectComponent = () => {
                                         </div>
                                     </div>
                                     <div className={`${styles['project-info']}`}>
-                                    <a href={`/work/${item.id}/${item.name}`} className={`${styles['project-title']}`}> وحده 1 </a>
+                                    <a href={`/work/${item.id}/${item.name}/${item.status}`} className={`${styles['project-title']}`}> وحده 1 </a>
                                         <div className={`${styles['project-description']}`}>
                                             <p>
                                                 {item.description}

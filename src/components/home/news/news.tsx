@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import './news.css'
+import './news.scss'
 import { Navigation } from "swiper/modules";
 import { useGetPagedData } from "../../../hooks/getpageddata";
 import NewService from "../../../services/news.service";
@@ -34,7 +34,7 @@ const NewsComponent = () => {
                         },
                     }}
 
-                    className={'news-item-slider'}
+                    className={'news-item-slider p-5'}
                     navigation
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}

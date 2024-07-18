@@ -9,17 +9,13 @@ import PageContainerComponent from "@shared/PageContainer/pageContainer";
 const Service = new UnitService();
 
 const UnitsListComponent = (
-    { setData, data ,refetch}: { setData: (data: any) => void, data: any,refetch:boolean }
+    { setData ,refetch}: { setData: (data: any) => void,refetch:boolean }
 ) => {
     const [listData, setListData] = useState<any[]>([]);
 
     const [filter, setFilter] = useState<{ filtring: { type: string, name: string, value: string }[] }>(
         {
-            filtring: [{
-                name: "ProjectId",
-                type: 'Number',
-                value:"-1"
-            }]
+            filtring: [{ "name": "ProjectId", "type": "Number", "value": null } ]
         }
     );
     const {
@@ -40,7 +36,7 @@ const UnitsListComponent = (
         )
     }, []);
     const getData = (e) => {
-        filter.filtring[0].value = e.target.value == -1 ? null : e.target.value;
+        filter.filtring[0].value = e.target.value == -1 ? null : `${e.target.value}`;
         setFilter({ ...filter })
     }
     return <>

@@ -6,25 +6,34 @@ import { useEffect, useState } from "react";
 import GetProjectService from "../../services/get-projects.service copy";
 import { useGetPagedData } from "../../hooks/getpageddata";
 import { salestatus } from "../shared/const/saleStatus";
-const Service=new GetProjectService();
+const Service = new GetProjectService();
 
 const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show: boolean) => void }) => {
-  const[data,setData]=useState<any[]>([]);
-  const[status,setStatus]=useState<number>(-1);
-
-  const [filter, setFilter] = useState<{filtring:{type:string,name:string,value:string}[]}>(
-      {filtring:[{
+  const [data, setData] = useState<any[]>([]);
+  const [status, setStatus] = useState<number>(-1);
+  const [filter, setFilter] = useState<{ filtring: { type: string, name: string, value: string }[] }>(
+    {
+      filtring: [{
         name: "status",
         type: 'Number',
         value: '1'
-    }]}
+      }]
+    }
   );
-  useGetPagedData(Service, 0, 10,filter,false,setData);
-  useEffect(()=>{
-    if(status!=-1)
-    {filter.filtring[0].value=`${status}`;
-  setFilter({...filter})}
-  },[status])
+
+  const {
+    page,
+    itemPerPage,
+    goToNextPage,
+    goToPrevPage,
+    isLoading
+  } = useGetPagedData(Service, 0, 10, filter, false, setData);
+  useEffect(() => {
+    if (status != -1) {
+      filter.filtring[0].value = `${status}`;
+      setFilter({ ...filter })
+    }
+  }, [status])
   return <>
 
     <div className={`${styles['sec-projects']} container`}>
@@ -33,7 +42,7 @@ const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show
           <button
             className=""
             style={{ backgroundColor: '#003f3f', color: '#fff;' }}
-            onClick={()=>{setStatus(1)}}
+            onClick={() => { setStatus(1) }}
           >
             <i className="fa-solid fa-building-circle-exclamation"></i> تحت
             الإنشاء
@@ -43,7 +52,7 @@ const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show
           <button
             className=""
             style={{ backgroundColor: '#003f3f', color: '#fff' }}
-            onClick={()=>{setStatus(2)}}
+            onClick={() => { setStatus(2) }}
           >
             <i className="fa-solid fa-building-circle-check"></i> متاح للبيع
           </button>
@@ -53,7 +62,7 @@ const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show
           <button
             className=""
             style={{ backgroundColor: '#003f3f', color: '#fff;' }}
-            onClick={()=>{setStatus(3)}}
+            onClick={() => { setStatus(3) }}
           >
             <i className="fa-solid fa-building-circle-xmark"></i> مباع
             بالكامل
@@ -64,15 +73,20 @@ const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show
           <button
             className=""
             style={{ backgroundColor: '#003f3f', color: '#fff;' }}
-            onClick={()=>{setStatus(4)}}
+            onClick={() => { setStatus(4) }}
           >
-            <i className="fa-solid fa-building-circle-check"></i> 
+            <i className="fa-solid fa-building-circle-check"></i>
             متاح للايجار
           </button>
         </li>
       </ul>
     </div>
     <div className="row container m-auto">
+    {isLoading && <>
+            <div className='d-flex justify-content-center align-items-center'>
+                <img src={'/assets/images/loader.svg'} width={'100px'} height={'100px'} />
+            </div>
+        </>}
       {data?.map((item, i) => <Fragment key={i}>
         <div className={`${ProjectStyle['col-lg-4']} col-lg-4 col-md-6 col-12 mb-4`}>
           <div className={`${ProjectStyle['project-item']}`}>
@@ -88,7 +102,7 @@ const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show
                 </div>
               </div>
               <div className={`${ProjectStyle['project-info']}`}>
-              <a href={`/work/${item.id}/${item.name}/${item.status}`} className={`${styles['project-title']}`}> وحده 1 </a>
+                <a href={`/work/${item.id}/${item.name}/${item.status}`} className={`${styles['project-title']}`}> وحده 1 </a>
                 <div className={`${ProjectStyle['project-description']}`}>
                   <p>
                     {item.description}
@@ -119,6 +133,10 @@ const WorksList = ({ goToWork }: { goToWork: (item: any) => void, setShow: (show
           </div>
         </div>
       </Fragment>)}
+      {!isLoading &&<div className={`d-flex justify-content-center py-1 px-5`}>
+        <button id={"next"} className={`btn next-btn`} onClick={goToNextPage} disabled={data?.length < itemPerPage}>التالي</button>
+        <button id={"prev"} className={`btn prev-btn`} onClick={goToPrevPage} disabled={page == 0}>السابق</button>
+      </div>}
     </div>
   </>
 }

@@ -5,10 +5,12 @@ import ProjectService from "../../../../services/projects.service";
 import { ImageFormComponent } from "../../../shared/image/imageForm";
 import { ProjectStatus } from "../../../../const/projectStatus";
 import FeatureProjectService from "@services/feature-project.service";
+import { Notification } from "@shared/notification";
 
 const  ProjectsFormComponent=(
     { data,setData, setShowForm }: { data: any,setData:(data:any)=>void, setShowForm: (data: any) => void }
 ) =>{
+    const [isLoading,setIsLoading]=useState<boolean>();
     const initial=useRef(true);
     const {
         handleSubmit,
@@ -79,6 +81,7 @@ const  ProjectsFormComponent=(
     },[images])
 
     const submit = (e) => {
+        setIsLoading(true);
         const formData = new FormData();
         const newImages=images.filter(p=>p.status>=0&&p.status!=2&&p.id!=null);
         console.log(newImages)
@@ -107,6 +110,18 @@ const  ProjectsFormComponent=(
                 res => {
                     setData(null)
                     setShowForm(false)
+                    Notification({
+                        title: "تمت العمليه بنجاح",
+                        type: 'success'
+                    })
+                }
+            ).catch(
+                err=>{
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
                 }
             )
         }else{
@@ -114,7 +129,18 @@ const  ProjectsFormComponent=(
                 res => {
                     setData(null)
                     setShowForm(false)
-                
+                    Notification({
+                        title: "تمت العمليه بنجاح",
+                        type: 'success'
+                    })
+                }
+            ).catch(
+                err=>{
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
                 }
             )
         }
@@ -254,10 +280,16 @@ const  ProjectsFormComponent=(
                         
                     })
                 }
+                {isLoading && <>
+                            <div className='d-flex justify-content-center align-items-center'>
+                                <img src={'/assets/images/loader.svg'} width={'100px'} height={'100px'} />
+                            </div>
+                        </>}
+                        {!isLoading &&<>
                 <div className="col-sm-12 d-flex justify-content-center my-2">
                     <button type='submit' disabled={!(IsValid&&isValid)} className={`btn rounded-0 ${data ? 'btn-success' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المشروع</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setShowForm(false) }}>تراجع</button>
-                </div>
+                </div></>}
             </div>
         </form>
     </>

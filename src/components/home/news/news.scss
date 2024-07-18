@@ -1,5 +1,6 @@
 
 
+@import '../../shared/color.scss';
 .sec-news{
     padding: 3rem 0;
 }
@@ -187,7 +188,7 @@
     content: "\f060"!important;
 }
 .newitem .newinfo a.title__news:hover, .newitem .newinfo .link-more:hover {
-    color: rgba(43, 87, 159, 0.668)!important;
+    color:$color-yellow !important;
 }
 .news-item-slider .swiper-button-prev::after, .news-slider .swiper-button-prev::after, .project-slider .swiper-button-prev::after {
     content: "\f061";

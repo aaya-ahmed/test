@@ -6,6 +6,7 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import PageContainerComponent from '../../../shared/PageContainer/pageContainer';
 import { news } from './News.type';
 import '../../items-list.scss';
+import { Moment } from "@shared/moment";
 const Service = new NewService();
 
 const NewsListComponent = ({ setData,refetch }: { setData: (data: any) => void,refetch:boolean }) => {
@@ -58,7 +59,7 @@ const NewsListComponent = ({ setData,refetch }: { setData: (data: any) => void,r
                                 <div className='w-75 p-3' >
                                     <p className={"d-flex justify-content-between item-title"}>
                                         <strong>{item?.title}</strong>
-                                        <i>{item?.createdDate?.substring(0, 10)}</i>
+                                        <Moment date={new Date(item?.createdDate)}/>
                                     </p>
                                     <p className='hidden-p'>{item?.description}</p>
                                 </div>
