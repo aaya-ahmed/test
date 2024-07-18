@@ -128,7 +128,6 @@ const  ProjectsFormComponent=(
             new ProjectService().PostWithFile(formData).then(
                 res => {
                     setData(null)
-                    setShowForm(false)
                     Notification({
                         title: "تمت العمليه بنجاح",
                         type: 'success'

@@ -151,7 +151,6 @@ const UnitsFormComponent = (
             new UnitService().PostWithFile(formData).then(
                 res => {
                     setData(null)
-                    setShowForm(false)
                     Notification({
                         title: "تمت العمليه بنجاح",
                         type: 'success'
