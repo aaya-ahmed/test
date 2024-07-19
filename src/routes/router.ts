@@ -118,12 +118,6 @@ export const routers:IRouter[] = [
                     protected:true
                 },
                 {
-                    path:'FeatureProject',
-                    component:projectFeatures,
-                    name:'مميزات المشاريع',
-                    protected:true
-                },
-                {
                     path:'Projects',
                     component:projects,
                     name:'المشاريع',

@@ -228,7 +228,6 @@ const  ProjectsFormComponent=(
                         <select className="form-control" {...register('status', {
                                 required: true,
                             })}
-                            disabled={data?true:false}
                             >
                                 <option value={ProjectStatus.UnderConstruction}>تحت الانشاء</option>
                                 <option value={ProjectStatus.AvailableForRental}>متاح للتاجير</option>
