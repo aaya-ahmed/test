@@ -18,7 +18,6 @@ const UnitsFormComponent = (
     const [mainImage, setMainImage] = useState<File>(null);
     ///////////////////////////////////////////////////Data///////////////////////////////////////////////////////////////////////
     useEffect(() => {
-        console.log(data)
         if (data) {
             if (data.features?.length > 0) {
                 for (let i = 0; i < data.features.length; i++) {
@@ -111,7 +110,6 @@ const UnitsFormComponent = (
         setIsLoading(true);
         const formData = new FormData();
         const newFeatures = features.filter(p => p.status >= 0)
-        console.log(newFeatures)
         for (let i = 0; i < newFeatures.length; i++) {
             formData.append(`featuresUnit[${i}].id`, `${newFeatures[i].id ?? 0}`);
             formData.append(`featuresUnit[${i}].name`, `${newFeatures[i].name}`)
@@ -129,6 +127,7 @@ const UnitsFormComponent = (
                 res => {
                     setData(null)
                     setShowForm(false)
+                    setIsLoading(false)
                     Notification({
                         title: "تمت العمليه بنجاح",
                         type: 'success'
@@ -147,6 +146,7 @@ const UnitsFormComponent = (
             new UnitService().PostWithFile(formData).then(
                 res => {
                     setData(null)
+                    setIsLoading(false)
                     Notification({
                         title: "تمت العمليه بنجاح",
                         type: 'success'
@@ -202,10 +202,10 @@ const UnitsFormComponent = (
                             {errors?.name && (<p className='invalid-feedback'>{errors?.name?.message.toString()}</p>)}
                         </div>
                     </div>
-                    {data && (<div className="row col-sm-12 col-md-6 my-2">
-                        <label htmlFor="inputEmail3" className="col-lg-3 col-sm-12 col-md-3 col-form-label">الحاله</label>
-                        <div className="col-sm-12 col-md-6">
-                            <select className="form-control" {...register('status', {
+                    {data && (<div className="col-sm-12 my-2">
+                        <label htmlFor="inputEmail3" className="col-sm-12 col-form-label">الحاله</label>
+                        <div className="col-sm-12">
+                            <select className="form-select" {...register('status', {
                                 required: true,
                             })}>
                                 <option value={ProjectStatus.AvailableForSale}>متاح للبيع</option>
@@ -403,7 +403,7 @@ const UnitsFormComponent = (
             </>}
             {!isLoading && <>
                 <div className="col-sm-12 d-flex justify-content-center mt-5">
-                    <button type='submit' disabled={!isValid} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} الوحده</button>
+                    <button type='submit' disabled={!isValid} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'} text-white`}>{data ? 'تعديل' : 'اضافه'} الوحده</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setData(null); setShowForm(false) }}>تراجع</button>
                 </div></>}
         </form >

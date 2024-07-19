@@ -83,7 +83,7 @@ const  ProjectsFormComponent=(
     const submit = (e) => {
         setIsLoading(true);
         const formData = new FormData();
-        const newImages=images.filter(p=>p.status>=0&&p.status!=2&&p.id!=null);
+        const newImages=images.filter(p=>p.status>=0&&(p.status==2&&p.id!=null));
         console.log(newImages)
         for (let i = 0; i < newImages.length; i++) {
             formData.append(`attachments[${i}].id`, `${newImages[i].id}`);
@@ -128,6 +128,7 @@ const  ProjectsFormComponent=(
             new ProjectService().PostWithFile(formData).then(
                 res => {
                     setData(null)
+                    setIsLoading(false)
                     Notification({
                         title: "تمت العمليه بنجاح",
                         type: 'success'
@@ -285,7 +286,7 @@ const  ProjectsFormComponent=(
                         </>}
                         {!isLoading &&<>
                 <div className="col-sm-12 d-flex justify-content-center my-2">
-                    <button type='submit' disabled={!(IsValid&&isValid)} className={`btn rounded-0 ${data ? 'btn-success' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المشروع</button>
+                    <button type='submit' disabled={!(IsValid&&isValid)} className={`btn rounded-0 ${data ? 'btn-success' : 'btn-submit'} text-white`}>{data ? 'تعديل' : 'اضافه'} المشروع</button>
                     <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setShowForm(false) }}>تراجع</button>
                 </div></>}
             </div>

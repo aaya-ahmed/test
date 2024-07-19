@@ -66,7 +66,7 @@ const ProjectsListComponent = (
                             <div className='w-75 mx-1'>
                                 <p className={"d-flex justify-content-between item-title"}>
                                     <strong>{item?.name}</strong>
-                                    <Moment date={new Date(item?.createdDate)}/>
+                                    <Moment date={new Date(item?.startDate)}/>
 
                                 </p>
                                 <p className='m-0'>

@@ -13,11 +13,7 @@ const UnitsListComponent = (
 ) => {
     const [listData, setListData] = useState<any[]>([]);
 
-    const [filter, setFilter] = useState<{ filtring: { type: string, name: string, value: string }[] }>(
-        {
-            filtring: [{ "name": "ProjectId", "type": "Number", "value": null } ]
-        }
-    );
+    const [filter, setFilter] = useState<{ filtring: { type: string, name: string, value: string }[] }>({filtring:[]});
     const {
         page,
         itemPerPage,
@@ -30,8 +26,9 @@ const UnitsListComponent = (
         new ProjectService().Get().then(
             res => {
                 setProjects(res)
-                filter.filtring[0].value=res[0].id;
-                setFilter({...filter})
+                setFilter({
+                    filtring: [{ "name": "ProjectId", "type": "Number", "value": `${res[0].id}` } ]
+                })
             }
         )
     }, []);

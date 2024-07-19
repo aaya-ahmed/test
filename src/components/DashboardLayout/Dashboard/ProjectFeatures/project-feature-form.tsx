@@ -4,6 +4,7 @@ import FeatureProjectService from "../../../../services/feature-project.service"
 import uploadimage from "./upload.jpg";
 import { status } from "../../../../const/status";
 import FeatureService from "../../../../services/feature.service";
+import { Notification } from "@shared/notification";
 type ProjectFeatureFormProp = {
     setShowForm: (data: boolean) => void,
     data: any,
@@ -16,24 +17,21 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
     const [selecteditem, setSelecteditem] = useState<any>();
     const [valueIcon, setValueIcon] = useState<any>();
     const [featureName, setFeatureName] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>();
     useEffect(() => {
         if (data) {
             new FeatureService().Get([{ type: 'Number', name: 'featureProjectCategoryId', value: `${data.id}` }]).then(
                 res => {
                     setFeatures(res)
-                    console.log(res)
                 }
             )
         }
     }, [])
-    // useEffect(() => {
-    //     if (!featureName) (document.getElementById('featureName') as any).value = '';
-    // }, [featureName])
     const {
         setValue,
         register,
         handleSubmit,
-        formState: { errors,isValid },
+        formState: { errors, isValid },
     } = useForm({ mode: 'onBlur' });
     useEffect(() => {
         if (data) {
@@ -44,6 +42,7 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
     }, [data])
     const Submit = (e) => {
         if (features.length > 0) {
+            setIsLoading(true);
             const formData = new FormData();
             e.id && formData.append('id', `${e.id}`)
             formData.append('name', e.name)
@@ -63,26 +62,42 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
                     && formData.append(`features[${i}].icon.status`, `${filteringFeatures[i].icon?.status}`);
 
             }
-            console.log(features)
-            for (const iterator of formData.values()) {
-                console.log(iterator);
-
-            }
             if (data) {
                 Service.PutWithFile(formData).then(
                     res => {
                         setShowForm(false)
                         setData(null)
+                    setIsLoading(false)
+                        Notification({
+                            title: "تمت العمليه بنجاح",
+                            type: 'success'
+                        })
                     }
-                )
+                ).catch(err => {
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
+                })
             }
             else {
                 Service.PostWithFile(formData).then(
                     res => {
-                        setShowForm(false)
                         setData(null)
+                    setIsLoading(false)
+                        Notification({
+                            title: "تمت العمليه بنجاح",
+                            type: 'success'
+                        })
                     }
-                )
+                ).catch(err => {
+                    setIsLoading(false)
+                    Notification({
+                        title: "حدث خطأ",
+                        type: 'error'
+                    })
+                })
             }
         }
     }
@@ -194,10 +209,17 @@ export default function ProjectFeatureForm({ setShowForm, data, setData }: Proje
                         </div>
                     </div>
                 </div>
-                <div className=" col-12 d-flex justify-content-center my-2">
-                    <button type='submit' disabled={isValid&&features?.length==0} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'}`}>{data ? 'تعديل' : 'اضافه'} المميزات</button>
-                    <button type='button' className={`btn rounded-0 btn-dark`} onClick={() => { setData(null); setShowForm(false) }}>تراجع</button>
-                </div>
+
+                {isLoading && <>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <img src={'/assets/images/loader.svg'} width={'100px'} height={'100px'} />
+                    </div>
+                </>}
+                {!isLoading && <>
+                    <div className=" col-12 d-flex justify-content-center my-2">
+                        <button type='submit' disabled={isValid && features?.length == 0} className={`btn rounded-0 ${data ? 'btn-edit' : 'btn-submit'} text-white`}>{data ? 'تعديل' : 'اضافه'} المميزات</button>
+                        <button type='button' className={`btn rounded-0 btn-dark `} onClick={() => { setData(null); setShowForm(false) }}>تراجع</button>
+                    </div></>}
             </form>
             {features?.map((item, i) => {
                 return <>
