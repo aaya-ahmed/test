@@ -112,6 +112,12 @@ export const routers:IRouter[] = [
         path:'/dashboard',
             routes: [
                 {
+                    path:'',
+                    component:projectFeatures,
+                    name:'مميزات المشاريع',
+                    protected:true
+                },
+                {
                     path:'FeatureProject',
                     component:projectFeatures,
                     name:'مميزات المشاريع',
@@ -143,7 +149,7 @@ export const routers:IRouter[] = [
                     protected:false
                 },
                 {
-                    path:'',
+                    path:'Messages',
                     component:contacts,
                     name:'الرسائل',
                     protected:false
