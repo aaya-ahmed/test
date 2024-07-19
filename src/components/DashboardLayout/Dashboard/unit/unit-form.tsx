@@ -121,12 +121,8 @@ const UnitsFormComponent = (
         };
         mainImage && formData.append(`mainImage`, mainImage)
         delete e.features;
-        console.log(e)
         for (const key in e) {
             formData.append(key, e[key].toString())
-        }
-        for (let i of formData.entries()) {
-            console.log(i)
         }
         if (data) {
             new UnitService().PutWithFile(formData).then(
@@ -213,8 +209,8 @@ const UnitsFormComponent = (
                                 required: true,
                             })}>
                                 <option value={ProjectStatus.AvailableForSale}>متاح للبيع</option>
-                                <option value={ProjectStatus.AvailableForRental}>متاح للايجار</option>
                                 <option value={ProjectStatus.SoldOut}>تم البيع</option>
+                                <option value={ProjectStatus.AvailableForRental}>متاح للايجار</option>
                                 <option value={ProjectStatus.Rental}>تم الايجار</option>
                             </select>
                             {errors?.status && (<p className='invalid-feedback'>{errors?.status?.message.toString()}</p>)}
