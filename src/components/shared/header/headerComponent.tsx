@@ -33,12 +33,12 @@ const HeaderComponent = ({ routerList }: { routerList: any[] }) => {
             <nav className={`navbar navbar-sticky navbar-expand-lg ${styles['navbar-sticky']} ${styles['navbar-expand-lg']} ${styles['bg-body-tertiary']} bg-dark py-1`} id="navbar-sticky" data-bs-theme="dark">
                 <div className={`${styles['container']} container`}>
                     <a className={`${styles['navbar-brand']} navbar-brand`} href="/" aria-label="Logo">
-                        <img src="/assets/images/logo1.gif" className={`${styles['no_sticky']} img-fluid`} alt="Logo" />
-                        <img src="/assets/images/logo.gif" className={`${styles['sticky_logo']} img-fluid`} alt="Logo" />
+                        <img src="/assets/images/logo1.gif" className={`${styles['no_sticky']} ${styles['header-img']}`} alt="Logo" />
+                        <img src="/assets/images/logo.gif" className={`${styles['sticky_logo']} ${styles['header-img']}`} alt="Logo" />
                     </a>
                     <div className={`${styles['mobile-view']} justify-content-center`} id="navbarNav">
                         <i className={`${styles['menu-close']} fa-solid fa-close fa-lg`} onClick={setMobileView}></i>
-                        <img src="/assets/images/logo.gif" className={`${styles['mobile-logo']} w-75 m-auto d-block img-fluid d-none`} alt="Logo Mobile" />
+                        <img src="/assets/images/logo.gif" className={`${styles['mobile-logo']} w-75 m-auto d-block ${styles['header-img']} d-none`} alt="Logo Mobile" />
                         <ul className={`navbar-nav ${styles['navbar-nav']} align-items-lg-center mt-4`}>
                         {routerList.filter(p=>!p.protected)?.map(
                         (route: any, index: number) => {

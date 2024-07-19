@@ -8,7 +8,7 @@ const FooterComponent = ({routerList}:{routerList:any[]}) => {
                 <div className="row">
                     <div className="col-md-4">
                         <img src="/assets/images/logo1.gif" 
-                        className="logo-footer img-fluid mb-4" width="200px" alt="LOGO" />
+                        className="logo-footer mb-4" width="200px" alt="LOGO" />
                         <p className="lines-5">
                         نحن متخصصون في توفير المنتجات العقارية المتوافقة مع مبادئ الشريعة الإسلامية
 

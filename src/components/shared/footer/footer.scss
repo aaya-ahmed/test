@@ -3,6 +3,10 @@ footer {
     background-color:$backgroundcolor_green !important;
     color:$color_yellow;
 }
+.logo-footer{
+width: clamp(10rem, 12vw, 60rem);
+    aspect-ratio: 1 / 0.5;
+}
 @media (max-width: 767px) {
     .logo-footer.w-75 {
         width: 55% !important;

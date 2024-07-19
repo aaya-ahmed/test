@@ -19,15 +19,15 @@
 }
 .navbar-sticky .navbar-brand img.no_sticky {
   display: block;
-  width: 100%;
+  // width: 100%;
 }
 .navbar-sticky.sticky .navbar-brand img.no_sticky {
   display: none;
 }
 
-.navbar-brand img {
-  max-height: 60px;
-}
+// .navbar-brand img {
+//   max-height: 60px;
+// }
 .navbar-brand img.sticky_logo {
   display: none;
 }
@@ -72,9 +72,9 @@ a:hover {
   display: block;
 }
 
-.navbar-brand img.no_sticky {
-  max-height: 60px;
-}
+// .navbar-brand img.no_sticky {
+//   max-height: 60px;
+// }
 .navbar-sticky.sticky {
   position: fixed;
   top: 0px;
@@ -102,12 +102,12 @@ a:hover {
 }
 @media (min-width: 991.99px) {
   .navigation-header {
-    .navbar-brand img.no_sticky {
-      max-height: 100px;
-    }
-    .navbar-brand img.sticky_logo {
-      max-height: 60px;
-    }
+    // .navbar-brand img.no_sticky {
+    //   max-height: 100px;
+    // }
+    // .navbar-brand img.sticky_logo {
+    //   max-height: 60px;
+    // }
   }
   .navbar-nav .nav-item .nav-link {
     position: relative;
@@ -140,9 +140,9 @@ a:hover {
 }
 @media (max-width: 991.98px) {
   .navigation-header {
-    .navbar-brand img.no_sticky {
-      max-height: 60px;
-    }
+    // .navbar-brand img.no_sticky {
+    //   max-height: 60px;
+    // }
   }
   .navbar-expand-lg .navbar-nav .nav-link {
     padding: 1rem 2rem;
@@ -200,9 +200,9 @@ a:hover {
 }
 @media (max-width: 767px) {
   .navigation-header {
-    .navbar-brand img.no_sticky {
-      max-height: 50px;
-    }
+    // .navbar-brand img.no_sticky {
+    //   max-height: 50px;
+    // }
   }
   .banner-content > .container {
     height: initial;
@@ -253,9 +253,9 @@ a:hover {
 
 @media (max-width: 400px) {
   .navigation-header {
-    .navbar-brand img.no_sticky {
-      max-height: 30px;
-    }
+    // .navbar-brand img.no_sticky {
+    //   max-height: 30px;
+    // }
   }
   .navbar-toggler i {
     font-size: 20px;
@@ -282,4 +282,8 @@ a:hover {
     .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
     bottom: 16px;
   }
+}
+.header-img{
+  width: clamp(7rem, 15vw, 70rem);
+  aspect-ratio: 1 / 0.5;
 }
