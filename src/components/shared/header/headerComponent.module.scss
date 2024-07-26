@@ -70,6 +70,8 @@ a:hover {
 }
 .navbar-sticky.sticky .navbar-brand img.sticky_logo {
   display: block;
+  width: clamp(7rem, 15vw, 1rem)!important;
+  aspect-ratio: 1 / 0.5!important;
 }
 
 // .navbar-brand img.no_sticky {
